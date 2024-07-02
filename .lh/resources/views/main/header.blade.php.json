@@ -1,0 +1,90 @@
+{
+    "sourceFile": "resources/views/main/header.blade.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 18,
+            "patches": [
+                {
+                    "date": 1719821748703,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1719822184476,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n <nav>\r\n     <div class=\"logo\">\r\n-      <img src=\"assets/Logo64x64.png\" alt=\"logo\" />\r\n+      <img src=\"{{asset('main/images/logo.png')}}\" alt=\"logo\" />\r\n       <h1>LOGO</h1>\r\n     </div>\r\n     <ul>\r\n       <li>\r\n"
+                },
+                {
+                    "date": 1719822197416,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n <nav>\r\n     <div class=\"logo\">\r\n       <img src=\"{{asset('main/images/logo.png')}}\" alt=\"logo\" />\r\n-      <h1>LOGO</h1>\r\n+      <h1>Ayn Collection</h1>\r\n     </div>\r\n     <ul>\r\n       <li>\r\n         <a href=\"#\" class = \"active\">Home</a>\r\n"
+                },
+                {
+                    "date": 1719822245262,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n <nav>\r\n     <div class=\"logo\">\r\n       <img src=\"{{asset('main/images/logo.png')}}\" alt=\"logo\" />\r\n-      <h1>Ayn Collection</h1>\r\n+      <h1 style = \"   color:#800e13 !important;\">Ayn Collection</h1>\r\n     </div>\r\n     <ul>\r\n       <li>\r\n         <a href=\"#\" class = \"active\">Home</a>\r\n"
+                },
+                {
+                    "date": 1719822361202,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,18 +4,18 @@\n       <h1 style = \"   color:#800e13 !important;\">Ayn Collection</h1>\r\n     </div>\r\n     <ul>\r\n       <li>\r\n-        <a href=\"#\" class = \"active\">Home</a>\r\n+        <a href=\"#\" id = \"m1\" class = \"active\">Home</a>\r\n       </li>\r\n       <li>\r\n-        <a href=\"#\">Product</a>\r\n+        <a href=\"#\" id = \"m2\">Product</a>\r\n       </li>\r\n       <li>\r\n-        <a href=\"#\">About us</a>\r\n+        <a href=\"#\" id = \"m3\">About us</a>\r\n       </li>\r\n       <li>\r\n-        <a href=\"#\">Contact Us</a>\r\n+        <a href=\"#\" id = \"m4\">Contact Us</a>\r\n       </li>\r\n     </ul>\r\n     <div class=\"hamburger\">\r\n       <span class=\"line\"></span>\r\n"
+                },
+                {
+                    "date": 1719822466185,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n <nav>\r\n     <div class=\"logo\">\r\n       <img src=\"{{asset('main/images/logo.png')}}\" alt=\"logo\" />\r\n-      <h1 style = \"   color:#800e13 !important;\">Ayn Collection</h1>\r\n+      <h1 style = \"   color:#800e13 !important;font-weight:400px;\">Ayn Collection</h1>\r\n     </div>\r\n     <ul>\r\n       <li>\r\n         <a href=\"#\" id = \"m1\" class = \"active\">Home</a>\r\n"
+                },
+                {
+                    "date": 1719822472216,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n <nav>\r\n     <div class=\"logo\">\r\n       <img src=\"{{asset('main/images/logo.png')}}\" alt=\"logo\" />\r\n-      <h1 style = \"   color:#800e13 !important;font-weight:400px;\">Ayn Collection</h1>\r\n+      <h1 style = \"   color:#800e13 !important;font-weight:400px !important;\">Ayn Collection</h1>\r\n     </div>\r\n     <ul>\r\n       <li>\r\n         <a href=\"#\" id = \"m1\" class = \"active\">Home</a>\r\n"
+                },
+                {
+                    "date": 1719822494609,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n <nav>\r\n     <div class=\"logo\">\r\n       <img src=\"{{asset('main/images/logo.png')}}\" alt=\"logo\" />\r\n-      <h1 style = \"   color:#800e13 !important;font-weight:400px !important;\">Ayn Collection</h1>\r\n+      <h1 style = \"   color:#800e13 !important;font-weight:200px !important;\">Ayn Collection</h1>\r\n     </div>\r\n     <ul>\r\n       <li>\r\n         <a href=\"#\" id = \"m1\" class = \"active\">Home</a>\r\n"
+                },
+                {
+                    "date": 1719822501048,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n <nav>\r\n     <div class=\"logo\">\r\n       <img src=\"{{asset('main/images/logo.png')}}\" alt=\"logo\" />\r\n-      <h1 style = \"   color:#800e13 !important;font-weight:200px !important;\">Ayn Collection</h1>\r\n+      <h2 style = \"   color:#800e13 !important;font-weight:200px !important;\">Ayn Collection</h2>\r\n     </div>\r\n     <ul>\r\n       <li>\r\n         <a href=\"#\" id = \"m1\" class = \"active\">Home</a>\r\n"
+                },
+                {
+                    "date": 1719822522199,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n <nav>\r\n     <div class=\"logo\">\r\n       <img src=\"{{asset('main/images/logo.png')}}\" alt=\"logo\" />\r\n-      <h2 style = \"   color:#800e13 !important;font-weight:200px !important;\">Ayn Collection</h2>\r\n+      <h2 style = \"color:#800e13 !important;font-weight:200px !important;\">Ayn Collection</h2>\r\n     </div>\r\n     <ul>\r\n       <li>\r\n         <a href=\"#\" id = \"m1\" class = \"active\">Home</a>\r\n"
+                },
+                {
+                    "date": 1719822554201,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,41 @@\n+<nav>\r\n+    <div class=\"logo\">\r\n+      <img src=\"{{asset('main/images/logo.png')}}\" alt=\"logo\" />\r\n+      <h2 style = \"color:#800e13 !important;font-weight:200px !important;\">Ayn Collection</h2>\r\n+    </div>\r\n+    <ul>\r\n+      <li>\r\n+        <a href=\"#\" id = \"m1\" class = \"active\">  <h2 style = \"color:#800e13 !important;font-weight:200px !important;\">Ayn Collection</h2>Home</a>\r\n+      </li>\r\n+      <li>\r\n+        <a href=\"#\" id = \"m2\">Product</a>\r\n+      </li>\r\n+      <li>\r\n+        <a href=\"#\" id = \"m3\">About us</a>\r\n+      </li>\r\n+      <li>\r\n+        <a href=\"#\" id = \"m4\">Contact Us</a>\r\n+      </li>\r\n+    </ul>\r\n+    <div class=\"hamburger\">\r\n+      <span class=\"line\"></span>\r\n+      <span class=\"line\"></span>\r\n+      <span class=\"line\"></span>\r\n+    </div>\r\n+  </nav>\r\n+  <div class=\"menubar\">\r\n+    <ul>\r\n+      <li>\r\n+        <a href=\"#\">Home</a>\r\n+      </li>\r\n+      <li>\r\n+        <a href=\"#\">Services</a>\r\n+      </li>\r\n+      <li>\r\n+        <a href=\"#\">Blog</a>\r\n+      </li>\r\n+      <li>\r\n+        <a href=\"#\">Contact Us</a>\r\n+      </li>\r\n+    </ul>\r\n+  </div>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1719822562909,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n       <h2 style = \"color:#800e13 !important;font-weight:200px !important;\">Ayn Collection</h2>\r\n     </div>\r\n     <ul>\r\n       <li>\r\n-        <a href=\"#\" id = \"m1\" class = \"active\">  <h2 style = \"color:#800e13 !important;font-weight:200px !important;\">Ayn Collection</h2>Home</a>\r\n+        <a href=\"#\" id = \"m1\" class = \"active\"> Home</a>\r\n       </li>\r\n       <li>\r\n         <a href=\"#\" id = \"m2\">Product</a>\r\n       </li>\r\n@@ -37,46 +37,5 @@\n       <li>\r\n         <a href=\"#\">Contact Us</a>\r\n       </li>\r\n     </ul>\r\n-  </div>\n-<nav>\r\n-    <div class=\"logo\">\r\n-      <img src=\"{{asset('main/images/logo.png')}}\" alt=\"logo\" />\r\n-      <h2 style = \"color:#800e13 !important;font-weight:200px !important;\">Ayn Collection</h2>\r\n-    </div>\r\n-    <ul>\r\n-      <li>\r\n-        <a href=\"#\" id = \"m1\" class = \"active\">Home</a>\r\n-      </li>\r\n-      <li>\r\n-        <a href=\"#\" id = \"m2\">Product</a>\r\n-      </li>\r\n-      <li>\r\n-        <a href=\"#\" id = \"m3\">About us</a>\r\n-      </li>\r\n-      <li>\r\n-        <a href=\"#\" id = \"m4\">Contact Us</a>\r\n-      </li>\r\n-    </ul>\r\n-    <div class=\"hamburger\">\r\n-      <span class=\"line\"></span>\r\n-      <span class=\"line\"></span>\r\n-      <span class=\"line\"></span>\r\n-    </div>\r\n-  </nav>\r\n-  <div class=\"menubar\">\r\n-    <ul>\r\n-      <li>\r\n-        <a href=\"#\">Home</a>\r\n-      </li>\r\n-      <li>\r\n-        <a href=\"#\">Services</a>\r\n-      </li>\r\n-      <li>\r\n-        <a href=\"#\">Blog</a>\r\n-      </li>\r\n-      <li>\r\n-        <a href=\"#\">Contact Us</a>\r\n-      </li>\r\n-    </ul>\r\n   </div>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1719822572600,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,10 @@\n       <img src=\"{{asset('main/images/logo.png')}}\" alt=\"logo\" />\r\n       <h2 style = \"color:#800e13 !important;font-weight:200px !important;\">Ayn Collection</h2>\r\n     </div>\r\n     <ul>\r\n+        <li><a>\r\n+            <h2 style = \"color:#800e13 !important;font-weight:200px !important;\">Ayn Collection</h2></a></li>\r\n       <li>\r\n         <a href=\"#\" id = \"m1\" class = \"active\"> Home</a>\r\n       </li>\r\n       <li>\r\n"
+                },
+                {
+                    "date": 1719822596459,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n       <h2 style = \"color:#800e13 !important;font-weight:200px !important;\">Ayn Collection</h2>\r\n     </div>\r\n     <ul>\r\n         <li><a>\r\n-            <h2 style = \"color:#800e13 !important;font-weight:200px !important;\">Ayn Collection</h2></a></li>\r\n+            <span style = \"color:#800e13 !important;font-weight:200px !important;\">Ayn Collection</span></a></li>\r\n       <li>\r\n         <a href=\"#\" id = \"m1\" class = \"active\"> Home</a>\r\n       </li>\r\n       <li>\r\n"
+                },
+                {
+                    "date": 1719822640325,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n <nav>\r\n     <div class=\"logo\">\r\n       <img src=\"{{asset('main/images/logo.png')}}\" alt=\"logo\" />\r\n-      <h2 style = \"color:#800e13 !important;font-weight:200px !important;\">Ayn Collection</h2>\r\n+      {{-- <h2 style = \"color:#800e13 !important;font-weight:200px !important;\">Ayn Collection</h2> --}}\r\n     </div>\r\n     <ul>\r\n         <li><a>\r\n             <span style = \"color:#800e13 !important;font-weight:200px !important;\">Ayn Collection</span></a></li>\r\n"
+                },
+                {
+                    "date": 1719822761324,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,17 +8,18 @@\n             <span style = \"color:#800e13 !important;font-weight:200px !important;\">Ayn Collection</span></a></li>\r\n       <li>\r\n         <a href=\"#\" id = \"m1\" class = \"active\"> Home</a>\r\n       </li>\r\n+  \r\n       <li>\r\n-        <a href=\"#\" id = \"m2\">Product</a>\r\n-      </li>\r\n-      <li>\r\n         <a href=\"#\" id = \"m3\">About us</a>\r\n       </li>\r\n       <li>\r\n         <a href=\"#\" id = \"m4\">Contact Us</a>\r\n       </li>\r\n+      <li>\r\n+        <a href=\"#\" id = \"m2\">Product</a>\r\n+      </li>\r\n     </ul>\r\n     <div class=\"hamburger\">\r\n       <span class=\"line\"></span>\r\n       <span class=\"line\"></span>\r\n"
+                },
+                {
+                    "date": 1719822768475,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,44 @@\n+<nav>\r\n+    <div class=\"logo\">\r\n+      <img src=\"{{asset('main/images/logo.png')}}\" alt=\"logo\" />\r\n+      {{-- <h2 style = \"color:#800e13 !important;font-weight:200px !important;\">Ayn Collection</h2> --}}\r\n+    </div>\r\n+    <ul>\r\n+        <li><a>\r\n+            <span style = \"color:#800e13 !important;font-weight:200px !important;\">Ayn Collection</span></a></li>\r\n+      <li>\r\n+        <a href=\"#\" id = \"m1\" class = \"active\"> Home</a>\r\n+      </li>\r\n+  \r\n+      <li>\r\n+        <a href=\"#\" id = \"m3\">About us</a>\r\n+      </li>\r\n+      <li>\r\n+        <a href=\"#\" id = \"m4\">Contact Us</a>\r\n+      </li>\r\n+      <li>\r\n+        <a href=\"#\" id = \"m2\" class = \"special_nav\">Product</a>\r\n+      </li>\r\n+    </ul>\r\n+    <div class=\"hamburger\">\r\n+      <span class=\"line\"></span>\r\n+      <span class=\"line\"></span>\r\n+      <span class=\"line\"></span>\r\n+    </div>\r\n+  </nav>\r\n+  <div class=\"menubar\">\r\n+    <ul>\r\n+      <li>\r\n+        <a href=\"#\">Home</a>\r\n+      </li>\r\n+      <li>\r\n+        <a href=\"#\">Services</a>\r\n+      </li>\r\n+      <li>\r\n+        <a href=\"#\">Blog</a>\r\n+      </li>\r\n+      <li>\r\n+        <a href=\"#\">Contact Us</a>\r\n+      </li>\r\n+    </ul>\r\n+  </div>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1719823096506,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n       {{-- <h2 style = \"color:#800e13 !important;font-weight:200px !important;\">Ayn Collection</h2> --}}\r\n     </div>\r\n     <ul>\r\n         <li><a>\r\n-            <span style = \"color:#800e13 !important;font-weight:200px !important;\">Ayn Collection</span></a></li>\r\n+            <span id = \"store_name\" style = \"color:#800e13 !important;font-weight:200px !important;\">Ayn Collection</span></a></li>\r\n       <li>\r\n         <a href=\"#\" id = \"m1\" class = \"active\"> Home</a>\r\n       </li>\r\n   \r\n@@ -40,49 +40,5 @@\n       <li>\r\n         <a href=\"#\">Contact Us</a>\r\n       </li>\r\n     </ul>\r\n-  </div>\n-<nav>\r\n-    <div class=\"logo\">\r\n-      <img src=\"{{asset('main/images/logo.png')}}\" alt=\"logo\" />\r\n-      {{-- <h2 style = \"color:#800e13 !important;font-weight:200px !important;\">Ayn Collection</h2> --}}\r\n-    </div>\r\n-    <ul>\r\n-        <li><a>\r\n-            <span style = \"color:#800e13 !important;font-weight:200px !important;\">Ayn Collection</span></a></li>\r\n-      <li>\r\n-        <a href=\"#\" id = \"m1\" class = \"active\"> Home</a>\r\n-      </li>\r\n-  \r\n-      <li>\r\n-        <a href=\"#\" id = \"m3\">About us</a>\r\n-      </li>\r\n-      <li>\r\n-        <a href=\"#\" id = \"m4\">Contact Us</a>\r\n-      </li>\r\n-      <li>\r\n-        <a href=\"#\" id = \"m2\">Product</a>\r\n-      </li>\r\n-    </ul>\r\n-    <div class=\"hamburger\">\r\n-      <span class=\"line\"></span>\r\n-      <span class=\"line\"></span>\r\n-      <span class=\"line\"></span>\r\n-    </div>\r\n-  </nav>\r\n-  <div class=\"menubar\">\r\n-    <ul>\r\n-      <li>\r\n-        <a href=\"#\">Home</a>\r\n-      </li>\r\n-      <li>\r\n-        <a href=\"#\">Services</a>\r\n-      </li>\r\n-      <li>\r\n-        <a href=\"#\">Blog</a>\r\n-      </li>\r\n-      <li>\r\n-        <a href=\"#\">Contact Us</a>\r\n-      </li>\r\n-    </ul>\r\n   </div>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1719846027859,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n       {{-- <h2 style = \"color:#800e13 !important;font-weight:200px !important;\">Ayn Collection</h2> --}}\r\n     </div>\r\n     <ul>\r\n         <li><a>\r\n-            <span id = \"store_name\" style = \"color:#800e13 !important;font-weight:200px !important;\">Ayn Collection</span></a></li>\r\n+            <span id = \"store_name\" style = \"color:#800e1;font-weight:200px !important;\">Ayn Collection</span></a></li>\r\n       <li>\r\n         <a href=\"#\" id = \"m1\" class = \"active\"> Home</a>\r\n       </li>\r\n   \r\n"
+                }
+            ],
+            "date": 1719821748703,
+            "name": "Commit-0",
+            "content": "<nav>\r\n    <div class=\"logo\">\r\n      <img src=\"assets/Logo64x64.png\" alt=\"logo\" />\r\n      <h1>LOGO</h1>\r\n    </div>\r\n    <ul>\r\n      <li>\r\n        <a href=\"#\" class = \"active\">Home</a>\r\n      </li>\r\n      <li>\r\n        <a href=\"#\">Product</a>\r\n      </li>\r\n      <li>\r\n        <a href=\"#\">About us</a>\r\n      </li>\r\n      <li>\r\n        <a href=\"#\">Contact Us</a>\r\n      </li>\r\n    </ul>\r\n    <div class=\"hamburger\">\r\n      <span class=\"line\"></span>\r\n      <span class=\"line\"></span>\r\n      <span class=\"line\"></span>\r\n    </div>\r\n  </nav>\r\n  <div class=\"menubar\">\r\n    <ul>\r\n      <li>\r\n        <a href=\"#\">Home</a>\r\n      </li>\r\n      <li>\r\n        <a href=\"#\">Services</a>\r\n      </li>\r\n      <li>\r\n        <a href=\"#\">Blog</a>\r\n      </li>\r\n      <li>\r\n        <a href=\"#\">Contact Us</a>\r\n      </li>\r\n    </ul>\r\n  </div>"
+        }
+    ]
+}

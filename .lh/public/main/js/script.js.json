@@ -1,0 +1,18 @@
+{
+    "sourceFile": "public/main/js/script.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1719819369588,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1719819369588,
+            "name": "Commit-0",
+            "content": "const mobileNav = document.querySelector(\".hamburger\");\r\nconst navbar = document.querySelector(\".menubar\");\r\n\r\nconst toggleNav = () => {\r\n  navbar.classList.toggle(\"active\");\r\n  mobileNav.classList.toggle(\"hamburger-active\");\r\n};\r\nmobileNav.addEventListener(\"click\", () => toggleNav());\r\n"
+        }
+    ]
+}
