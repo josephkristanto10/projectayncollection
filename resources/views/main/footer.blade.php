@@ -6,17 +6,17 @@
     <div class = "row justify-content-center">
         <div class = "col-2" id = "kotak_ayn_collection" style = "vertical-align:middle;margin-top:60px;">
             <h4 id = "footer_ayn_collection">AYN Collection</h4>
-            <p id = "footer_tagline"style = "font-size:12px;">“Make the mood with your outfit”</p>
+            <p id = "footer_tagline" style = "font-size:12px;">“Make the mood with your outfit”</p>
         </div>
       
         <div class = "col-1 garis"  style = "vertical-align:middle;width:10px;">
             <div class="vl" style = " border-left: 3px solid white; height:200px;"></div>
         </div>
-        <div class = "col-2" style = "vertical-align:middle;">
+        <div class = "col-3" style = "vertical-align:middle;text-align:center;">
             <h4 id = "footer_follow_us" style = "margin-top:20px;">Follow us On : </h4>
-           <div id = "footer_instagram" style = "border-radius:100px;border:1px solid white;width:175px;text-align:left;margin-top:20px;">&nbsp;<i class="fa fa-instagram" aria-hidden="true"></i>&nbsp; Our Instagram </div>
-           <div id = "footer_tiktok" style = "border-radius:100px;border:1px solid white;width:175px;text-align:left;margin-top:10px;">&nbsp;<i class="fa fa-instagram" aria-hidden="true"></i>&nbsp; Our Tiktok</div>
-           <div id = "footer_shopee" style = "border-radius:100px;border:1px solid white;width:175px;text-align:left;margin-top:10px;">&nbsp;<i class="fa fa-instagram" aria-hidden="true"></i>&nbsp; Our Shopee</div>
+           <div id = "footer_instagram" style = "border-radius:100px;border:1px solid white;width:175px;text-align:left;margin-top:20px !important;margin:auto;">&nbsp;<i class="fa fa-instagram" aria-hidden="true"></i>&nbsp; Our Instagram </div>
+           <div id = "footer_tiktok" style = "border-radius:100px;border:1px solid white;width:175px;text-align:left;margin-top:10px !important;margin:auto;">&nbsp;<i class="fa fa-instagram" aria-hidden="true"></i>&nbsp; Our Tiktok</div>
+           <div id = "footer_shopee" style = "border-radius:100px;border:1px solid white;width:175px;text-align:left;margin-top:10px !important;margin:auto;">&nbsp;<i class="fa fa-instagram" aria-hidden="true"></i>&nbsp; Our Shopee</div>
         </div>
         <div class = "col-1 garis" style = "vertical-align:middle;width:10px;">
             <div class="vl" style = " border-left: 3px solid white; height:200px;"></div>
