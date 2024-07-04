@@ -711,6 +711,9 @@
     font-size:2.2vw !important;
     bottom:100px !important;left:25px;
   }
+  #pesan_wa{
+    font-size:10px !important;
+  }
 
 }
 

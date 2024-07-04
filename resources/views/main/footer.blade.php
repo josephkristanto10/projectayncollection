@@ -1,6 +1,6 @@
 <div class = "mywhatsapp" style = "position:fixed;bottom:20px;right:20px;">
-   <div style = "float:left;margin-top:15px; padding:5px; background-color:white;border-radius:15px;margin-right:10px;animation: fadeIns 4s;  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">Halo ada yang bisa aku bantu nih?</div>
-   <img src = "{{asset('main/images/logo_wa.png')}}" style = "width:60px;height:60px;">
+   <div style = "margin-top:15px; padding:5px; background-color:white;border-radius:15px;margin-right:0px;animation: fadeIns 4s;  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;font-size:15px;" ><span id= "pesan_wa">Halo ada yang bisa aku bantu nih?</span></div>
+   <img src = "{{asset('main/images/logo_wa.png')}}" style = "width:60px;height:60px;float:right;">
 </div>
 <div class = "myfooter" style = "height:250px;background-color:#800e13;color:white;padding:20px;margin-top:10px;">
     <div class = "row justify-content-center">
