@@ -784,7 +784,7 @@
   <body style = "height:100%;">
     @include('main.header')
     <div class = "containers">
-    <div style = "width:100%;height:650px;;background-image:url('{{asset('main/images/landing_page.jpg')}}');background-size:cover;">
+    <div style = "width:100%;height:800px;;background-image:url('{{asset('main/images/landing_page.jpg')}}');background-size:cover;position:relative;">
       <span id = "limitideas" style = "color:white;position:absolute;bottom:20px;left:25px;font-size:1.5vw;background-color:#800e13;border-radius:40px;padding:10px;animation:3.5s fadeIns infinite">Dont limit your outfit <u>ideas</u>.</span>
     </div>
     <div class = "main_content" >
