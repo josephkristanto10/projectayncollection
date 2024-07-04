@@ -677,16 +677,17 @@
   }
 
   #footer_contact_us{
+    margin-top:20px !important;
     width:105px !important;
     font-size:2vw !important;
   }
   #footer_admin_1{
-    width:105px !important;
-    font-size:1.5vw !important;
+    width:135px !important;
+    font-size:2vw !important;
   }
   #footer_admin_2{
-    width:105px !important;
-    font-size:1.5vw !important;
+    width:135px !important;
+    font-size:2vw !important;
   }
   #footer_ayn_collection{
     font-size: 2.5vw;
@@ -736,6 +737,7 @@
   #footer_tagline{
     font-size: 1vw;
   }
+  
 
  }
 
