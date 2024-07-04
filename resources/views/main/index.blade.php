@@ -652,6 +652,10 @@
   #spacing_best_seller_mobile{
     display:block !important;
   }
+  .line-1{
+    font-size:140%;
+  }
+  
 
 
 
@@ -662,15 +666,16 @@
   #spacing_best_seller_mobile{
     display:block !important;
   }
+  .line-1{
+    font-size:140%;
+  }
 
 
  }
 
 
 @media (min-width: 992px) { 
-  #spacing_best_seller_mobile{
-    display:block !important;
-  }
+
 
 
  }
