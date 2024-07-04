@@ -27,15 +27,15 @@
         }
         .line-1{
             position: relative;
-            top: 50%;  
-            width: 23em;
+            top: 40%;  
+            /* width: 23em; */
             margin: 0 auto;
             border-right: 2px solid rgba(255,255,255,.75);
             font-size: 180%;
             text-align: center;
             white-space: nowrap;
             overflow: hidden;
-            transform: translateY(-50%);    
+            /* transform: translateY(-50%);     */
         }
 
         /* Animation */
@@ -45,7 +45,7 @@
         }
         @keyframes typewriter{
         from{width: 0;}
-        to{width: 24em;}
+        to{width: 15em;}
         }
         @keyframes blinkTextCursor{
         from{border-right-color: rgba(255,255,255,.75);}
@@ -648,20 +648,54 @@
 }    
 
 
+@media (max-width: 767px) {  
+  #spacing_best_seller_mobile{
+    display:block !important;
+  }
+
+
+
+}
+
+
+@media (min-width: 768px) { 
+  #spacing_best_seller_mobile{
+    display:block !important;
+  }
+
+
+ }
+
+
+@media (min-width: 992px) { 
+  #spacing_best_seller_mobile{
+    display:block !important;
+  }
+
+
+ }
+
+
+@media (min-width: 1200px) {  }
+
+
+@media (min-width: 1400px) {  }
+
+
         
     </style>
   </head>
   <body style = "height:100%;">
     @include('main.header')
     <div class = "containers">
-    <div style = "width:100%;height:1000px;background-image:url('{{asset('main/images/landing_page.jpg')}}');background-size:cover;">
+    <div style = "width:100%;height:650px;;background-image:url('{{asset('main/images/landing_page.jpg')}}');background-size:cover;">
     </div>
     <div class = "main_content" >
         <div class = "buythelatest_section" style = "text-align:center;padding:20px;">
             <span id = "buythe_style">Buy The</span> <span class = "maroon_color_bold" id = "latest_style">Latest</span>
             <div class = "product">
                 <div class = "row  justify-content-center" style = "text-align:left;">
-                    <div class = "col-4 col-lg-4 col-xs-6">
+                    <div class = "col-3 ">
                         <image src = "{{asset('main/images/product/product1.jpg')}}" style = "max-width:100%;;height:auto;border-radius:7px;"/>
                         <p style = "margin-top:10px;padding-left:10px; font-size:1.5vw;"><b>Trending</b> <span id = "product_category" class = "maroon_color" style = "font-size:2vw"><b>Skirts</b></span></p>
                         {{-- <p style = "font-size:13px;margin-top:10px;padding-left:10px;"><b>#TK200153</b></p> --}}
@@ -670,7 +704,7 @@
                     
 
                     </div>
-                    <div class = "col-4">
+                    <div class = "col-3">
                         <image src = "{{asset('main/images/product/product2.jpg')}}" style = "width:100%;height:auto;border-radius:7px;"/>
                         <p style = "font-size:1.5vw;;margin-top:10px;padding-left:10px;"><b>Trending</b> <span id = "product_category" class = "maroon_color" style = "font-size:2vw"><b>Sleeves</b></span></p>
                         {{-- <p style = "font-size:13px;margin-top:10px;padding-left:10px;"><b>#TK200153</b></p> --}}
@@ -678,7 +712,7 @@
                         <p style = "font-size:1.3vw;margin-top:10px;padding-left:10px;">Uncover style gems with our chic, mix-ready sets. <br><br><span class = "maroon_color" style = "font-weight:bold;">Read the Spesification <i class="fa fa-angle-right maroon_color" aria-hidden="true"></i></span></p> <i class="bi bi-arrow-right"></i>
 
                     </div>
-                    <div class = "col-4">
+                    <div class = "col-3">
                         <image src = "{{asset('main/images/product/product3.jpg')}}" style = "width:100%;height:auto;border-radius:7px;"/>
                         <p style = "font-size:1.5vw;margin-top:10px;padding-left:10px;"><b>Trending</b> <span id = "product_category" class = "maroon_color"><b>Sleeves</b></span></p>
                         {{-- <p style = "font-size:13px;margin-top:10px;padding-left:10px;"><b>#TK200153</b></p> --}}
@@ -691,7 +725,7 @@
             </div>
         </div>
         <div class = "topseller_gbr_section" style = "text-align:center; height:450px; background-size: cover;  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('{{asset('main/images/landing_page2.jpg')}}'); margin-top:20px;margin-bottom:20px;">
-         <p class="line-1 anim-typewriter"><span style = "color:white;">Have you try on our </span> <span class = "maroon_color_bold" style = "font-size:30px;background-color:#800e13;color:white;padding:10px;">BEST SELLER PRODUCT ?</span></p>
+         <p class="line-1 anim-typewriter"><span style = "color:white;">Have you try on our </span> <span id = "spacing_best_seller_mobile" style = "display:none;"><br></span> <span class = "maroon_color_bold" style = "font-size:30px;background-color:#800e13;color:white;padding:10px;">BEST SELLER PRODUCT ?</span></p>
         </div>
         <div class = "topseller_product_section" style = "text-align:center; height:100%;position:relative;margin-top:40px;padding-top:20px;">
             <span class = "maroon_color_bold" style = "font-size:30px;color:#131312;padding:10px;">BEST SELLER <u style = "text-decoration: underline;text-decoration-color: #800e13;  text-decoration-thickness: 3px;text-underline-offset: 10px; ">PRODUCT</u></span>
@@ -699,27 +733,27 @@
                 <div class = "row  justify-content-center" style = "text-align:left;">
                     <div class = "col-3">
                         <image src = "{{asset('main/images/product/product1.jpg')}}" style = "width:100%;height:auto;border-radius:7px;"/>
-                        <p style = "font-size:1em;margin-top:10px;padding-left:10px;"><b>Trending</b> <span id = "product_category" class = "maroon_color" style = "font-size:20px"><b>Skirts</b></span></p>
+                        <p style = "font-size:1.5vw;;margin-top:10px;padding-left:10px;"><b>Trending</b> <span id = "product_category" class = "maroon_color" style = "font-size:2vw"><b>Skirts</b></span></p>
                         {{-- <p style = "font-size:13px;margin-top:10px;padding-left:10px;"><b>#TK200153</b></p> --}}
-                        <p style = "font-size:21px;margin-top:2px;padding-left:10px;"><b>Long Skirt</b></p>
-                        <p style = "font-size:17px;margin-top:10px;padding-left:10px;">Uncover style gems with our chic, mix-ready sets. <br><br><span class = "maroon_color" style = "font-weight:bold;">Read the Spesification <i class="fa fa-angle-right maroon_color" aria-hidden="true"></i></span></p> <i class="bi bi-arrow-right"></i>
+                        <p style = "font-size:2vw;margin-top:2px;padding-left:10px;"><b>Long Skirt</b></p>
+                        <p style = "font-size:1.3vw;margin-top:10px;padding-left:10px;">Uncover style gems with our chic, mix-ready sets. <br><br><span class = "maroon_color" style = "font-weight:bold;">Read the Spesification <i class="fa fa-angle-right maroon_color" aria-hidden="true"></i></span></p> <i class="bi bi-arrow-right"></i>
                     
 
                     </div>
                     <div class = "col-3">
                         <image src = "{{asset('main/images/product/product2.jpg')}}" style = "width:100%;height:auto;border-radius:7px;"/>
-                        <p style = "font-size:17px;margin-top:10px;padding-left:10px;"><b>Trending</b> <span id = "product_category" class = "maroon_color"><b>Sleeves</b></span></p>
+                        <p style = "font-size:1.5vw;margin-top:10px;padding-left:10px;"><b>Trending</b> <span id = "product_category" class = "maroon_color"><b>Sleeves</b></span></p>
                         {{-- <p style = "font-size:13px;margin-top:10px;padding-left:10px;"><b>#TK200153</b></p> --}}
-                        <p style = "font-size:21px;margin-top:2px;padding-left:10px;"><b>Navy Sleeves </b></p>
-                        <p style = "font-size:17px;margin-top:10px;padding-left:10px;">Uncover style gems with our chic, mix-ready sets. <br><br><span class = "maroon_color" style = "font-weight:bold;">Read the Spesification <i class="fa fa-angle-right maroon_color" aria-hidden="true"></i></span></p> <i class="bi bi-arrow-right"></i>
+                        <p style = "font-size:2vw;margin-top:2px;padding-left:10px;"><b>Navy Sleeves </b></p>
+                        <p style = "font-size:1.3vw;margin-top:10px;padding-left:10px;">Uncover style gems with our chic, mix-ready sets. <br><br><span class = "maroon_color" style = "font-weight:bold;">Read the Spesification <i class="fa fa-angle-right maroon_color" aria-hidden="true"></i></span></p> <i class="bi bi-arrow-right"></i>
 
                     </div>
                     <div class = "col-3">
                         <image src = "{{asset('main/images/product/product3.jpg')}}" style = "width:100%;height:auto;border-radius:7px;"/>
-                        <p style = "font-size:17px;margin-top:10px;padding-left:10px;"><b>Trending</b> <span id = "product_category" class = "maroon_color"><b>Sleeves</b></span></p>
+                        <p style = "font-size:1.5vw;margin-top:10px;padding-left:10px;"><b>Trending</b> <span id = "product_category" class = "maroon_color"><b>Sleeves</b></span></p>
                         {{-- <p style = "font-size:13px;margin-top:10px;padding-left:10px;"><b>#TK200153</b></p> --}}
-                        <p style = "font-size:21px;margin-top:2px;padding-left:10px;"><b>Navy Sleeves </b></p>
-                        <p style = "font-size:17px;margin-top:10px;padding-left:10px;">Uncover style gems with our chic, mix-ready sets. <br><br><span class = "maroon_color" style = "font-weight:bold;">Read the Spesification <i class="fa fa-angle-right maroon_color" aria-hidden="true"></i></span></p> <i class="bi bi-arrow-right"></i>
+                        <p style = "font-size:2vw;margin-top:2px;padding-left:10px;"><b>Navy Sleeves </b></p>
+                        <p style = "font-size:1.3vw;margin-top:10px;padding-left:10px;">Uncover style gems with our chic, mix-ready sets. <br><br><span class = "maroon_color" style = "font-weight:bold;">Read the Spesification <i class="fa fa-angle-right maroon_color" aria-hidden="true"></i></span></p> <i class="bi bi-arrow-right"></i>
 
                     </div>
                    
