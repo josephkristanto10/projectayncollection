@@ -655,23 +655,53 @@
   .line-1{
     font-size:140%;
   }
+  .garis{
+    display:none !important;
+  }
   
 
   #footer_follow_us{
     font-size: 2vw;
   }
   #footer_instagram{
-    width:105px !important;
+    width:10vw !important;
     font-size:1vw !important;
   }
   #footer_tiktok{
-    width:105px !important;
+    width:10vw !important;
     font-size:1vw !important;
   }
   #footer_shopee{
+    width:10vw !important;
+    font-size:1vw !important;
+  }
+
+  #footer_contact_us{
+    width:105px !important;
+    font-size:2vw !important;
+  }
+  #footer_admin_1{
     width:105px !important;
     font-size:1vw !important;
   }
+  #footer_admin_2{
+    width:105px !important;
+    font-size:1vw !important;
+  }
+  #footer_ayn_collection{
+    font-size: 2vw;
+  }
+  
+  #footer_tagline{
+    font-size: 1vw;
+  }
+  #kotak_ayn_collection{
+    margin-top:20px !important;
+  }
+
+  
+
+
 
 }
 
@@ -696,11 +726,13 @@
     font-size:1vw !important;
   }
   #footer_shopee{
-    width:10  5px !important;
+    width:105px !important;
     font-size:1vw !important;
   }
   
-
+  #kotak_ayn_collection{
+    margin-top:20px ;
+  }
 
  }
 
