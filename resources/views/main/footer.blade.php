@@ -10,16 +10,16 @@
    
         </div>
       
-        <div class = "col-1" style = "vertical-align:middle;width:50px;">
+        <div class = "col-1" style = "vertical-align:middle;width:10px;">
             <div class="vl" style = " border-left: 3px solid white; height:200px;"></div>
         </div>
         <div class = "col-2" style = "vertical-align:middle;">
-            <h4 style = "margin-top:20px;">Follow us On : </h4>
-           <div style = "border-radius:100px;border:1px solid white;width:175px;text-align:left;margin-top:20px;">&nbsp;<i class="fa fa-instagram" aria-hidden="true"></i>&nbsp; Our Instagram </div>
-           <div style = "border-radius:100px;border:1px solid white;width:175px;text-align:left;margin-top:10px;">&nbsp;<i class="fa fa-instagram" aria-hidden="true"></i>&nbsp; Our Tiktok</div>
-           <div style = "border-radius:100px;border:1px solid white;width:175px;text-align:left;margin-top:10px;">&nbsp;<i class="fa fa-instagram" aria-hidden="true"></i>&nbsp; Our Shopee</div>
+            <h4 id = "footer_follow_us" style = "margin-top:20px;">Follow us On : </h4>
+           <div id = "footer_instagram" style = "border-radius:100px;border:1px solid white;width:175px;text-align:left;margin-top:20px;">&nbsp;<i class="fa fa-instagram" aria-hidden="true"></i>&nbsp; Our Instagram </div>
+           <div id = "footer_tiktok" style = "border-radius:100px;border:1px solid white;width:175px;text-align:left;margin-top:10px;">&nbsp;<i class="fa fa-instagram" aria-hidden="true"></i>&nbsp; Our Tiktok</div>
+           <div id = "footer_shopee" style = "border-radius:100px;border:1px solid white;width:175px;text-align:left;margin-top:10px;">&nbsp;<i class="fa fa-instagram" aria-hidden="true"></i>&nbsp; Our Shopee</div>
         </div>
-        <div class = "col-1" style = "vertical-align:middle;width:50px;">
+        <div class = "col-1" style = "vertical-align:middle;width:10px;">
             <div class="vl" style = " border-left: 3px solid white; height:200px;"></div>
         </div>
         <div class = "col-3" style = "vertical-align:middle;text-align:left;">

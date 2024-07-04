@@ -657,7 +657,21 @@
   }
   
 
-
+  #footer_follow_us{
+    font-size: 2vw;
+  }
+  #footer_instagram{
+    width:105px !important;
+    font-size:1vw !important;
+  }
+  #footer_tiktok{
+    width:105px !important;
+    font-size:1vw !important;
+  }
+  #footer_shopee{
+    width:105px !important;
+    font-size:1vw !important;
+  }
 
 }
 
@@ -670,11 +684,44 @@
     font-size:140%;
   }
 
+  #footer_follow_us{
+    font-size: 1.5vw;
+  }
+  #footer_instagram{
+    width:105px !important;
+    font-size:1vw !important;
+  }
+  #footer_tiktok{
+    width:105px !important;
+    font-size:1vw !important;
+  }
+  #footer_shopee{
+    width:10  5px !important;
+    font-size:1vw !important;
+  }
+  
+
 
  }
 
 
 @media (min-width: 992px) { 
+  #footer_follow_us{
+    font-size: 2vw;
+  }
+  #footer_instagram{
+    width:135px !important;
+    font-size:1vw !important;
+  }
+  #footer_tiktok{
+    width:135px !important;
+    font-size:1vw !important;
+  }
+  #footer_shopee{
+    width:135px !important;
+    font-size:1vw !important;
+  }
+  
 
 
 
