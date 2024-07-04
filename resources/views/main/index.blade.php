@@ -709,7 +709,7 @@
   }
   #limitideas{
     font-size:2.2vw !important;
-    bottom:60px !important;left:25px;
+    bottom:100px !important;left:25px;
   }
 
 }
