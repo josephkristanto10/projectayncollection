@@ -701,8 +701,12 @@
   }
 
   
-
-
+  .description_product{
+    font-size: 1.8vw !important;
+  }
+  .category_product{
+    font-size:3vw !important;
+  }
 
 }
 
@@ -786,28 +790,28 @@
                 <div class = "row  justify-content-center" style = "text-align:left;">
                     <div class = "col col-lg-3">
                         <image src = "{{asset('main/images/product/product1.jpg')}}" style = "max-width:100%;;height:auto;border-radius:7px;"/>
-                        <p style = "margin-top:10px;padding-left:10px; font-size:1.5vw;"><b>Trending</b> <span id = "product_category" class = "maroon_color" style = "font-size:2vw"><b>Skirts</b></span></p>
+                        <p style = "margin-top:10px;padding-left:10px; font-size:1.5vw;margin-bottom:0px !important;"><b>Trending</b> <span id = "product_category" class = "maroon_color category_product" style = "font-size:2vw"><b>Skirts</b></span></p>
                         {{-- <p style = "font-size:13px;margin-top:10px;padding-left:10px;"><b>#TK200153</b></p> --}}
-                        <p style = "font-size:2vw;margin-top:2px;padding-left:10px;"><b>Long Skirt</b></p>
-                        <p style = "font-size:1.3vw;margin-top:10px;padding-left:10px;">Uncover style gems with our chic, mix-ready sets. <br><br><span class = "maroon_color" style = "font-weight:bold;" onclick = "openmodal()">Read the Spesification <i class="fa fa-angle-right maroon_color" aria-hidden="true"></i></span></p> <i class="bi bi-arrow-right"></i>
+                        <p style = "font-size:2vw;margin-top:2px;padding-left:10px;font-weight:bold;margin-bottom:0px !important;">Long Skirt</p>
+                        <p style = "font-size:1.3vw;margin-top:10px;padding-left:10px; " class = "description_product">Uncover style gems with our chic, mix-ready sets. <br><br><span class = "maroon_color" style = "font-weight:bold;" onclick = "openmodal()">Read the Spesification <i class="fa fa-angle-right maroon_color" aria-hidden="true"></i></span></p> <i class="bi bi-arrow-right"></i>
                     
 
                     </div>
                     <div class = "col col-lg-3">
-                        <image src = "{{asset('main/images/product/product2.jpg')}}" style = "width:100%;height:auto;border-radius:7px;"/>
-                        <p style = "font-size:1.5vw;;margin-top:10px;padding-left:10px;"><b>Trending</b> <span id = "product_category" class = "maroon_color" style = "font-size:2vw"><b>Sleeves</b></span></p>
-                        {{-- <p style = "font-size:13px;margin-top:10px;padding-left:10px;"><b>#TK200153</b></p> --}}
-                        <p style = "font-size:2vw;margin-top:2px;padding-left:10px;"><b>Navy Sleeves </b></p>
-                        <p style = "font-size:1.3vw;margin-top:10px;padding-left:10px;">Uncover style gems with our chic, mix-ready sets. <br><br><span class = "maroon_color" style = "font-weight:bold;">Read the Spesification <i class="fa fa-angle-right maroon_color" aria-hidden="true"></i></span></p> <i class="bi bi-arrow-right"></i>
-
+                      <image src = "{{asset('main/images/product/product2.jpg')}}" style = "max-width:100%;;height:auto;border-radius:7px;"/>
+                      <p style = "margin-top:10px;padding-left:10px; font-size:1.5vw;margin-bottom:0px !important;"><b>Trending</b> <span id = "product_category" class = "maroon_color category_product" style = "font-size:2vw"><b>Skirts</b></span></p>
+                      {{-- <p style = "font-size:13px;margin-top:10px;padding-left:10px;"><b>#TK200153</b></p> --}}
+                      <p style = "font-size:2vw;margin-top:2px;padding-left:10px;font-weight:bold;margin-bottom:0px !important;">Long Skirt</p>
+                      <p style = "font-size:1.3vw;margin-top:10px;padding-left:10px; " class = "description_product">Uncover style gems with our chic, mix-ready sets. <br><br><span class = "maroon_color" style = "font-weight:bold;" onclick = "openmodal()">Read the Spesification <i class="fa fa-angle-right maroon_color" aria-hidden="true"></i></span></p> <i class="bi bi-arrow-right"></i>
+                  
                     </div>
                     <div class = "col col-lg-3">
-                        <image src = "{{asset('main/images/product/product3.jpg')}}" style = "width:100%;height:auto;border-radius:7px;"/>
-                        <p style = "font-size:1.5vw;margin-top:10px;padding-left:10px;"><b>Trending</b> <span id = "product_category" class = "maroon_color"><b>Sleeves</b></span></p>
-                        {{-- <p style = "font-size:13px;margin-top:10px;padding-left:10px;"><b>#TK200153</b></p> --}}
-                        <p style = "font-size:2vw;margin-top:2px;padding-left:10px;"><b>Navy Sleeves </b></p>
-                        <p style = "font-size:1.3vw;margin-top:10px;padding-left:10px;">Uncover style gems with our chic, mix-ready sets. <br><br><span class = "maroon_color" style = "font-weight:bold;">Read the Spesification <i class="fa fa-angle-right maroon_color" aria-hidden="true"></i></span></p> <i class="bi bi-arrow-right"></i>
-
+                      <image src = "{{asset('main/images/product/product3.jpg')}}" style = "max-width:100%;;height:auto;border-radius:7px;"/>
+                      <p style = "margin-top:10px;padding-left:10px; font-size:1.5vw;margin-bottom:0px !important;"><b>Trending</b> <span id = "product_category" class = "maroon_color category_product" style = "font-size:2vw"><b>Skirts</b></span></p>
+                      {{-- <p style = "font-size:13px;margin-top:10px;padding-left:10px;"><b>#TK200153</b></p> --}}
+                      <p style = "font-size:2vw;margin-top:2px;padding-left:10px;font-weight:bold;margin-bottom:0px !important;">Long Skirt</p>
+                      <p style = "font-size:1.3vw;margin-top:10px;padding-left:10px; " class = "description_product">Uncover style gems with our chic, mix-ready sets. <br><br><span class = "maroon_color" style = "font-weight:bold;" onclick = "openmodal()">Read the Spesification <i class="fa fa-angle-right maroon_color" aria-hidden="true"></i></span></p> <i class="bi bi-arrow-right"></i>
+                  
                     </div>
                    
                 </div>
@@ -821,29 +825,29 @@
             <div class = "product" style = "padding-top:30px;">
                 <div class = "row  justify-content-center" style = "text-align:left;">
                     <div class = "col col-lg-3">
-                        <image src = "{{asset('main/images/product/product1.jpg')}}" style = "width:100%;height:auto;border-radius:7px;"/>
-                        <p style = "font-size:1.5vw;;margin-top:10px;padding-left:10px;"><b>Trending</b> <span id = "product_category" class = "maroon_color" style = "font-size:2vw"><b>Skirts</b></span></p>
-                        {{-- <p style = "font-size:13px;margin-top:10px;padding-left:10px;"><b>#TK200153</b></p> --}}
-                        <p style = "font-size:2vw;margin-top:2px;padding-left:10px;"><b>Long Skirt</b></p>
-                        <p style = "font-size:1.3vw;margin-top:10px;padding-left:10px;">Uncover style gems with our chic, mix-ready sets. <br><br><span class = "maroon_color" style = "font-weight:bold;">Read the Spesification <i class="fa fa-angle-right maroon_color" aria-hidden="true"></i></span></p> <i class="bi bi-arrow-right"></i>
-                    
+                      <image src = "{{asset('main/images/product/product3.jpg')}}" style = "max-width:100%;;height:auto;border-radius:7px;"/>
+                      <p style = "margin-top:10px;padding-left:10px; font-size:1.5vw;margin-bottom:0px !important;"><b>Trending</b> <span id = "product_category" class = "maroon_color category_product" style = "font-size:2vw"><b>Skirts</b></span></p>
+                      {{-- <p style = "font-size:13px;margin-top:10px;padding-left:10px;"><b>#TK200153</b></p> --}}
+                      <p style = "font-size:2vw;margin-top:2px;padding-left:10px;font-weight:bold;margin-bottom:0px !important;">Long Skirt</p>
+                      <p style = "font-size:1.3vw;margin-top:10px;padding-left:10px; " class = "description_product">Uncover style gems with our chic, mix-ready sets. <br><br><span class = "maroon_color" style = "font-weight:bold;" onclick = "openmodal()">Read the Spesification <i class="fa fa-angle-right maroon_color" aria-hidden="true"></i></span></p> <i class="bi bi-arrow-right"></i>
+                  
 
                     </div>
                     <div class = "col col-lg-3">
-                        <image src = "{{asset('main/images/product/product2.jpg')}}" style = "width:100%;height:auto;border-radius:7px;"/>
-                        <p style = "font-size:1.5vw;margin-top:10px;padding-left:10px;"><b>Trending</b> <span id = "product_category" class = "maroon_color"><b>Sleeves</b></span></p>
-                        {{-- <p style = "font-size:13px;margin-top:10px;padding-left:10px;"><b>#TK200153</b></p> --}}
-                        <p style = "font-size:2vw;margin-top:2px;padding-left:10px;"><b>Navy Sleeves </b></p>
-                        <p style = "font-size:1.3vw;margin-top:10px;padding-left:10px;">Uncover style gems with our chic, mix-ready sets. <br><br><span class = "maroon_color" style = "font-weight:bold;">Read the Spesification <i class="fa fa-angle-right maroon_color" aria-hidden="true"></i></span></p> <i class="bi bi-arrow-right"></i>
-
+                      <image src = "{{asset('main/images/product/product2.jpg')}}" style = "max-width:100%;;height:auto;border-radius:7px;"/>
+                      <p style = "margin-top:10px;padding-left:10px; font-size:1.5vw;margin-bottom:0px !important;"><b>Trending</b> <span id = "product_category" class = "maroon_color category_product" style = "font-size:2vw"><b>Skirts</b></span></p>
+                      {{-- <p style = "font-size:13px;margin-top:10px;padding-left:10px;"><b>#TK200153</b></p> --}}
+                      <p style = "font-size:2vw;margin-top:2px;padding-left:10px;font-weight:bold;margin-bottom:0px !important;">Long Skirt</p>
+                      <p style = "font-size:1.3vw;margin-top:10px;padding-left:10px; " class = "description_product">Uncover style gems with our chic, mix-ready sets. <br><br><span class = "maroon_color" style = "font-weight:bold;" onclick = "openmodal()">Read the Spesification <i class="fa fa-angle-right maroon_color" aria-hidden="true"></i></span></p> <i class="bi bi-arrow-right"></i>
+                  
                     </div>
                     <div class = "col col-lg-3">
-                        <image src = "{{asset('main/images/product/product3.jpg')}}" style = "width:100%;height:auto;border-radius:7px;"/>
-                        <p style = "font-size:1.5vw;margin-top:10px;padding-left:10px;"><b>Trending</b> <span id = "product_category" class = "maroon_color"><b>Sleeves</b></span></p>
-                        {{-- <p style = "font-size:13px;margin-top:10px;padding-left:10px;"><b>#TK200153</b></p> --}}
-                        <p style = "font-size:2vw;margin-top:2px;padding-left:10px;"><b>Navy Sleeves </b></p>
-                        <p style = "font-size:1.3vw;margin-top:10px;padding-left:10px;">Uncover style gems with our chic, mix-ready sets. <br><br><span class = "maroon_color" style = "font-weight:bold;">Read the Spesification <i class="fa fa-angle-right maroon_color" aria-hidden="true"></i></span></p> <i class="bi bi-arrow-right"></i>
-
+                      <image src = "{{asset('main/images/product/product1.jpg')}}" style = "max-width:100%;;height:auto;border-radius:7px;"/>
+                      <p style = "margin-top:10px;padding-left:10px; font-size:1.5vw;margin-bottom:0px !important;"><b>Trending</b> <span id = "product_category" class = "maroon_color category_product" style = "font-size:2vw"><b>Skirts</b></span></p>
+                      {{-- <p style = "font-size:13px;margin-top:10px;padding-left:10px;"><b>#TK200153</b></p> --}}
+                      <p style = "font-size:2vw;margin-top:2px;padding-left:10px;font-weight:bold;margin-bottom:0px !important;">Long Skirt</p>
+                      <p style = "font-size:1.3vw;margin-top:10px;padding-left:10px; " class = "description_product">Uncover style gems with our chic, mix-ready sets. <br><br><span class = "maroon_color" style = "font-weight:bold;" onclick = "openmodal()">Read the Spesification <i class="fa fa-angle-right maroon_color" aria-hidden="true"></i></span></p> <i class="bi bi-arrow-right"></i>
+                  
                     </div>
                    
                 </div>
@@ -863,7 +867,7 @@
             <div class="container" style = "padding:5px;position:relative">
               <h2 style = "margin-top :20px;">Long Skirt</h2>
               <p>Variant : <span class="dot" style = "background-color:pink;"></span>&nbsp;<span class="dot" style = "background-color:navy;"></span></p>
-              <p>Uncover style gems with our chic, mix-ready setsasdasdsadsadsa.Uncover style gems with our chic, mix-ready setsasdasdsadsadsa</p>
+              <p class = "description_product">Uncover style gems with our chic, mix-ready setsasdasdsadsadsa.Uncover style gems with our chic, mix-ready setsasdasdsadsadsa</p>
               <button id  ="button_admin_modal" style = "background-color:#800e13; color:white;">Ask Admin</button>
               <button id  ="button_admin_modal" style = "background-color:#800e13; color:white;">See price</button> 
               <br>
