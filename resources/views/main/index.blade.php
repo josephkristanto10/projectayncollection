@@ -5,13 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Ayn Collection</title>
-    
+    <link rel="icon" type="image/x-icon" href="{{asset('main/images/logo.png')}}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" target="_blank" href="{{asset('main/css/style.css')}}" />
     <link rel="stylesheet" href="{{asset('fa/css/font-awesome.min.css')}}">
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slim-scroll/1.3.3/slimscroll.js" integrity="sha512-mmciZ0RysaJxNOf+tq0TOGa0EI7MMUEktDT2C4T6isgPu3ulOmLmY6IfebAEAgCPoLXOvOv/ODOlNxT/X/Jgaw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <style>
+     
         .buythelatest_section{
             margin-top:20px;
         }
@@ -776,12 +779,202 @@
  }
 
 
-@media (min-width: 1200px) {  }
 
 
-@media (min-width: 1400px) {  }
+/* custom stylings */
+.wrapper, .scroll-wrapper {
+    padding: 5px;
+}
+.scroll-wrapper.mac + .scrollBarContainer{
+    background-color: transparent;
+}
+.scrollBarContainer.animate .scroll{
+    transition: 2s opacity ease;
+    -ms-transition: 2s opacity ease;
+    opacity: 0;
+}
+.scrollBarContainer:hover .scroll{
+    opacity: 0.5;
+    transition: none;
+    -ms-transition: none;
+}
+.unselectable {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: -moz-none;
+    -o-user-select: none;
+    user-select: none;
+}
 
+.scroll{
+    border-radius: 10px;
+}
+.wrapper + .scrollBarContainer{
+    background-color: #eee9ee;
+}
+.scrollBar {
+    background-color: #60F509;
+    border-radius: 10px;
+    opacity: 0.5;
+}
+.scroll-bar{
+    background-color: #14D1E0;
+}
 
+body {
+
+  .modal_card_detail {
+
+width: 100%;
+height: 375px;
+position: fixed;
+background: white;
+margin: 0 auto;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+transition: all 0.3s;
+  }
+  .card_detail {
+
+    width: 650px;
+    height: 375px;
+    position: fixed;
+    background: white;
+    margin: 0 auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+    transition: all 0.3s;
+    
+    &:hover {
+      
+      box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    
+    }
+    
+    nav {
+      
+      width: 100%;
+      color: #727272;
+      text-transform: uppercase;
+      padding: 20px;
+      border-bottom: 2px solid #efefef;
+      font-size: 12px;
+      
+      svg.heart {
+        
+        height: 24px;
+        width: 24px;
+        float: right;
+        margin-top: -3px;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        
+        &:hover {
+          
+          fill: red;
+          
+        }
+        
+      }
+      svg.arrow {
+        
+        float: left;
+        height: 15px;
+        width: 15px;
+        margin-right: 10px;
+        
+      }
+      
+    }
+    
+    .photo {
+      
+      padding: 30px;
+      width: 45%;
+      text-align: center;
+      float: left;
+      
+      img { 
+        max-height: 240px; 
+      }
+      
+    }
+    
+    .description {
+      
+       padding: 30px;
+       float: left;
+       width: 55%;
+       border-left: 2px solid #efefef;
+       
+       h1 {
+         color: #515151;
+         font-weight: 300;
+         padding-top: 15px;
+         margin: 0;
+         font-size: 30px;
+         font-weight: 300;
+       }
+     
+       h2 {
+        color: #515151;
+        margin: 0;
+        text-transform: uppercase;
+        font-weight: 500;
+       }
+      
+       h4 { 
+         margin: 0;
+         color: #727272;
+         text-transform: uppercase;
+         font-weight: 500;
+         font-size: 12px
+       }
+      
+       p { 
+         font-size: 12px; 
+         line-height: 20px;
+         color: #727272;
+         padding: 20px 0;
+         margin: 0;
+      }
+      
+       button {
+
+         outline: 0;
+         border: 0;
+         background: none;
+         border: 1px solid #d9d9d9;
+         padding: 8px 0px;
+         margin-bottom: 30px;
+         color: #515151;
+         text-transform: uppercase;
+         width: 125px;
+         font-family: inherit;
+         margin-right: 5px;
+         transition: all 0.3s ease;
+         font-weight: 500;
+         
+         &:hover {
+           
+           // background: darken(white, 2%);
+           border: 1px solid #aedaa6;
+           color: #aedaa6;
+           cursor: pointer;
+           
+         }
+
+       }
+      
+    }
+    
+  }
+  
+}
         
     </style>
   </head>
@@ -867,15 +1060,21 @@
     </div>
     @include('main.footer')
 
-    <div id="modal-container">
+
+    
+
+
+
+
+    {{-- <div id="modal-container">
  
         <div class="modal-background">
-          <div class="card" style = "margin:auto;width:350px;height:500px;;">
-            <img src="{{asset('main/images/product/product1.jpg')}}" alt="Avatar" style="width:100%;height:350px;border-radius:5px;">
+          <div class = "card" style = "width:300px;height:500px;overflow-y:auto;position:relative;"  id = "kartu_detail" >
+            <img src="{{asset('main/images/product/product1.jpg')}}" alt="Avatar" style="width:250px;height:300px;border-radius:5px;">
             <div class="container" style = "padding:5px;position:relative">
               <h2 style = "margin-top :20px;">Long Skirt</h2>
               <p>Variant : <span class="dot" style = "background-color:pink;"></span>&nbsp;<span class="dot" style = "background-color:navy;"></span></p>
-              <p class = "description_product">Uncover style gems with our chic, mix-ready setsasdasdsadsadsa.Uncover style gems with our chic, mix-ready setsasdasdsadsadsa</p>
+              <p class = "description_product">Uncover style gems with our chic, mix-ready setsasdasdsadsadsafasdfsdfsdafasdfsadfsadfsadfasdfasdfsadjhflsjdakhflkjasdhflkjsadhflsjdhaflshadlfkjhsadkfhsadlfhdas.Uncover style gems with our chic, mix-ready setsasdasdsadsadsa</p>
               <button id  ="button_admin_modal" style = "background-color:#800e13; color:white;">Ask Admin</button>
               <button id  ="button_admin_modal" style = "background-color:#800e13; color:white;">See price</button> 
               <br>
@@ -894,21 +1093,54 @@
             <button id  ="button_admin_modal" style = "background-color:#800e13; color:white;">See price</button> --}}
           {{-- </div> --}}
         </div>
-      </div>
-      
+      </div> 
+    <div class = "modal_card_detail" style = "width:100%;height:1000px;background-color:#000000;opacity:0.5;z-index:5;position:fixed;display:none;">
+
+    </div>
+      <div class="card_detail" style = "opacity:0 !important;display:none;z-index:6;">
+        <nav>
+          <svg class="arrow" id = "closemodal" version="1.1" viewBox="0 0 512 512" width="512px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><polygon points="352,115.4 331.3,96 160,256 331.3,416 352,396.7 201.5,256 " stroke="#727272"/></svg>
+          Back to all Plants
+          <svg class="heart" version="1.1" viewBox="0 0 512 512" width="512px" xml:space="preserve" stroke="#727272" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M340.8,98.4c50.7,0,91.9,41.3,91.9,92.3c0,26.2-10.9,49.8-28.3,66.6L256,407.1L105,254.6c-15.8-16.6-25.6-39.1-25.6-63.9  c0-51,41.1-92.3,91.9-92.3c38.2,0,70.9,23.4,84.8,56.8C269.8,121.9,302.6,98.4,340.8,98.4 M340.8,83C307,83,276,98.8,256,124.8  c-20-26-51-41.8-84.8-41.8C112.1,83,64,131.3,64,190.7c0,27.9,10.6,54.4,29.9,74.6L245.1,418l10.9,11l10.9-11l148.3-149.8  c21-20.3,32.8-47.9,32.8-77.5C448,131.3,399.9,83,340.8,83L340.8,83z" stroke="#727272"/></svg>
+        </nav>
+        <div class="photo">
+          <img src="https://s-media-cache-ak0.pinimg.com/236x/3b/36/ca/3b36ca3afe0fa0fd4984b9eee2e154bb.jpg">
+        </div>
+        <div class="description">
+          <h2>Classic Peace Lily</h2>
+          <h4>Popular House Plant</h4>
+          <h1>$18</h1>
+          <p>Classic Peace Lily is a spathiphyllum floor plant arranged in a bamboo planter with a blue & red ribbom and butterfly pick.</p>
+          <button>Add to Cart</button>
+          <button>Wishlist</button>
+        </div>
+      </div>  
+
   </body>
 </html>
 <script src="{{asset('main/js/script.js')}}"></script>
-<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-
 <script>
+  $(document).ready(function () {
+    // $('#kartu_detail').slimScroll({ height:"200px" });
+    // const ps = PerfectScrollbar('#kartu_detail');
+
+  
+  });
+
+
+
+
     function openmodal(){
-        var buttonId = "six";
-            $('#modal-container').removeAttr('class').addClass(buttonId);
-            $('body').addClass('modal-active');
+      $(".modal_card_detail").attr("style","width:100%;height:1000px;background-color:#000000;opacity:0.5;z-index:5;position:fixed;display:block;");
+      $(".card_detail").attr("style", " z-index:6;display:block; animation: fadeIns 1s;");
     }
-    $('#modal-container').click(function(){
-            $(this).addClass('out');
-            $('body').removeClass('modal-active');
-        });
+    $(".modal_card_detail").on("click",function(){
+      $(".modal_card_detail").attr("style","width:100%;height:1000px;background-color:#000000;opacity:0.5;z-index:5;position:fixed;display:none;");
+      $(".card_detail").attr("style", "opacity:1 !important; z-index:6;display:none;");
+    })
+    $("#closemodal").on("click",function(){
+      $(".modal_card_detail").attr("style","width:100%;height:1000px;background-color:#000000;opacity:0.5;z-index:5;position:fixed;display:none;");
+      $(".card_detail").attr("style", "opacity:1 !important; z-index:6;display:none;");
+    })
+  
 </script>

@@ -7,7 +7,7 @@
         <li><a>
             <span id = "store_name" style = "color:#800e13 ;font-weight:200px !important;">Ayn Collection</span></a></li>
       <li>
-        <a href="#" id = "m1" class = "active"> Home</a>
+        <a href="{{url('/')}}" id = "m1" class = "active"> Home</a>
       </li>
   
       <li>
@@ -17,7 +17,7 @@
         <a href="#" id = "m4">Contact Us</a>
       </li>
       <li>
-        <a href="#" id = "m2" class = "special_nav">Product</a>
+        <a href="{{url('/product')}}" id = "m2" class = "special_nav">Product</a>
       </li>
     </ul>
     <div class="hamburger">
@@ -39,6 +39,9 @@
       </li>
       <li>
         <a href="#">Contact Us</a>
+      </li>
+      <li>
+        <a href="{{url('/product')}}" id = "m2" class = "special_nav">Product</a>
       </li>
     </ul>
   </div>

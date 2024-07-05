@@ -1,0 +1,66 @@
+{
+    "sourceFile": "app/Http/Controllers/ProductController.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 12,
+            "patches": [
+                {
+                    "date": 1720105713162,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1720105772601,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n      * @return \\Illuminate\\Http\\Response\n      */\n     public function index()\n     {\n-        //\n+        return view('main.index');\n     }\n \n     /**\n      * Show the form for creating a new resource.\n"
+                },
+                {
+                    "date": 1720155578451,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,10 @@\n      * @return \\Illuminate\\Http\\Response\n      */\n     public function index()\n     {\n-        return view('main.index');\n+        \n+        return view('main.product');\n     }\n \n     /**\n      * Show the form for creating a new resource.\n"
+                },
+                {
+                    "date": 1720155672651,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n      * @return \\Illuminate\\Http\\Response\n      */\n     public function index()\n     {\n-        \n+        $myproduct = Product::all();\n         return view('main.product');\n     }\n \n     /**\n"
+                },
+                {
+                    "date": 1720155680530,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n      * @return \\Illuminate\\Http\\Response\n      */\n     public function index()\n     {\n-        $myproduct = Product::all();\n+        $myproduct = Product::latest(10);\n         return view('main.product');\n     }\n \n     /**\n"
+                },
+                {
+                    "date": 1720156709602,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n      */\n     public function index()\n     {\n         $myproduct = Product::latest(10);\n-        return view('main.product');\n+        return view('main.product','myproduct');\n     }\n \n     /**\n      * Show the form for creating a new resource.\n"
+                },
+                {
+                    "date": 1720156722956,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n      */\n     public function index()\n     {\n         $myproduct = Product::latest(10);\n-        return view('main.product','myproduct');\n+        return view('main.product',compact('myproduct'));\n     }\n \n     /**\n      * Show the form for creating a new resource.\n"
+                },
+                {
+                    "date": 1720156810904,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n      * @return \\Illuminate\\Http\\Response\n      */\n     public function index()\n     {\n-        $myproduct = Product::latest(10);\n+        $myproduct = Product::latest(10)->get();\n         return view('main.product',compact('myproduct'));\n     }\n \n     /**\n"
+                },
+                {
+                    "date": 1720156824528,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n      * @return \\Illuminate\\Http\\Response\n      */\n     public function index()\n     {\n-        $myproduct = Product::latest(10)->get();\n+        $myproduct = Product::latest()->get();\n         return view('main.product',compact('myproduct'));\n     }\n \n     /**\n"
+                },
+                {
+                    "date": 1720162301091,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,9 @@\n \n namespace App\\Http\\Controllers;\n \n use App\\Models\\Product;\n+use App\\Models\\Product;\n use Illuminate\\Http\\Request;\n \n class ProductController extends Controller\n {\n@@ -13,8 +14,9 @@\n      * @return \\Illuminate\\Http\\Response\n      */\n     public function index()\n     {\n+        $category = \n         $myproduct = Product::latest()->get();\n         return view('main.product',compact('myproduct'));\n     }\n \n"
+                },
+                {
+                    "date": 1720162316709,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,10 @@\n <?php\n \n namespace App\\Http\\Controllers;\n \n+use App\\Models\\Category;\n use App\\Models\\Product;\n-use App\\Models\\Product;\n use Illuminate\\Http\\Request;\n \n class ProductController extends Controller\n {\n"
+                },
+                {
+                    "date": 1720162324395,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,88 @@\n+<?php\n+\n+namespace App\\Http\\Controllers;\n+\n+use App\\Models\\Category;\n+use App\\Models\\Product;\n+use Illuminate\\Http\\Request;\n+\n+class ProductController extends Controller\n+{\n+    /**\n+     * Display a listing of the resource.\n+     *\n+     * @return \\Illuminate\\Http\\Response\n+     */\n+    public function index()\n+    {\n+        $category = Category::latest()->get();\n+        $myproduct = Product::latest()->get();\n+        return view('main.product',compact('myproduct'));\n+    }\n+\n+    /**\n+     * Show the form for creating a new resource.\n+     *\n+     * @return \\Illuminate\\Http\\Response\n+     */\n+    public function create()\n+    {\n+        //\n+    }\n+\n+    /**\n+     * Store a newly created resource in storage.\n+     *\n+     * @param  \\Illuminate\\Http\\Request  $request\n+     * @return \\Illuminate\\Http\\Response\n+     */\n+    public function store(Request $request)\n+    {\n+        //\n+    }\n+\n+    /**\n+     * Display the specified resource.\n+     *\n+     * @param  int  $id\n+     * @return \\Illuminate\\Http\\Response\n+     */\n+    public function show($id)\n+    {\n+        //\n+    }\n+\n+    /**\n+     * Show the form for editing the specified resource.\n+     *\n+     * @param  int  $id\n+     * @return \\Illuminate\\Http\\Response\n+     */\n+    public function edit($id)\n+    {\n+        //\n+    }\n+\n+    /**\n+     * Update the specified resource in storage.\n+     *\n+     * @param  \\Illuminate\\Http\\Request  $request\n+     * @param  int  $id\n+     * @return \\Illuminate\\Http\\Response\n+     */\n+    public function update(Request $request, $id)\n+    {\n+        //\n+    }\n+\n+    /**\n+     * Remove the specified resource from storage.\n+     *\n+     * @param  int  $id\n+     * @return \\Illuminate\\Http\\Response\n+     */\n+    public function destroy($id)\n+    {\n+        //\n+    }\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1720162335041,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n     public function index()\n     {\n         $category = Category::latest()->get();\n         $myproduct = Product::latest()->get();\n-        return view('main.product',compact('myproduct'));\n+        return view('main.product',compact('myproduct','category'));\n     }\n \n     /**\n      * Show the form for creating a new resource.\n@@ -84,93 +84,5 @@\n     public function destroy($id)\n     {\n         //\n     }\n-}\n-<?php\n-\n-namespace App\\Http\\Controllers;\n-\n-use App\\Models\\Category;\n-use App\\Models\\Product;\n-use Illuminate\\Http\\Request;\n-\n-class ProductController extends Controller\n-{\n-    /**\n-     * Display a listing of the resource.\n-     *\n-     * @return \\Illuminate\\Http\\Response\n-     */\n-    public function index()\n-    {\n-        $category = \n-        $myproduct = Product::latest()->get();\n-        return view('main.product',compact('myproduct'));\n-    }\n-\n-    /**\n-     * Show the form for creating a new resource.\n-     *\n-     * @return \\Illuminate\\Http\\Response\n-     */\n-    public function create()\n-    {\n-        //\n-    }\n-\n-    /**\n-     * Store a newly created resource in storage.\n-     *\n-     * @param  \\Illuminate\\Http\\Request  $request\n-     * @return \\Illuminate\\Http\\Response\n-     */\n-    public function store(Request $request)\n-    {\n-        //\n-    }\n-\n-    /**\n-     * Display the specified resource.\n-     *\n-     * @param  int  $id\n-     * @return \\Illuminate\\Http\\Response\n-     */\n-    public function show($id)\n-    {\n-        //\n-    }\n-\n-    /**\n-     * Show the form for editing the specified resource.\n-     *\n-     * @param  int  $id\n-     * @return \\Illuminate\\Http\\Response\n-     */\n-    public function edit($id)\n-    {\n-        //\n-    }\n-\n-    /**\n-     * Update the specified resource in storage.\n-     *\n-     * @param  \\Illuminate\\Http\\Request  $request\n-     * @param  int  $id\n-     * @return \\Illuminate\\Http\\Response\n-     */\n-    public function update(Request $request, $id)\n-    {\n-        //\n-    }\n-\n-    /**\n-     * Remove the specified resource from storage.\n-     *\n-     * @param  int  $id\n-     * @return \\Illuminate\\Http\\Response\n-     */\n-    public function destroy($id)\n-    {\n-        //\n-    }\n }\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1720105713162,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Http\\Controllers;\n\nuse App\\Models\\Product;\nuse Illuminate\\Http\\Request;\n\nclass ProductController extends Controller\n{\n    /**\n     * Display a listing of the resource.\n     *\n     * @return \\Illuminate\\Http\\Response\n     */\n    public function index()\n    {\n        //\n    }\n\n    /**\n     * Show the form for creating a new resource.\n     *\n     * @return \\Illuminate\\Http\\Response\n     */\n    public function create()\n    {\n        //\n    }\n\n    /**\n     * Store a newly created resource in storage.\n     *\n     * @param  \\Illuminate\\Http\\Request  $request\n     * @return \\Illuminate\\Http\\Response\n     */\n    public function store(Request $request)\n    {\n        //\n    }\n\n    /**\n     * Display the specified resource.\n     *\n     * @param  int  $id\n     * @return \\Illuminate\\Http\\Response\n     */\n    public function show($id)\n    {\n        //\n    }\n\n    /**\n     * Show the form for editing the specified resource.\n     *\n     * @param  int  $id\n     * @return \\Illuminate\\Http\\Response\n     */\n    public function edit($id)\n    {\n        //\n    }\n\n    /**\n     * Update the specified resource in storage.\n     *\n     * @param  \\Illuminate\\Http\\Request  $request\n     * @param  int  $id\n     * @return \\Illuminate\\Http\\Response\n     */\n    public function update(Request $request, $id)\n    {\n        //\n    }\n\n    /**\n     * Remove the specified resource from storage.\n     *\n     * @param  int  $id\n     * @return \\Illuminate\\Http\\Response\n     */\n    public function destroy($id)\n    {\n        //\n    }\n}"
+        }
+    ]
+}
