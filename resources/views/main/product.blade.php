@@ -11,7 +11,7 @@
         <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" target="_blank" href="{{asset('main/css/style.css')}}" />
     <link rel="stylesheet" type="text/css" target="_blank" href="{{asset('main/css/product.css')}}" />
-    <link rel="stylesheet" href="{{asset('fa/css/font-awesome.min.css')}}">
+    {{-- <link rel="stylesheet" href="{{asset('fa/css/font-awesome.min.css')}}"> --}}
     <link rel="stylesheet" href="{{asset('owl/dist/assets/owl.carousel.css')}}">
     <link rel="stylesheet" href="{{asset('owl/dist/assets/owl.theme.default.min.css')}}">
     <style>
