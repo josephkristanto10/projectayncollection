@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 4,
+            "activePatchIndex": 31,
             "patches": [
                 {
                     "date": 1719819322244,
@@ -24,6 +24,114 @@
                 {
                     "date": 1720105762804,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,7 +16,5 @@\n \n Route::get('/', function () {\n     return view('main.index');\n });\n-Route::get('/product', function () {\n-    return view('main.product');\n-});\n\\ No newline at end of file\n+Route::resource('/product', ProductController::class);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1720190199211,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,8 @@\n <?php\n \n use App\\Http\\Controllers\\ProductController;\n+use App\\Http\\Controllers\\ProductController;\n use Illuminate\\Support\\Facades\\Route;\n \n /*\n |--------------------------------------------------------------------------\n"
+                },
+                {
+                    "date": 1720190204893,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n <?php\n \n use App\\Http\\Controllers\\ProductController;\n-use App\\Http\\Controllers\\ProductController;\n+use App\\Http\\Controllers\\AdminController;\n use Illuminate\\Support\\Facades\\Route;\n \n /*\n |--------------------------------------------------------------------------\n"
+                },
+                {
+                    "date": 1720190212678,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,5 +17,6 @@\n \n Route::get('/', function () {\n     return view('main.index');\n });\n-Route::resource('/product', ProductController::class);\n\\ No newline at end of file\n+Route::resource('/product', ProductController::class);\n+Route::resource('/admin', ProductController::class);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1720190237188,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,5 +18,5 @@\n Route::get('/', function () {\n     return view('main.index');\n });\n Route::resource('/product', ProductController::class);\n-Route::resource('/admin', ProductController::class);\n\\ No newline at end of file\n+Route::resource('/adminsuperweb', ProductController::class);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1720190254300,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,5 +18,5 @@\n Route::get('/', function () {\n     return view('main.index');\n });\n Route::resource('/product', ProductController::class);\n-Route::resource('/adminsuperweb', ProductController::class);\n\\ No newline at end of file\n+Route::resource('/adminsecretoffice', ProductController::class);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1720190261640,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,5 +18,5 @@\n Route::get('/', function () {\n     return view('main.index');\n });\n Route::resource('/product', ProductController::class);\n-Route::resource('/adminsecretoffice', ProductController::class);\n\\ No newline at end of file\n+Route::resource('/adminoffice', ProductController::class);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1720190267293,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,22 @@\n+<?php\n+\n+use App\\Http\\Controllers\\ProductController;\n+use App\\Http\\Controllers\\AdminController;\n+use Illuminate\\Support\\Facades\\Route;\n+\n+/*\n+|--------------------------------------------------------------------------\n+| Web Routes\n+|--------------------------------------------------------------------------\n+|\n+| Here is where you can register web routes for your application. These\n+| routes are loaded by the RouteServiceProvider within a group which\n+| contains the \"web\" middleware group. Now create something great!\n+|\n+*/\n+\n+Route::get('/', function () {\n+    return view('main.index');\n+});\n+Route::resource('/product', ProductController::class);\n+Route::resource('/adminoffice', AdminController::class);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1720190280398,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,27 +18,5 @@\n Route::get('/', function () {\n     return view('main.index');\n });\n Route::resource('/product', ProductController::class);\n-Route::resource('/adminoffice', AdminController::class);\n-<?php\n-\n-use App\\Http\\Controllers\\ProductController;\n-use App\\Http\\Controllers\\AdminController;\n-use Illuminate\\Support\\Facades\\Route;\n-\n-/*\n-|--------------------------------------------------------------------------\n-| Web Routes\n-|--------------------------------------------------------------------------\n-|\n-| Here is where you can register web routes for your application. These\n-| routes are loaded by the RouteServiceProvider within a group which\n-| contains the \"web\" middleware group. Now create something great!\n-|\n-*/\n-\n-Route::get('/', function () {\n-    return view('main.index');\n-});\n-Route::resource('/product', ProductController::class);\n-Route::resource('/adminoffice', ProductController::class);\n\\ No newline at end of file\n+Route::resource('/adminoffice', AdminController::class);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1720191364480,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,5 +18,8 @@\n Route::get('/', function () {\n     return view('main.index');\n });\n Route::resource('/product', ProductController::class);\n-Route::resource('/adminoffice', AdminController::class);\n\\ No newline at end of file\n+Route::resource('/adminoffice', AdminController::class);\n+Route::get('/', function () {\n+    return view('main.index');\n+});\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1720191396414,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,7 +19,8 @@\n     return view('main.index');\n });\n Route::resource('/product', ProductController::class);\n Route::resource('/adminoffice', AdminController::class);\n-Route::get('/', function () {\n-    return view('main.index');\n+Route::group(['prefix'=>'accounts','as'=>'account.'], function(){\n+    Route::get('/', ['as' => 'index', 'uses' => 'AccountController@index']);\n+    Route::get('connect', ['as' => 'connect', 'uses' = > 'AccountController@connect']);\n });\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1720191423807,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,6 +21,6 @@\n Route::resource('/product', ProductController::class);\n Route::resource('/adminoffice', AdminController::class);\n Route::group(['prefix'=>'accounts','as'=>'account.'], function(){\n     Route::get('/', ['as' => 'index', 'uses' => 'AccountController@index']);\n-    Route::get('connect', ['as' => 'connect', 'uses' = > 'AccountController@connect']);\n+    Route::get('connect', ['as' => 'connect', 'uses' => 'AccountController@connect']);\n });\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1720191444047,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,8 +19,8 @@\n     return view('main.index');\n });\n Route::resource('/product', ProductController::class);\n Route::resource('/adminoffice', AdminController::class);\n-Route::group(['prefix'=>'accounts','as'=>'account.'], function(){\n+Route::group(['prefix'=>'adminoffice','as'=>'Admin.'], function(){\n     Route::get('/', ['as' => 'index', 'uses' => 'AccountController@index']);\n     Route::get('connect', ['as' => 'connect', 'uses' => 'AccountController@connect']);\n });\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1720191450920,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,7 +20,7 @@\n });\n Route::resource('/product', ProductController::class);\n Route::resource('/adminoffice', AdminController::class);\n Route::group(['prefix'=>'adminoffice','as'=>'Admin.'], function(){\n-    Route::get('/', ['as' => 'index', 'uses' => 'AccountController@index']);\n+    Route::get('/', ['as' => 'index', 'uses' => 'AdminController@index']);\n     Route::get('connect', ['as' => 'connect', 'uses' => 'AccountController@connect']);\n });\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1720191484283,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,9 @@\n <?php\n \n use App\\Http\\Controllers\\ProductController;\n+\n+use App\\Http\\Controllers\\ProductController;\n use App\\Http\\Controllers\\AdminController;\n use Illuminate\\Support\\Facades\\Route;\n \n /*\n@@ -18,9 +20,9 @@\n Route::get('/', function () {\n     return view('main.index');\n });\n Route::resource('/product', ProductController::class);\n-Route::resource('/adminoffice', AdminController::class);\n+// Route::resource('/adminoffice', AdminController::class);\n Route::group(['prefix'=>'adminoffice','as'=>'Admin.'], function(){\n     Route::get('/', ['as' => 'index', 'uses' => 'AdminController@index']);\n-    Route::get('connect', ['as' => 'connect', 'uses' => 'AccountController@connect']);\n+    Route::get('connect', ['as' => 'connect', 'uses' => 'AdminController@connect']);\n });\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1720191489554,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,8 @@\n <?php\n \n use App\\Http\\Controllers\\ProductController;\n-\n-use App\\Http\\Controllers\\ProductController;\n+use App\\Http\\Controllers\\CategoryController;\n use App\\Http\\Controllers\\AdminController;\n use Illuminate\\Support\\Facades\\Route;\n \n /*\n"
+                },
+                {
+                    "date": 1720191494725,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,6 +22,6 @@\n Route::resource('/product', ProductController::class);\n // Route::resource('/adminoffice', AdminController::class);\n Route::group(['prefix'=>'adminoffice','as'=>'Admin.'], function(){\n     Route::get('/', ['as' => 'index', 'uses' => 'AdminController@index']);\n-    Route::get('connect', ['as' => 'connect', 'uses' => 'AdminController@connect']);\n+    Route::get('connect', ['as' => 'connect', 'uses' => 'CategoryController@connect']);\n });\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1720191504624,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,6 +22,6 @@\n Route::resource('/product', ProductController::class);\n // Route::resource('/adminoffice', AdminController::class);\n Route::group(['prefix'=>'adminoffice','as'=>'Admin.'], function(){\n     Route::get('/', ['as' => 'index', 'uses' => 'AdminController@index']);\n-    Route::get('connect', ['as' => 'connect', 'uses' => 'CategoryController@connect']);\n+    Route::get('connect', ['as' => 'category', 'uses' => 'CategoryController@connect']);\n });\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1720191534164,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,7 +21,7 @@\n });\n Route::resource('/product', ProductController::class);\n // Route::resource('/adminoffice', AdminController::class);\n Route::group(['prefix'=>'adminoffice','as'=>'Admin.'], function(){\n-    Route::get('/', ['as' => 'index', 'uses' => 'AdminController@index']);\n+    Route::get('/', ['as' => 'index', 'uses' => [AdminController::class]]);\n     Route::get('connect', ['as' => 'category', 'uses' => 'CategoryController@connect']);\n });\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1720191557950,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,7 +21,7 @@\n });\n Route::resource('/product', ProductController::class);\n // Route::resource('/adminoffice', AdminController::class);\n Route::group(['prefix'=>'adminoffice','as'=>'Admin.'], function(){\n-    Route::get('/', ['as' => 'index', 'uses' => [AdminController::class]]);\n+    Route::get('/', [AdminController::class,\"index\"]);\n     Route::get('connect', ['as' => 'category', 'uses' => 'CategoryController@connect']);\n });\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1720191574220,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,6 +22,6 @@\n Route::resource('/product', ProductController::class);\n // Route::resource('/adminoffice', AdminController::class);\n Route::group(['prefix'=>'adminoffice','as'=>'Admin.'], function(){\n     Route::get('/', [AdminController::class,\"index\"]);\n-    Route::get('connect', ['as' => 'category', 'uses' => 'CategoryController@connect']);\n+    Route::get('category', ['as' => 'category', 'uses' => 'CategoryController@connect']);\n });\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1720191582261,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,6 +22,6 @@\n Route::resource('/product', ProductController::class);\n // Route::resource('/adminoffice', AdminController::class);\n Route::group(['prefix'=>'adminoffice','as'=>'Admin.'], function(){\n     Route::get('/', [AdminController::class,\"index\"]);\n-    Route::get('category', ['as' => 'category', 'uses' => 'CategoryController@connect']);\n+    Route::get('category', [AdminController::class,\"index\"]);\n });\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1720193323640,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,6 +22,7 @@\n Route::resource('/product', ProductController::class);\n // Route::resource('/adminoffice', AdminController::class);\n Route::group(['prefix'=>'adminoffice','as'=>'Admin.'], function(){\n     Route::get('/', [AdminController::class,\"index\"]);\n-    Route::get('category', [AdminController::class,\"index\"]);\n+    Route::get('category', [CategoryController::class,\"index\"]);\n+    Route::get('category/getlistproduk')\n });\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1720193329267,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,28 @@\n+<?php\n+\n+use App\\Http\\Controllers\\ProductController;\n+use App\\Http\\Controllers\\CategoryController;\n+use App\\Http\\Controllers\\AdminController;\n+use Illuminate\\Support\\Facades\\Route;\n+\n+/*\n+|--------------------------------------------------------------------------\n+| Web Routes\n+|--------------------------------------------------------------------------\n+|\n+| Here is where you can register web routes for your application. These\n+| routes are loaded by the RouteServiceProvider within a group which\n+| contains the \"web\" middleware group. Now create something great!\n+|\n+*/\n+\n+Route::get('/', function () {\n+    return view('main.index');\n+});\n+Route::resource('/product', ProductController::class);\n+// Route::resource('/adminoffice', AdminController::class);\n+Route::group(['prefix'=>'adminoffice','as'=>'Admin.'], function(){\n+    Route::get('/', [AdminController::class,\"index\"]);\n+    Route::get('category', [CategoryController::class,\"index\"]);\n+    Route::get('category/getlistproduk, [CategoryController::class,\"index\"]')\n+});\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1720193345069,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,34 +23,6 @@\n // Route::resource('/adminoffice', AdminController::class);\n Route::group(['prefix'=>'adminoffice','as'=>'Admin.'], function(){\n     Route::get('/', [AdminController::class,\"index\"]);\n     Route::get('category', [CategoryController::class,\"index\"]);\n-    Route::get('category/getlistproduk, [CategoryController::class,\"index\"]')\n-});\n-<?php\n-\n-use App\\Http\\Controllers\\ProductController;\n-use App\\Http\\Controllers\\CategoryController;\n-use App\\Http\\Controllers\\AdminController;\n-use Illuminate\\Support\\Facades\\Route;\n-\n-/*\n-|--------------------------------------------------------------------------\n-| Web Routes\n-|--------------------------------------------------------------------------\n-|\n-| Here is where you can register web routes for your application. These\n-| routes are loaded by the RouteServiceProvider within a group which\n-| contains the \"web\" middleware group. Now create something great!\n-|\n-*/\n-\n-Route::get('/', function () {\n-    return view('main.index');\n-});\n-Route::resource('/product', ProductController::class);\n-// Route::resource('/adminoffice', AdminController::class);\n-Route::group(['prefix'=>'adminoffice','as'=>'Admin.'], function(){\n-    Route::get('/', [AdminController::class,\"index\"]);\n-    Route::get('category', [CategoryController::class,\"index\"]);\n-    Route::get('category/getlistproduk')\n+    Route::get('category/getlistproduk', [CategoryController::class,\"gettabelproduct\"])\n });\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1720193428046,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,6 +23,6 @@\n // Route::resource('/adminoffice', AdminController::class);\n Route::group(['prefix'=>'adminoffice','as'=>'Admin.'], function(){\n     Route::get('/', [AdminController::class,\"index\"]);\n     Route::get('category', [CategoryController::class,\"index\"]);\n-    Route::get('category/getlistproduk', [CategoryController::class,\"gettabelproduct\"])\n+    Route::get('category/getlistcategory', [CategoryController::class,\"gettabelcategory\"]);\n });\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1720195718393,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,6 +23,7 @@\n // Route::resource('/adminoffice', AdminController::class);\n Route::group(['prefix'=>'adminoffice','as'=>'Admin.'], function(){\n     Route::get('/', [AdminController::class,\"index\"]);\n     Route::get('category', [CategoryController::class,\"index\"]);\n+    Route::get('category', [CategoryController::class,\"index\"]);\n     Route::get('category/getlistcategory', [CategoryController::class,\"gettabelcategory\"]);\n });\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1720195724489,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,29 @@\n+<?php\n+\n+use App\\Http\\Controllers\\ProductController;\n+use App\\Http\\Controllers\\CategoryController;\n+use App\\Http\\Controllers\\AdminController;\n+use Illuminate\\Support\\Facades\\Route;\n+\n+/*\n+|--------------------------------------------------------------------------\n+| Web Routes\n+|--------------------------------------------------------------------------\n+|\n+| Here is where you can register web routes for your application. These\n+| routes are loaded by the RouteServiceProvider within a group which\n+| contains the \"web\" middleware group. Now create something great!\n+|\n+*/\n+\n+Route::get('/', function () {\n+    return view('main.index');\n+});\n+Route::resource('/product', ProductController::class);\n+// Route::resource('/adminoffice', AdminController::class);\n+Route::group(['prefix'=>'adminoffice','as'=>'Admin.'], function(){\n+    Route::get('/', [AdminController::class,\"index\"]);\n+    Route::get('product', [AdminController::class,\"index\"]);\n+    Route::get('category', [CategoryController::class,\"index\"]);\n+    Route::get('category/getlistcategory', [CategoryController::class,\"gettabelcategory\"]);\n+});\n\\ No newline at end of file\n"
                 }
             ],
             "date": 1719819322244,
