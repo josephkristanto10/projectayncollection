@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="apple-touch-icon" sizes="76x76" href="{{asset('admin/assets/img/apple-icon.png')}}">
-  <link rel="icon" type="image/png" href="{{asset('admin/assets/img/favicon.png')}}">
+  <link rel="icon" type="image/png" href="{{asset('main/images/logo.png')}}">
   <title>
     Product
   </title>
@@ -62,19 +62,24 @@
         <div class="col-lg-12 col-md-6 mt-1">
           <div class="card h-100">
             <div class="card-header pb-0">
-              <h6>List Category</h6>
+              <button style = "float:right;" class = "btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal_add_category">Add Product</button>
+
+              <h6>List Product</h6>
               <p class="text-sm">
          
                
               </p>
             </div>
             <div class="card-body p-3">
-              <table class ="table align-items-center mb-0" style = "text-align:center !important;" id = "datatable_category">
+              <table class ="table align-items-center mb-0" style = "text-align:center !important;" id = "datatable_product">
                 <thead>
                   <tr>
                     <th>ID</th>
-                    <th>Category</th>
-                    <th>Jumlah</th>
+                    <th>Images</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Stock</th>
+                    <th>Description</th>
                     <th>Action</th>
                   </tr>
                 </thead>
@@ -194,6 +199,70 @@
     </div>
   </div>
 
+
+
+  {{-- Modal Add --}}
+
+  <div class="modal fade" id="modal_add_category" tabindex="-1" role="dialog" aria-labelledby="modal_add_productLabel" aria-hidden="true" style = "z-index:100000;" >
+    <div class="modal-dialog modal-xl" role="document">
+      <div class="modal-content">
+            <div class="modal-header">
+              <h3 class="modal-title" id="judulCategory" ><i class="fa fa-list-alt" aria-hidden="true"></i>
+                Product</h3>
+              <button type="button" id = "closeaddcategory" class="close" data-bs-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <h4>Tambah Product</h4>
+              <form id = "formtambah" enctype="multipart/form-data">
+                {!! csrf_field() !!}
+              <div class = "col-12">Pilih Category <select id = "add_pilihan_category" name = "add_pil_category"  class = "form-control">
+                  @foreach ($category as $c)
+                  <option value = '{{$c->id}}'>{{$c->id}} - {{$c->name}}</option>
+                  @endforeach  
+                  </select> 
+              </div>
+              <div class = "row mt-3 mb-3">
+                <div class = "col-6">Gambar Product <input id = "add_gambarproduk" name = "add_gbr_product" type = "file" class = "form-control" required> </div>
+                <div class = "col-6">Code Product <input id = "add_kodeproduk" name = "add_code_product" type = "text" class = "form-control" required> </div>
+              </div>
+              <div class = "row mt-3 mb-3">
+                <div class = "col-6">Nama Product <input  id = "add_namaproduk" name = "add_nama_product" type = "text" class = "form-control" required></div>
+                <div class = "col-3">Harga Product <input id = "add_hargaproduk" name = "add_harga_product" type = "text" class = "form-control" required> </div>
+                <div class = "col-3">Stock Product <input  id = "add_stockproduk" name = "add_stock_product" type = "text" class = "form-control" required></div>
+
+              </div>
+              <div class = "row mt-3 mb-3">
+                <div class = "col-12">Description Product <input id = "add_descproduk" name = "add_desc_product" type = "text" class = "form-control" required> </div>
+              </div>
+            
+              <div class="alert alert-success d-flex align-items-center" role="alert" id = "add_alert_notif_success" style = "display:none !important;">
+                <div>
+                  Produk Sukses Ditambah pada <span id = "add_tanggal_alert_success"></span>. Jika tidak tertambah, Hubungi Developer.
+                </div>
+              </div>
+              <div class="alert alert-danger d-flex align-items-center" role="alert" id = "add_alert_notif_danger" style = "display:none !important;">
+                <div>
+                  Produk gagal Ditambah <span id = "add_tanggal_alert_danger"></span>.. Segera Hubungi Developer.
+                </div>
+              </div>
+              <div class = "row mt-3 mb-3">
+                <div class ="col-12" style = "text-align:right;"><input type = "submit" class ="btn btn-success"  value = "Tambah"></div>
+              </div>
+              
+            </form>
+             
+            
+        
+      </div>
+    </div>
+  </div>
+  </div>
+
+  {{-- End Modall Add --}}
+
+
   <script
 			  src="https://code.jquery.com/jquery-3.7.1.js"
 			  integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
@@ -215,22 +284,37 @@
   
   $(document).ready(function () {
   
-   var mytable =  $('#datatable_category').DataTable({
+   var mytable =  $('#datatable_product').DataTable({
       processing: true,
       serverSide: true,
-      ajax: "{{url('/adminoffice/category/getlistcategory')}}",
+      ajax: "{{url('/adminoffice/product/getlistproduct')}}",
       columns: [
         {
            data: 'id'
         },
         {
           "render": function ( data, type, row ) {
-             return '  <div class="d-flex px-2 py-1" style = "align-items: stretch;"><div style = "text-align:center;width:100%;"><div><img src="{{asset("main/images/category/")}}/'+row.images_category+'" style = "width:50px !important;height:50px !important;" class="avatar avatar-sm me-3" alt="user1"></div><div class="d-flex flex-column justify-content-center mt-2"><h6 class="mb-0 text-sm">'+row.name+'</h6></div></div></div>';
+             return '  <div class="d-flex px-2 py-1" style = "align-items: stretch;"><div style = "text-align:center;width:100%;"><div><img src="{{asset("main/images/product/")}}/'+row.images+'" style = "width:50px !important;height:50px !important;" class="avatar avatar-sm me-3" alt="user1"></div></div></div>';
            }
         },
         {
           "render": function ( data, type, row ) {
-             return '1';
+             return '<div class="d-flex flex-column justify-content-center mt-2"><h6 class="mb-0 text-sm">'+row.name+'</h6></div>';
+           }
+        },
+        {
+          "render": function ( data, type, row ) {
+            return '<div class="d-flex flex-column justify-content-center mt-2"><h6 class="mb-0 text-sm">'+row.price+'</h6></div>';
+           }
+        },
+        {
+          "render": function ( data, type, row ) {
+            return '<div class="d-flex flex-column justify-content-center mt-2"><h6 class="mb-0 text-sm">'+row.stock+'</h6></div>';
+           }
+        },
+        {
+          "render": function ( data, type, row ) {
+            return '<div class="d-flex flex-column justify-content-center mt-2"><h6 class="mb-0 text-sm">'+row.descriptions+'</h6></div>';
            }
         },
         {
@@ -238,15 +322,53 @@
               return '<div style = "width:100%;text-align:center;"><button class="btn btn-warning" onclick = "" data-id = "'+row.id+'" btn-sm" data-toggle="modal" data-target="#modal_detail_product" style = "float:left;margin:auto;" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button><button class="btn btn-danger" onclick = "getStatusChange(this)" data-id = "'+row.id+'" btn-sm"  style  = "float:left;" ><i class="fa fa-exchange" aria-hidden="true"></i></button></div>';
 
            }
-        },
-        // {
-        //    "render": function ( data, type, row ) {
-        //     return '<button class="btn btn-warning" onclick = "getdetailTransaction(this)" data-id = "'+row.id+'" btn-sm" data-toggle="modal" data-target="#modal_detail_product" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button><br><br><button class="btn btn-danger" onclick = "getStatusChange(this)" data-id = "'+row.id+'" btn-sm"  ><i class="fa fa-exchange" aria-hidden="true"></i></button>';
-        //   }
-        // }
+        }
       ],
     });
   });
+
+
+  $("#formtambah").on('submit',(function(e){
+          e.preventDefault();
+          var formdata = new FormData(this);
+          $.ajax({
+            url: "{{url('/adminoffice/product/tambahproduk')}}",
+              type: "POST",
+              headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+              data: formdata,
+              contentType: false,
+              cache: false,
+              processData:false,
+              success: function(data){
+                $('#datatable_product').DataTable().ajax.reload();
+                var currentdate = new Date(); 
+                var tgl =  currentdate.getDate() + "/"
+                + (currentdate.getMonth()+1)  + "/" 
+                + currentdate.getFullYear() + " @ "  
+                + currentdate.getHours() + ":"  
+                + currentdate.getMinutes() + ":" 
+                + currentdate.getSeconds();
+                $("#add_alert_notif_danger").attr("style", "display: none !important");
+                $("#add_alert_notif_success").attr("style", "display: block !important");
+                $("#add_tanggal_alert_success").html(tgl);
+                $("#formtambah").trigger("reset");
+
+
+              },
+              error: function(XMLHttpRequest, textStatus, errorThrown) { 
+                var currentdate = new Date(); 
+                var tgl =  currentdate.getDate() + "/"
+                + (currentdate.getMonth()+1)  + "/" 
+                + currentdate.getFullYear() + " @ "  
+                + currentdate.getHours() + ":"  
+                + currentdate.getMinutes() + ":" 
+                + currentdate.getSeconds();
+                $("#add_alert_notif_success").attr("style", "display: none !important");
+                $("#add_alert_notif_danger").attr("style", "display: block !important");
+                $("#add_tanggal_alert_danger").html(tgl);
+              },
+          });
+      }));
   </script>
   <script>
     var win = navigator.platform.indexOf('Win') > -1;

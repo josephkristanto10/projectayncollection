@@ -24,6 +24,12 @@ Route::resource('/product', ProductController::class);
 Route::group(['prefix'=>'adminoffice','as'=>'Admin.'], function(){
     Route::get('/', [AdminController::class,"index"]);
     Route::get('product', [AdminController::class,"index_product"]);
+    Route::get('product/getlistproduct', [AdminController::class,"gettabelproduct"]);
+    Route::POST('product/tambahproduk', [AdminController::class,"tambahproduk"]);
     Route::get('category', [CategoryController::class,"index"]);
     Route::get('category/getlistcategory', [CategoryController::class,"gettabelcategory"]);
+    Route::get('category/getdetailcategory',[CategoryController::class, "getdetailcategory"]);
+    Route::POST('category/changestatuscategory',[CategoryController::class, "changestatuscategory"]);
+    Route::POST('category/editcategory',[CategoryController::class, "editcategory"]);    
+    Route::POST('category/tambahcategory', [CategoryController::class,"tambahcategory"]);
 });
