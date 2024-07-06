@@ -262,6 +262,94 @@
 
   {{-- End Modall Add --}}
 
+  {{-- Modal Edit --}}
+<div class="modal fade" id="modal_edit_product" tabindex="-1" role="dialog" aria-labelledby="modal_detail_productLabel" aria-hidden="true" style = "z-index:100000;" >
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title" id="judulproduk" ><i class="fa fa-list-alt" aria-hidden="true"></i>
+              <span onclick  = "showdetail()" style = "cursor:pointer">Edit Product</span> / <span style = "cursor:pointer;" onclick  = "showvariant()">List Variant</span> <span style = "font-size:12px;"> Choose Edit Product or List Variant  </span></h3>
+            <button type="button" id = "closeeditproduct" class="close" data-bs-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+          
+            <span id = "detail_produk">
+              <h4>Edit Product</h4>
+                <form id = "formedit" enctype="multipart/form-data">
+                    {!! csrf_field() !!}
+                    <div class = "col-12">Pilih Category <select id = "edit_pilihan_category" name = "edit_pil_category"  class = "form-control">
+                      @foreach ($category as $c)
+                      <option value = '{{$c->id}}'>{{$c->id}} - {{$c->name}}</option>
+                      @endforeach  
+                      </select> 
+                  </div>
+                  <div class = "row mt-3 mb-3">
+                    <div class = "col-6">Gambar Product <input id = "edit_gambarproduk" name = "edit_gbr_product" type = "file" class = "form-control" > </div>
+                    <div class = "col-6">Code Product <input id = "edit_kodeproduk" name = "edit_code_product" type = "text" class = "form-control" required> </div>
+                  </div>
+                  <div class = "row mt-3 mb-3">
+                    <div class = "col-6">Nama Product <input  id = "edit_namaproduk" name = "edit_nama_product" type = "text" class = "form-control" required></div>
+                    <div class = "col-3">Harga Product <input id = "edit_hargaproduk" name = "edit_harga_product" type = "text" class = "form-control" required> </div>
+                    <div class = "col-3">Stock Product <input  id = "edit_stockproduk" name = "edit_stock_product" type = "text" class = "form-control" required></div>
+      
+                  </div>
+                  <div class = "row mt-3 mb-3">
+                    <div class = "col-12">Description Product <input id = "edit_descproduk" name = "edit_desc_product" type = "text" class = "form-control" required> </div>
+                  </div>
+                
+                  <div class = "row mt-3 mb-3">
+                    <div class ="col-12" style = "text-align:right;"><input type = "submit" class ="btn btn-success "  value = "Ganti"></div>
+                  </div>
+                </form>
+            </span>
+            <span id = "list_variant" style = "display:none;">
+              <h4>Add Variant</h4>
+              <form id = "formaddvariant"  enctype="multipart/form-data">
+                {!! csrf_field() !!}
+                <div class = "row">
+                  <div class = "col-3">Gambar Variant <input id = "add_gambarvariant" name = "add_gbr_variant" type = "file" class = "form-control" > </div>
+                  <div class = "col-6">Nama Variant <input  id = "add_namavariant" name = "add_nama_variant" type = "text" class = "form-control" required></div>
+                  <div class ="col-3 mt-4" style = "text-align:right;"><input type = "submit" class ="btn btn-success form-control"  value = "Tambah Variant"></div>
+                  
+                </div>
+                <div class = "row mt-3 mb-3">
+                </div>
+              </form>
+              <h4>Edit Variant</h4>
+              <form id = "formeditvariant"  enctype="multipart/form-data">
+                {!! csrf_field() !!}
+                <div class = "row">
+                  <div class = "col-3">Gambar Variant <input id = "edit_gambarvariant" name = "edit_gbr_variant" type = "file" class = "form-control" > </div>
+                  <div class = "col-6">Nama Variant <input  id = "edit_namavariant" name = "edit_nama_variant" type = "text" class = "form-control" required></div>
+                  <div class ="col-3 mt-4" style = "text-align:right;"><input type = "submit" class ="btn btn-success form-control"  value = "Edit Variant"></div>
+                </div>
+                <div class = "row mt-3 mb-3">
+                </div>
+              </form>
+              <h4>List Variant in this Product</h4>
+                <table id="table_variant_product" class="table table-bordered table-hover">
+                  <thead>
+                    <tr>
+                      <th>Gambar</th>
+                      <th>Variant Name</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id = "isian_variant_produk"></tbody>
+                </table>
+            </span>
+         
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+    </div>
+  </div>
+</div>
+</div>
+  {{--  --}}
+
 
   <script
 			  src="https://code.jquery.com/jquery-3.7.1.js"
@@ -277,6 +365,8 @@
   <script src="//cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap.min.js"></script>
 
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
   
 
@@ -284,6 +374,8 @@
   
   $(document).ready(function () {
   
+   var idselected = "0";
+   var id_variant = "0";
    var mytable =  $('#datatable_product').DataTable({
       processing: true,
       serverSide: true,
@@ -319,13 +411,38 @@
         },
         {
           "render": function ( data, type, row ) {
-              return '<div style = "width:100%;text-align:center;"><button class="btn btn-warning" onclick = "" data-id = "'+row.id+'" btn-sm" data-toggle="modal" data-target="#modal_detail_product" style = "float:left;margin:auto;" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button><button class="btn btn-danger" onclick = "getStatusChange(this)" data-id = "'+row.id+'" btn-sm"  style  = "float:left;" ><i class="fa fa-exchange" aria-hidden="true"></i></button></div>';
+              return '<div style = "width:100%;text-align:center;"><button class="btn btn-warning" onclick = "getdetailproduct(this)" data-id = "'+row.id+'" btn-sm" data-bs-toggle="modal" data-bs-target="#modal_edit_product" style = "float:left;margin:auto;" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button><button class="btn btn-danger" onclick = "getStatusChange(this)" data-id = "'+row.id+'" btn-sm"  style  = "float:left;" ><i class="fa fa-exchange" aria-hidden="true"></i></button></div>';
 
            }
         }
       ],
     });
   });
+
+  function getdetailproduct(myobj){
+    var productId = $(myobj).attr("data-id");
+    idselected = productId;
+    $.ajax({
+      type: "get",
+      url: "{{url('/adminoffice/product/getdetailproduct')}}",
+      data: {"idproduct" : productId},
+      dataType: "json",
+      success: function (response) {
+        // $("#isian_variant_produk").html("");
+        // $("#isian_variant_produk").html(response.output);
+        // $("#edit_gambarcategory").val(response.output[0].names);
+        $("#isian_variant_produk").html(response.output_variant);
+        $("#edit_kodeproduk").val(response.output_detail[0].code);
+        $("#edit_namaproduk").val(response.output_detail[0].name);
+        $("#edit_hargaproduk").val(response.output_detail[0].price);
+        $("#edit_stockproduk").val(response.output_detail[0].stock);
+        $("#edit_pilihan_category").val(response.output_detail[0].id_category);
+        $("#edit_descproduk").val(response.output_detail[0].descriptions);
+       
+      }
+    });
+
+  }
 
 
   $("#formtambah").on('submit',(function(e){
@@ -369,6 +486,116 @@
               },
           });
       }));
+
+      $("#formedit").on('submit',(function(e){
+        e.preventDefault();
+        var formdata = new FormData(this);
+        formdata.append('id_product', idselected);
+        $.ajax({
+          url: "{{url('/adminoffice/product/editproduk')}}",
+            type: "POST",
+            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+            data: formdata,
+            contentType: false,
+            cache: false,
+            processData:false,
+            success: function(data){
+              $('#datatable_product').DataTable().ajax.reload();
+              // $('#modal_detail_product').modal();
+              $("#closeeditproduct").click();
+              
+              Swal.fire({
+                title: "<strong>Product telah terganti</strong>",
+                icon: "success",
+                html: "Jika tidak terupdate, hubungi Developer",
+                showCloseButton: false,
+                showCancelButton: false,
+                allowOutsideClick:true,
+                focusConfirm: false,
+                confirmButtonText: `
+                  <i class="fa fa-thumbs-up"></i> Ok
+                `,
+                confirmButtonAriaLabel: "Ok",
+            });
+            
+
+            },
+        });
+    }));
+
+    $("#formaddvariant").on('submit',(function(e){
+        e.preventDefault();
+        var formdata = new FormData(this);
+        formdata.append('id_product', idselected);
+        
+        $.ajax({
+          url: "{{url('/adminoffice/variant/tambahvariant')}}",
+            type: "POST",
+            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+            data: formdata,
+            contentType: false,
+            cache: false,
+            processData:false,
+            success: function(data){
+              $("#isian_variant_produk").append(data.output);
+              $("#formaddvariant").trigger("reset");
+           
+        
+
+            },
+        });
+    }));
+
+    $("#formeditvariant").on('submit',(function(e){
+        e.preventDefault();
+        var formdata = new FormData(this);
+        formdata.append('id_variants', id_variant);
+        
+        $.ajax({
+          url: "{{url('/adminoffice/variant/editvariant')}}",
+            type: "POST",
+            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+            data: formdata,
+            contentType: false,
+            cache: false,
+            processData:false,
+            success: function(data){
+              $("#isian_variant_produk").append(data.output);
+              $("#formaddvariant").trigger("reset");
+              if(data.gambar){
+                var urlgambar = '{{asset("main/images/variant/")}}'+"/"+data.gambar;
+                $("#gbr_"+id_variant).html("<img src = '"+urlgambar+"' style = 'width:40px;height:40px;'>");
+                // alert("<img src = '"+urlgambar+"' style = 'width:40px;height:40px;'");
+               
+              }
+              $("#nama_"+id_variant).html(data.nama);
+              $("#formeditvariant").trigger("reset");
+        
+
+            },
+        });
+    }));
+
+    function previewganti(myobj){
+      var variantid = $(myobj).attr("data-id");
+      var name_variant = $("#nama_"+variantid).text();
+      $("#edit_namavariant").val(name_variant);
+      id_variant = variantid;
+
+    }
+
+    function showdetail()
+    {
+      $("#detail_produk").css("display", "block");
+      $("#list_variant").css("display", "none");
+    }
+    function showvariant()
+    {
+      $("#detail_produk").css("display", "none");
+      $("#list_variant").css("display", "block");
+    }
+    
+
   </script>
   <script>
     var win = navigator.platform.indexOf('Win') > -1;

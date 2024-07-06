@@ -25,7 +25,13 @@ Route::group(['prefix'=>'adminoffice','as'=>'Admin.'], function(){
     Route::get('/', [AdminController::class,"index"]);
     Route::get('product', [AdminController::class,"index_product"]);
     Route::get('product/getlistproduct', [AdminController::class,"gettabelproduct"]);
+    Route::get('product/getdetailproduct', [AdminController::class,"getdetailproduct"]);
     Route::POST('product/tambahproduk', [AdminController::class,"tambahproduk"]);
+    Route::POST('product/editproduk', [AdminController::class,"editproduct"]);
+
+    Route::POST("variant/tambahvariant", [AdminController::class,"tambahvariant"]);
+    Route::POST("variant/editvariant", [AdminController::class,"gantivariant"]);
+   
     Route::get('category', [CategoryController::class,"index"]);
     Route::get('category/getlistcategory', [CategoryController::class,"gettabelcategory"]);
     Route::get('category/getdetailcategory',[CategoryController::class, "getdetailcategory"]);
