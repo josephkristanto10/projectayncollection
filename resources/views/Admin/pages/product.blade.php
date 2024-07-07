@@ -74,12 +74,13 @@
               <table class ="table align-items-center mb-0" style = "text-align:center !important;" id = "datatable_product">
                 <thead>
                   <tr>
-                    <th>ID</th>
+                    <th>Code</th>
                     <th>Images</th>
                     <th>Name</th>
                     <th>Price</th>
                     <th>Stock</th>
                     <th>Description</th>
+                    <th>Status</th>
                     <th>Action</th>
                   </tr>
                 </thead>
@@ -382,7 +383,7 @@
       ajax: "{{url('/adminoffice/product/getlistproduct')}}",
       columns: [
         {
-           data: 'id'
+           data: 'code'
         },
         {
           "render": function ( data, type, row ) {
@@ -411,7 +412,16 @@
         },
         {
           "render": function ( data, type, row ) {
-              return '<div style = "width:100%;text-align:center;"><button class="btn btn-warning" onclick = "getdetailproduct(this)" data-id = "'+row.id+'" btn-sm" data-bs-toggle="modal" data-bs-target="#modal_edit_product" style = "float:left;margin:auto;" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button><button class="btn btn-danger" onclick = "getStatusChange(this)" data-id = "'+row.id+'" btn-sm"  style  = "float:left;" ><i class="fa fa-exchange" aria-hidden="true"></i></button></div>';
+             var status = "<span style = 'color:red'>Tidak Tampil</span>";
+             if(row.status_product == "1"){
+              status = "<span style = 'color:green'>Tampil</span>"
+             }
+             return status;
+           }
+        },
+        {
+          "render": function ( data, type, row ) {
+              return '<div style = "width:100%;text-align:center;"><button class="btn btn-warning" onclick = "getdetailproduct(this)" data-id = "'+row.id+'" btn-sm" data-bs-toggle="modal" data-bs-target="#modal_edit_product" style = "float:left;margin:auto;" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button><button class="btn btn-danger" onclick = "getStatusChange(this)" data-id = "'+row.id+'" btn-sm"  style  = "float:left;" ><i class="fa fa-exchange" aria-hidden="true"></i> Ganti Status</button></div>';
 
            }
         }
@@ -576,6 +586,8 @@
         });
     }));
 
+  
+
     function previewganti(myobj){
       var variantid = $(myobj).attr("data-id");
       var name_variant = $("#nama_"+variantid).text();
@@ -595,8 +607,51 @@
       $("#list_variant").css("display", "block");
     }
     
+    function deletevariant(myobj){
+      var id_variant = $(myobj).attr("data-id");
+      $.ajax({
+          type: "post",
+          url: "{{url('/adminoffice/variant/deletevariant')}}",
+          data: { "_token": "{{ csrf_token() }}","id_variant" : id_variant},
+          dataType: "json",
+          success: function (response) {
+            // $('#datatable_product').DataTable().ajax.reload();
+            $("#delete_"+id_variant).remove();
+         
+            
+          }
+        });
+    }
+    function getStatusChange(myobj){
+        var idproduct = $(myobj).attr("data-id");
+        $.ajax({
+          type: "post",
+          url: "{{url('/adminoffice/product/changestatusproduct')}}",
+          data: { "_token": "{{ csrf_token() }}","idproduct" : idproduct},
+          dataType: "json",
+          success: function (response) {
+            $('#datatable_product').DataTable().ajax.reload();
+            Swal.fire({
+                  title: "<strong>Produk ini "+response.output+"</strong>",
+                  icon: "success",
+                  html: "Jika tidak terganti, hubungi Developer",
+                  showCloseButton: false,
+                  showCancelButton: false,
+                  allowOutsideClick:false,
+                  focusConfirm: false,
+                  confirmButtonText: `
+                    <i class="fa fa-thumbs-up"></i> Ok
+                  `,
+                  confirmButtonAriaLabel: "Ok",
+              });
+         
+            
+          }
+        });
+      }
 
   </script>
+  @include("Support.footer")
   <script>
     var win = navigator.platform.indexOf('Win') > -1;
     if (win && document.querySelector('#sidenav-scrollbar')) {

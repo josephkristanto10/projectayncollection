@@ -5,9 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\VariantProduct;
+use App\Models\Superadmin;
 
 use Illuminate\Http\Request;
 use DataTables;
+use Session;
+use Hash;
 
 class AdminController extends Controller
 {
@@ -18,8 +21,43 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $menu = "dashboard";
-        return view('Admin.pages.dashboard', compact("menu"));
+        if(Session::get("type_superadmin") == "admin"){
+            $menu = "dashboard";
+            $jumlahCategory =  Category::all()->count();
+            $jumlahProduct =  Product::all()->count();
+            $limitCategory = Category::latest()->limit(4)->get();
+            $limitProduct = Product::latest()->limit(4)->get();
+            return view('Admin.pages.dashboard', compact("menu", 'jumlahCategory','jumlahProduct','limitCategory','limitProduct'));
+        }
+        else{
+            return view('Admin.pages.signin');
+        }
+        
+      
+    }
+    public function checklogin(Request $request){
+        $username = $request->user;
+        $password = $request->pass;
+        
+
+        $myadmin = Superadmin::where("user","=",$username)->get();
+        if($myadmin->count() > 0){
+            if(Hash::check($password, $myadmin[0]->pass)) {
+                Session::put('id_superadmin',$myadmin[0]->id);
+                Session::put('nama_superadmin',$myadmin[0]->name);
+                Session::put('type_superadmin',"admin");
+                return "cocok";
+            }
+            else{
+                return "tidak cocok";
+            }
+        }
+        else{
+            return "tidak ada data";
+        }
+    }
+    public function logout(){
+        Session::flush();
     }
     public function index_product(){
         $menu = "product";
@@ -66,11 +104,11 @@ class AdminController extends Controller
         if($data_variant->count() >0){
           
             foreach($data_variant as $dv){
-                $hasil .= "<tr>";
+                $hasil .= "<tr id ='delete_$dv->id'>";
                 $hasil .= "<td><span  id = 'gbr_$dv->id'><img  src='".asset('main/images/variant/')."/".$dv->variant_images."' style = 'width:40px;height:40px;' ></span></td>";
                 $hasil .= "<td><span id = 'nama_$dv->id'>".$dv->variant_name."</span></td>";
-                $hasil .= "<td><button data-id = '$dv->id'' class = 'btn btn-warning' onclick = 'previewganti(this)'>Edit</button><button class = 'btn btn-danger'>Delete</button></td>";
-                $hasil  .= "</tr>";
+                $hasil .= "<td ><button data-id = '$dv->id' class = 'btn btn-warning' onclick = 'previewganti(this)'>Edit</button><button data-id = '$dv->id' class = 'btn btn-danger'  onclick = 'deletevariant(this)'>Delete</button></td>";
+                $hasil .= "</tr>";
             }
           
         }
@@ -123,7 +161,7 @@ class AdminController extends Controller
             $myvariant = VariantProduct::create(["id_product" => $id_product, "variant_images" => "-", "variant_name" => $name_variant, "variant_images"=>"-", "variant_stock" => "1", "variant_status" => "1", "updated_at" => now(), "created_at"=>now()]);
             $variant_id = $myvariant->id;
         }
-        $hasil = "<tr><td><span id = 'gbr_$variant_id'><img   style = 'width:40px;height:40px;' src = '".asset("main/images/variant/$nama_file")."')></span></td><td><span id = 'nama_$variant_id'>$name_variant</span></td><td><button data-id = '$variant_id'' class = 'btn btn-warning' onclick = 'previewganti(this)'>Edit</button><button class = 'btn btn-danger'>Delete</button></td></tr>";
+        $hasil = "<tr id ='delete_".$variant_id."><td ><span id = 'gbr_$variant_id'><img   style = 'width:40px;height:40px;' src = '".asset("main/images/variant/$nama_file")."')></span></td><td><span id = 'nama_$variant_id'>$name_variant</span></td><td><button data-id = '$variant_id'' class = 'btn btn-warning' onclick = 'previewganti(this)'>Edit</button><button data-id = '$variant_id'' class = 'btn btn-danger' onclick = 'deletevariant(this)'>Delete</button></td></tr>";
 
         return response()->json(['output'=>$hasil]);
     }
@@ -148,6 +186,28 @@ class AdminController extends Controller
             VariantProduct::where(['id' => $id_variant ])->update(["variant_name" => $name_variant,  "updated_at" => now(), "created_at"=>now()]);
         }
         return response()->json(['gambar'=>$nama_file, "nama" => $name_variant]);
+    }
+
+    public function changestatusproduct(Request $request){
+        $id_product = $request->idproduct;
+        $status = Product::where("id",'=',$id_product)->get();
+        $status_product = $status[0]['status_product'];
+        $ganti = "0";
+        $hasil = "";
+        if($status_product == "0"){
+            $ganti = "1";
+            $hasil = " berhasil diaktifkan kembali";
+        }
+        else{
+            $ganti ="0";
+            $hasil = " Di nonaktifkan ";
+        }
+        Product::where(['id' => $id_product ])->update(['status_product' => $ganti]);
+        return response()->json(['output' => $hasil]);
+    }
+    public function hapusvariant(Request $request){
+        VariantProduct::destroy($request->id_variant);
+        return response()->json(['output' => "ok"]);
     }
     
 

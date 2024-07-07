@@ -91,6 +91,7 @@
                     <th>ID</th>
                     <th>Category</th>
                     <th>Jumlah</th>
+                    <th>Status</th>
                     <th>Action</th>
                   </tr>
                 </thead>
@@ -280,12 +281,12 @@
           
             <div class="alert alert-success d-flex align-items-center" role="alert" id = "add_alert_notif_success" style = "display:none !important;">
               <div>
-                Produk Sukses Ditambah pada <span id = "add_tanggal_alert_success"></span>. Jika tidak tertambah, Hubungi Developer.
+                Category Sukses Ditambah pada <span id = "add_tanggal_alert_success"></span>. Jika tidak tertambah, Hubungi Developer.
               </div>
             </div>
             <div class="alert alert-danger d-flex align-items-center" role="alert" id = "add_alert_notif_danger" style = "display:none !important;">
               <div>
-                Produk gagal Ditambah <span id = "add_tanggal_alert_danger"></span>.. Segera Hubungi Developer.
+                Category gagal Ditambah <span id = "add_tanggal_alert_danger"></span>.. Segera Hubungi Developer.
               </div>
             </div>
             <div class = "row mt-3 mb-3">
@@ -347,7 +348,16 @@
         },
         {
           "render": function ( data, type, row ) {
-              return '<div style = "width:100%;text-align:center;"><button class="btn btn-warning" onclick = "getdetailcategory(this)" data-id = "'+row.id+'" btn-sm" data-bs-toggle="modal" data-bs-target="#modal_edit_category"" style = "float:left;margin:auto;" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button><button class="btn btn-danger" onclick = "getStatusChange(this)" data-id = "'+row.id+'" btn-sm"  style  = "float:left;" ><i class="fa fa-exchange" aria-hidden="true"></i></button></div>';
+             var status = "<span style = 'color:red'>Tidak Tampil</span>";
+             if(row.status_category == "1"){
+              status = "<span style = 'color:green'>Tampil</span>"
+             }
+             return status;
+           }
+        },
+        {
+          "render": function ( data, type, row ) {
+              return '<div style = "width:100%;text-align:center;"><button class="btn btn-warning" onclick = "getdetailcategory(this)" data-id = "'+row.id+'" btn-sm" data-bs-toggle="modal" data-bs-target="#modal_edit_category"" style = "margin:auto;" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button><button class="btn btn-danger" onclick = "getStatusChange(this)" data-id = "'+row.id+'" btn-sm"  style  = "margin-top:15px;" ><i class="fa fa-exchange" aria-hidden="true"></i> Ganti Status</button></div>';
 
            }
         },
@@ -379,7 +389,6 @@
   }
   function getStatusChange(myobj){
         var idcategory = $(myobj).attr("data-id");
-   
         $.ajax({
           type: "post",
           url: "{{url('/adminoffice/category/changestatuscategory')}}",
@@ -498,3 +507,4 @@
 </body>
 
 </html>
+@include("Support.footer")

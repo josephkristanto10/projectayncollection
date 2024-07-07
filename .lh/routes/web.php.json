@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 64,
+            "activePatchIndex": 72,
             "patches": [
                 {
                     "date": 1719819322244,
@@ -264,6 +264,38 @@
                 {
                     "date": 1720281289468,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n     Route::POST('product/tambahproduk', [AdminController::class,\"tambahproduk\"]);\n     Route::POST('product/editproduk', [AdminController::class,\"editproduct\"]);\n \n     Route::POST(\"variant/tambahvariant\", [AdminController::class,\"tambahvariant\"]);\n-    Route::POST(\"variant/tambahvariant\", [AdminController::class,\"tambahvariant\"]);\n+    Route::POST(\"variant/editvariant\", [AdminController::class,\"gantivariant\"]);\n    \n     Route::get('category', [CategoryController::class,\"index\"]);\n     Route::get('category/getlistcategory', [CategoryController::class,\"gettabelcategory\"]);\n     Route::get('category/getdetailcategory',[CategoryController::class, \"getdetailcategory\"]);\n"
+                },
+                {
+                    "date": 1720324213962,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,8 +22,12 @@\n Route::resource('/product', ProductController::class);\n // Route::resource('/adminoffice', AdminController::class);\n Route::group(['prefix'=>'adminoffice','as'=>'Admin.'], function(){\n     Route::get('/', [AdminController::class,\"index\"]);\n+\n+    Route::POST('login', [AdminController::class,\"tambahproduk\"]);\n+    \n+\n     Route::get('product', [AdminController::class,\"index_product\"]);\n     Route::get('product/getlistproduct', [AdminController::class,\"gettabelproduct\"]);\n     Route::get('product/getdetailproduct', [AdminController::class,\"getdetailproduct\"]);\n     Route::POST('product/tambahproduk', [AdminController::class,\"tambahproduk\"]);\n"
+                },
+                {
+                    "date": 1720324223474,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n // Route::resource('/adminoffice', AdminController::class);\n Route::group(['prefix'=>'adminoffice','as'=>'Admin.'], function(){\n     Route::get('/', [AdminController::class,\"index\"]);\n \n-    Route::POST('login', [AdminController::class,\"tambahproduk\"]);\n+    Route::POST('login', [AdminController::class,\"checklogin\"]);\n     \n \n     Route::get('product', [AdminController::class,\"index_product\"]);\n     Route::get('product/getlistproduct', [AdminController::class,\"gettabelproduct\"]);\n"
+                },
+                {
+                    "date": 1720324412531,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n Route::group(['prefix'=>'adminoffice','as'=>'Admin.'], function(){\n     Route::get('/', [AdminController::class,\"index\"]);\n \n     Route::POST('login', [AdminController::class,\"checklogin\"]);\n-    \n+    Route::POST('login', [AdminController::class,\"checklogin\"]);\n \n     Route::get('product', [AdminController::class,\"index_product\"]);\n     Route::get('product/getlistproduct', [AdminController::class,\"gettabelproduct\"]);\n     Route::get('product/getdetailproduct', [AdminController::class,\"getdetailproduct\"]);\n"
+                },
+                {
+                    "date": 1720324422352,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n Route::group(['prefix'=>'adminoffice','as'=>'Admin.'], function(){\n     Route::get('/', [AdminController::class,\"index\"]);\n \n     Route::POST('login', [AdminController::class,\"checklogin\"]);\n-    Route::POST('login', [AdminController::class,\"checklogin\"]);\n+    Route::POST('logout', [AdminController::class,\"logout\"]);\n \n     Route::get('product', [AdminController::class,\"index_product\"]);\n     Route::get('product/getlistproduct', [AdminController::class,\"gettabelproduct\"]);\n     Route::get('product/getdetailproduct', [AdminController::class,\"getdetailproduct\"]);\n"
+                },
+                {
+                    "date": 1720325254169,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n Route::group(['prefix'=>'adminoffice','as'=>'Admin.'], function(){\n     Route::get('/', [AdminController::class,\"index\"]);\n \n     Route::POST('login', [AdminController::class,\"checklogin\"]);\n-    Route::POST('logout', [AdminController::class,\"logout\"]);\n+    Route::get('logout', [AdminController::class,\"logout\"]);\n \n     Route::get('product', [AdminController::class,\"index_product\"]);\n     Route::get('product/getlistproduct', [AdminController::class,\"gettabelproduct\"]);\n     Route::get('product/getdetailproduct', [AdminController::class,\"getdetailproduct\"]);\n"
+                },
+                {
+                    "date": 1720327051944,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,8 +31,10 @@\n     Route::get('product/getlistproduct', [AdminController::class,\"gettabelproduct\"]);\n     Route::get('product/getdetailproduct', [AdminController::class,\"getdetailproduct\"]);\n     Route::POST('product/tambahproduk', [AdminController::class,\"tambahproduk\"]);\n     Route::POST('product/editproduk', [AdminController::class,\"editproduct\"]);\n+    Route::POST('product/editproduk', [AdminController::class,\"editproduct\"]);\n+    changestatusproduct\n \n     Route::POST(\"variant/tambahvariant\", [AdminController::class,\"tambahvariant\"]);\n     Route::POST(\"variant/editvariant\", [AdminController::class,\"gantivariant\"]);\n    \n"
+                },
+                {
+                    "date": 1720331031493,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,13 +31,15 @@\n     Route::get('product/getlistproduct', [AdminController::class,\"gettabelproduct\"]);\n     Route::get('product/getdetailproduct', [AdminController::class,\"getdetailproduct\"]);\n     Route::POST('product/tambahproduk', [AdminController::class,\"tambahproduk\"]);\n     Route::POST('product/editproduk', [AdminController::class,\"editproduct\"]);\n-    Route::POST('product/editproduk', [AdminController::class,\"editproduct\"]);\n-    changestatusproduct\n+    Route::POST('product/changestatusproduct', [AdminController::class,\"changestatusproduct\"]);\n+    \n \n     Route::POST(\"variant/tambahvariant\", [AdminController::class,\"tambahvariant\"]);\n     Route::POST(\"variant/editvariant\", [AdminController::class,\"gantivariant\"]);\n+    Route::POST(\"variant/editvariant\", [AdminController::class,\"gantivariant\"]);\n+    variant/deletevariant\n    \n     Route::get('category', [CategoryController::class,\"index\"]);\n     Route::get('category/getlistcategory', [CategoryController::class,\"gettabelcategory\"]);\n     Route::get('category/getdetailcategory',[CategoryController::class, \"getdetailcategory\"]);\n"
+                },
+                {
+                    "date": 1720331039571,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,10 +36,10 @@\n     \n \n     Route::POST(\"variant/tambahvariant\", [AdminController::class,\"tambahvariant\"]);\n     Route::POST(\"variant/editvariant\", [AdminController::class,\"gantivariant\"]);\n-    Route::POST(\"variant/editvariant\", [AdminController::class,\"gantivariant\"]);\n-    variant/deletevariant\n+    Route::POST(\"variant/deletevariant\", [AdminController::class,\"gantivariant\"]);\n+  \n    \n     Route::get('category', [CategoryController::class,\"index\"]);\n     Route::get('category/getlistcategory', [CategoryController::class,\"gettabelcategory\"]);\n     Route::get('category/getdetailcategory',[CategoryController::class, \"getdetailcategory\"]);\n"
                 }
             ],
             "date": 1719819322244,
