@@ -12,6 +12,7 @@
         <p style = "font-size:1.1vw;margin-top:10px;padding-left:10px;">#Ayn - {{$mp->code}}</p>
         @if(session()->has('verifyuser'))
         <p style = "font-size:1.1vw;margin-top:10px;padding-left:10px;">Rp {{number_format($mp->price)}} / Piece</p>
+        @endif
         <p style = "font-size:1.1vw;margin-top:10px;padding-left:10px; " class = "description_product"><span class = "maroon_color" style = "font-weight:bold;" data-kode = "{{$mp->code}}" data-id = "{{$mp->id}}" onclick = "openmodal(this)">Read the Spesification <i class="fa fa-angle-right maroon_color" aria-hidden="true"></i></span></p> <i class="bi bi-arrow-right"></i>
     @endif
     </div>
