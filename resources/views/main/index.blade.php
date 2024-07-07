@@ -838,11 +838,12 @@ transition: all 0.3s;
   }
   .card_detail {
 
-    width: 650px;
-    height: 375px;
+    width: 80%;
+    /* height: 100%; */
     position: fixed;
     background: white;
     margin: 0 auto;
+    text-align: left !important;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -861,7 +862,6 @@ transition: all 0.3s;
       color: #727272;
       text-transform: uppercase;
       padding: 20px;
-      border-bottom: 2px solid #efefef;
       font-size: 12px;
       
       svg.heart {
@@ -906,10 +906,9 @@ transition: all 0.3s;
     
     .description {
       
-       padding: 30px;
+       padding: 15px;
        float: left;
        width: 55%;
-       border-left: 2px solid #efefef;
        
        h1 {
          color: #515151;
@@ -975,6 +974,31 @@ transition: all 0.3s;
   }
   
 }
+
+.card_detail button{
+  outline: 0;
+         border: 0;
+         background: none;
+         border: 1px solid #d9d9d9;
+         padding: 8px 0px;
+         margin-bottom: 30px;
+         color: #515151;
+         text-transform: uppercase;
+         width: 125px;
+         font-family: inherit;
+         margin-right: 5px;
+         transition: all 0.3s ease;
+         font-weight: 500;
+         
+         &:hover {
+           
+           // background: darken(white, 2%);
+           border: 1px solid #aedaa6;
+           color: #aedaa6;
+           cursor: pointer;
+           
+         }
+}
         
     </style>
   </head>
@@ -989,31 +1013,19 @@ transition: all 0.3s;
             <span id = "buythe_style">Buy The</span> <span class = "maroon_color_bold" id = "latest_style">Latest</span>
             <div class = "product">
                 <div class = "row  justify-content-center" style = "text-align:left;">
+                    @foreach($latest_product as $lp)
                     <div class = "col col-lg-3">
-                        <image src = "{{asset('main/images/product/product1.jpg')}}" style = "max-width:100%;;height:auto;border-radius:7px;"/>
-                        <p style = "margin-top:10px;padding-left:10px; font-size:1.5vw;margin-bottom:0px !important;"><b>Trending</b> <span id = "product_category" class = "maroon_color category_product" style = "font-size:2vw"><b>Skirts</b></span></p>
-                        {{-- <p style = "font-size:13px;margin-top:10px;padding-left:10px;"><b>#TK200153</b></p> --}}
-                        <p style = "font-size:2vw;margin-top:2px;padding-left:10px;font-weight:bold;margin-bottom:0px !important;">Long Skirt</p>
-                        <p style = "font-size:1.3vw;margin-top:10px;padding-left:10px; " class = "description_product">Uncover style gems with our chic, mix-ready sets. <br><br><span class = "maroon_color" style = "font-weight:bold;" onclick = "openmodal()">Read the Spesification <i class="fa fa-angle-right maroon_color" aria-hidden="true"></i></span></p> <i class="bi bi-arrow-right"></i>
-                    
+                      <image src = "{{asset('main/images/product/')}}/{{$lp->images}}" style = "width:300px !important;max-width:100%;;height:300px;border-radius:7px;"/>
+                      <p style = "margin-top:10px;padding-left:10px; font-size:1.3vw;margin-bottom:0px !important;"><b></b> <span id = "product_category" class = "maroon_color category_product" style = "font-size:1.4vw"><b>{{$lp->category_name}}</b></span></p>
+                      {{-- <p style = "font-size:13px;margin-top:10px;padding-left:10px;"><b>#TK200153</b></p> --}}
+                      <p style = "font-size:1.5vw;margin-top:2px;padding-left:10px;font-weight:bold;margin-bottom:0px !important;margin-top:10px;">{{$lp->name}}</p>
+                      <p style = "font-size:1.3vw;margin-top:10px;padding-left:10px; " class = "description_product">Uncover style gems with our chic, mix-ready sets. <br><br><span class = "maroon_color" style = "font-weight:bold;" data-id = "{{$lp->id}}" onclick = "openmodal(this)">Read the Spesification <i class="fa fa-angle-right maroon_color" aria-hidden="true"></i></span></p> <i class="bi bi-arrow-right"></i>
+                  
 
-                    </div>
-                    <div class = "col col-lg-3">
-                      <image src = "{{asset('main/images/product/product2.jpg')}}" style = "max-width:100%;;height:auto;border-radius:7px;"/>
-                      <p style = "margin-top:10px;padding-left:10px; font-size:1.5vw;margin-bottom:0px !important;"><b>Trending</b> <span id = "product_category" class = "maroon_color category_product" style = "font-size:2vw"><b>Skirts</b></span></p>
-                      {{-- <p style = "font-size:13px;margin-top:10px;padding-left:10px;"><b>#TK200153</b></p> --}}
-                      <p style = "font-size:2vw;margin-top:2px;padding-left:10px;font-weight:bold;margin-bottom:0px !important;">Long Skirt</p>
-                      <p style = "font-size:1.3vw;margin-top:10px;padding-left:10px; " class = "description_product">Uncover style gems with our chic, mix-ready sets. <br><br><span class = "maroon_color" style = "font-weight:bold;" onclick = "openmodal()">Read the Spesification <i class="fa fa-angle-right maroon_color" aria-hidden="true"></i></span></p> <i class="bi bi-arrow-right"></i>
-                  
-                    </div>
-                    <div class = "col col-lg-3">
-                      <image src = "{{asset('main/images/product/product3.jpg')}}" style = "max-width:100%;;height:auto;border-radius:7px;"/>
-                      <p style = "margin-top:10px;padding-left:10px; font-size:1.5vw;margin-bottom:0px !important;"><b>Trending</b> <span id = "product_category" class = "maroon_color category_product" style = "font-size:2vw"><b>Skirts</b></span></p>
-                      {{-- <p style = "font-size:13px;margin-top:10px;padding-left:10px;"><b>#TK200153</b></p> --}}
-                      <p style = "font-size:2vw;margin-top:2px;padding-left:10px;font-weight:bold;margin-bottom:0px !important;">Long Skirt</p>
-                      <p style = "font-size:1.3vw;margin-top:10px;padding-left:10px; " class = "description_product">Uncover style gems with our chic, mix-ready sets. <br><br><span class = "maroon_color" style = "font-weight:bold;" onclick = "openmodal()">Read the Spesification <i class="fa fa-angle-right maroon_color" aria-hidden="true"></i></span></p> <i class="bi bi-arrow-right"></i>
-                  
-                    </div>
+                  </div>
+                    @endforeach
+            
+               
                    
                 </div>
             </div>
@@ -1030,7 +1042,7 @@ transition: all 0.3s;
                       <p style = "margin-top:10px;padding-left:10px; font-size:1.5vw;margin-bottom:0px !important;"><b>Trending</b> <span id = "product_category" class = "maroon_color category_product" style = "font-size:2vw"><b>Skirts</b></span></p>
                       {{-- <p style = "font-size:13px;margin-top:10px;padding-left:10px;"><b>#TK200153</b></p> --}}
                       <p style = "font-size:2vw;margin-top:2px;padding-left:10px;font-weight:bold;margin-bottom:0px !important;">Long Skirt</p>
-                      <p style = "font-size:1.3vw;margin-top:10px;padding-left:10px; " class = "description_product">Uncover style gems with our chic, mix-ready sets. <br><br><span class = "maroon_color" style = "font-weight:bold;" onclick = "openmodal()">Read the Spesification <i class="fa fa-angle-right maroon_color" aria-hidden="true"></i></span></p> <i class="bi bi-arrow-right"></i>
+                      <p style = "font-size:1.3vw;margin-top:10px;padding-left:10px; " class = "description_product">Uncover style gems with our chic, mix-ready sets. <br><br><span class = "maroon_color" style = "font-weight:bold;" data-id = '1' onclick = "openmodal(this)">Read the Spesification <i class="fa fa-angle-right maroon_color" aria-hidden="true"></i></span></p> <i class="bi bi-arrow-right"></i>
                   
 
                     </div>
@@ -1039,7 +1051,7 @@ transition: all 0.3s;
                       <p style = "margin-top:10px;padding-left:10px; font-size:1.5vw;margin-bottom:0px !important;"><b>Trending</b> <span id = "product_category" class = "maroon_color category_product" style = "font-size:2vw"><b>Skirts</b></span></p>
                       {{-- <p style = "font-size:13px;margin-top:10px;padding-left:10px;"><b>#TK200153</b></p> --}}
                       <p style = "font-size:2vw;margin-top:2px;padding-left:10px;font-weight:bold;margin-bottom:0px !important;">Long Skirt</p>
-                      <p style = "font-size:1.3vw;margin-top:10px;padding-left:10px; " class = "description_product">Uncover style gems with our chic, mix-ready sets. <br><br><span class = "maroon_color" style = "font-weight:bold;" onclick = "openmodal()">Read the Spesification <i class="fa fa-angle-right maroon_color" aria-hidden="true"></i></span></p> <i class="bi bi-arrow-right"></i>
+                      <p style = "font-size:1.3vw;margin-top:10px;padding-left:10px; " class = "description_product">Uncover style gems with our chic, mix-ready sets. <br><br><span class = "maroon_color" style = "font-weight:bold;" data-id = '1' onclick = "openmodal(this)">Read the Spesification <i class="fa fa-angle-right maroon_color" aria-hidden="true"></i></span></p> <i class="bi bi-arrow-right"></i>
                   
                     </div>
                     <div class = "col col-lg-3">
@@ -1047,7 +1059,7 @@ transition: all 0.3s;
                       <p style = "margin-top:10px;padding-left:10px; font-size:1.5vw;margin-bottom:0px !important;"><b>Trending</b> <span id = "product_category" class = "maroon_color category_product" style = "font-size:2vw"><b>Skirts</b></span></p>
                       {{-- <p style = "font-size:13px;margin-top:10px;padding-left:10px;"><b>#TK200153</b></p> --}}
                       <p style = "font-size:2vw;margin-top:2px;padding-left:10px;font-weight:bold;margin-bottom:0px !important;">Long Skirt</p>
-                      <p style = "font-size:1.3vw;margin-top:10px;padding-left:10px; " class = "description_product">Uncover style gems with our chic, mix-ready sets. <br><br><span class = "maroon_color" style = "font-weight:bold;" onclick = "openmodal()">Read the Spesification <i class="fa fa-angle-right maroon_color" aria-hidden="true"></i></span></p> <i class="bi bi-arrow-right"></i>
+                      <p style = "font-size:1.3vw;margin-top:10px;padding-left:10px; " class = "description_product">Uncover style gems with our chic, mix-ready sets. <br><br><span class = "maroon_color" style = "font-weight:bold;" data-id = '1' onclick = "openmodal(this)">Read the Spesification <i class="fa fa-angle-right maroon_color" aria-hidden="true"></i></span></p> <i class="bi bi-arrow-right"></i>
                   
                     </div>
                    
@@ -1060,60 +1072,55 @@ transition: all 0.3s;
     </div>
     @include('main.footer')
 
-
-    
-
-
-
-
-    {{-- <div id="modal-container">
- 
-        <div class="modal-background">
-          <div class = "card" style = "width:300px;height:500px;overflow-y:auto;position:relative;"  id = "kartu_detail" >
-            <img src="{{asset('main/images/product/product1.jpg')}}" alt="Avatar" style="width:250px;height:300px;border-radius:5px;">
-            <div class="container" style = "padding:5px;position:relative">
-              <h2 style = "margin-top :20px;">Long Skirt</h2>
-              <p>Variant : <span class="dot" style = "background-color:pink;"></span>&nbsp;<span class="dot" style = "background-color:navy;"></span></p>
-              <p class = "description_product">Uncover style gems with our chic, mix-ready setsasdasdsadsadsafasdfsdfsdafasdfsadfsadfsadfasdfasdfsadjhflsjdakhflkjasdhflkjsadhflsjdhaflshadlfkjhsadkfhsadlfhdas.Uncover style gems with our chic, mix-ready setsasdasdsadsadsa</p>
-              <button id  ="button_admin_modal" style = "background-color:#800e13; color:white;">Ask Admin</button>
-              <button id  ="button_admin_modal" style = "background-color:#800e13; color:white;">See price</button> 
-              <br>
-            </div>
-          </div> 
-          {{-- <div class="modal"> --}}
-            
-            {{-- <img src = "{{asset('main/images/product/product1.jpg')}}" style = "width:240px;height:270px;border-radius:7px;"/>
-
-            <h2 style = "margin-top :20px;">Long Skirt</h2>
-           
-            <svg class="modal-svg" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="none">
-                                      <rect x="0" y="0" fill="none" width="226" height="162" rx="3" ry="3"></rect>
-            </svg>
-            <button id  ="button_admin_modal" style = "background-color:#800e13; color:white;">Ask Admin</button>
-            <button id  ="button_admin_modal" style = "background-color:#800e13; color:white;">See price</button> --}}
-          {{-- </div> --}}
         </div>
       </div> 
     <div class = "modal_card_detail" style = "width:100%;height:1000px;background-color:#000000;opacity:0.5;z-index:5;position:fixed;display:none;">
 
     </div>
       <div class="card_detail" style = "opacity:0 !important;display:none;z-index:6;">
-        <nav>
-          <svg class="arrow" id = "closemodal" version="1.1" viewBox="0 0 512 512" width="512px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><polygon points="352,115.4 331.3,96 160,256 331.3,416 352,396.7 201.5,256 " stroke="#727272"/></svg>
-          Back to all Plants
-          <svg class="heart" version="1.1" viewBox="0 0 512 512" width="512px" xml:space="preserve" stroke="#727272" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M340.8,98.4c50.7,0,91.9,41.3,91.9,92.3c0,26.2-10.9,49.8-28.3,66.6L256,407.1L105,254.6c-15.8-16.6-25.6-39.1-25.6-63.9  c0-51,41.1-92.3,91.9-92.3c38.2,0,70.9,23.4,84.8,56.8C269.8,121.9,302.6,98.4,340.8,98.4 M340.8,83C307,83,276,98.8,256,124.8  c-20-26-51-41.8-84.8-41.8C112.1,83,64,131.3,64,190.7c0,27.9,10.6,54.4,29.9,74.6L245.1,418l10.9,11l10.9-11l148.3-149.8  c21-20.3,32.8-47.9,32.8-77.5C448,131.3,399.9,83,340.8,83L340.8,83z" stroke="#727272"/></svg>
+        <nav style = "background-color:#800e13;color:white;position:relative;">
+          <svg class="arrow" id = "closemodal" style = "color:white;" version="1.1" viewBox="0 0 512 512" width="512px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><polygon points="352,115.4 331.3,96 160,256 331.3,416 352,396.7 201.5,256 " stroke="#727272"/></svg>
+          <span style = "font-weight:bold;">Back to Product</span>
+          <img src = "{{asset('main/images/logo.png')}}" style = "width:25px;height:25px">
+          {{-- <svg class="heart" version="1.1" viewBox="0 0 512 512" width="512px" xml:space="preserve" stroke="#727272" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M340.8,98.4c50.7,0,91.9,41.3,91.9,92.3c0,26.2-10.9,49.8-28.3,66.6L256,407.1L105,254.6c-15.8-16.6-25.6-39.1-25.6-63.9  c0-51,41.1-92.3,91.9-92.3c38.2,0,70.9,23.4,84.8,56.8C269.8,121.9,302.6,98.4,340.8,98.4 M340.8,83C307,83,276,98.8,256,124.8  c-20-26-51-41.8-84.8-41.8C112.1,83,64,131.3,64,190.7c0,27.9,10.6,54.4,29.9,74.6L245.1,418l10.9,11l10.9-11l148.3-149.8  c21-20.3,32.8-47.9,32.8-77.5C448,131.3,399.9,83,340.8,83L340.8,83z" stroke="#727272"/></svg> --}}
         </nav>
-        <div class="photo">
-          <img src="https://s-media-cache-ak0.pinimg.com/236x/3b/36/ca/3b36ca3afe0fa0fd4984b9eee2e154bb.jpg">
+        <div class = "row">
+          <div class = 'col-12 col-xl-6'>
+            <div class="photo" style = "text-align:center;margin:auto;width:100%;">
+              <img id = "gambar_detail_product" src="https://s-media-cache-ak0.pinimg.com/236x/3b/36/ca/3b36ca3afe0fa0fd4984b9eee2e154bb.jpg">
+            </div>
+          </div>
+          <div class = 'col-12 col-xl-6'>
+            <div class="description"style = "text-align: left !important;;width:100%;">
+              <h3 id = "modal_title_product" style = 'width:100%;'>Product Name</h3>
+              <h4 id = "modal_code_product">Product Code</h4>
+              <br>
+              <h5>Price : </h5>
+              @if(session()->has('verifyuser'))
+           
+              <h1 id = "modal_price_product" style = "padding-top:0px;">Rp -</h1>
+              @else
+              <h4 id = "">Click <b>see price</b> to ask admin</h4><br>
+              @endif
+              <h5 style = "padding-top:20px;">Description : </h5>
+              <p id = "modal_desc_product" style = "overflow-y:auto;height:150px;margin-bottom:10px;    text-align: left !important;">Classic Peace Lily is a spathiphyllum floor plant arranged in a bamboo planter with a blue & red ribbom and butterfly pick.</p>
+              
+            
+              
+            </div>
+          </div>
         </div>
-        <div class="description">
-          <h2>Classic Peace Lily</h2>
-          <h4>Popular House Plant</h4>
-          <h1>$18</h1>
-          <p>Classic Peace Lily is a spathiphyllum floor plant arranged in a bamboo planter with a blue & red ribbom and butterfly pick.</p>
-          <button>Add to Cart</button>
-          <button>Wishlist</button>
+        <div class = "row"> 
+          
+          <div class = "col-12">  <a id = "tujuan_chat_admin"><button style = "float:right;margin-right:20px;"><i class="fa fa-user-circle-o" aria-hidden="true"></i>
+            Ask Admin</button></a>  @if(!session()->has('verifyuser'))<a target = "_blank" href= "https://wa.me/+6285763794376?text=hai%20ka%2C%20saya%20mau%20lihat%20harga%20di%20website.%20apakah%20boleh%20saya%20minta%20link%20untuk%20lihat%20harga%3F"><button style = "float:right;"> <i class="fa fa-usd" aria-hidden="true"></i>
+            See Price</button></a> @endif </div>
+        
+        
+         
+        
         </div>
+    
       </div>  
 
   </body>
@@ -1130,9 +1137,40 @@ transition: all 0.3s;
 
 
 
-    function openmodal(){
+    function openmodal(myobj){
+
+      var myid_product =  $(myobj).attr("data-id");
+      var kode_product =  $(myobj).attr("data-kode");
+$("#tujuan_chat_admin").attr("target", "_blank");
+
+$("#tujuan_chat_admin").attr("href", "https://wa.me/+6285763794376?text=hai%20ka%2C%20saya%20mau%20tanya%20tentang%20product%20dengan%20code%20"+kode_product+"%20ini.%20Saya%20taunya%20ini%20dari%20website.");
+
+
       $(".modal_card_detail").attr("style","width:100%;height:1000px;background-color:#000000;opacity:0.5;z-index:5;position:fixed;display:block;");
       $(".card_detail").attr("style", " z-index:6;display:block; animation: fadeIns 1s;");
+
+      $.ajax({
+      type: "get",
+      url: "{{url('/detailproduct')}}",
+      data: {"id_product" : myid_product},
+      dataType: "json",
+      success: function (response) {
+
+        $("#modal_title_product").text(response.output[0].name);
+        $("#modal_code_product").text("#"+response.output[0].code);
+        var harga =  response.output[0].price;
+        const hargaakhir = harga.toLocaleString();
+        $("#modal_price_product").text("Rp "+hargaakhir);
+        $("#modal_desc_product").text(response.output[0].descriptions);
+
+        var output_gambar = "{{asset('main/images/product')}}/"+response.output[0].images;
+        $("#gambar_detail_product").attr("src", output_gambar);
+
+
+
+      }
+    });
+
     }
     $(".modal_card_detail").on("click",function(){
       $(".modal_card_detail").attr("style","width:100%;height:1000px;background-color:#000000;opacity:0.5;z-index:5;position:fixed;display:none;");
@@ -1142,5 +1180,7 @@ transition: all 0.3s;
       $(".modal_card_detail").attr("style","width:100%;height:1000px;background-color:#000000;opacity:0.5;z-index:5;position:fixed;display:none;");
       $(".card_detail").attr("style", "opacity:1 !important; z-index:6;display:none;");
     })
+
+  
   
 </script>

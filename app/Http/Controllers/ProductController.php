@@ -18,7 +18,7 @@ class ProductController extends Controller
     public function index()
     {
         $category = Category::latest()->get();
-        $myproduct = Product::latest()->get();
+        $myproduct = Product::join("category",'category.id','=','product.id_category')->latest()->select("product.*", "category.name as category_name")->paginate(3);
         return view('main.product',compact('myproduct','category'));
     }
     public function verify_user_first(Request $request){
@@ -27,7 +27,9 @@ class ProductController extends Controller
         $category = Category::latest()->get();
         $myproduct = Product::latest()->get();
         if($mylink > 0){
+            Session::put("verifyuser", "ok");
             return redirect()->to('/product')->with("message", "verified");
+         
         }
         else{
             return redirect('/product');
@@ -35,6 +37,29 @@ class ProductController extends Controller
     }
     public function redirect_product(){
         return redirect('/product');
+    }
+    public function getdetailproducts(Request $request){
+        $idproduct = $request->id_product;
+        $detail = Product::where('id','=',$idproduct)->get();
+        return response()->json(['output'=>$detail]);
+    }   
+    public function fetch_data(Request $request){
+        $idcategory = $request->category;
+        // $list = Product::where('id_category','=',$idcategory)->get();
+        // return response()->json(['output'=>$detail]);
+
+        if($request->ajax())
+        {
+            if($idcategory == 0){
+                $myproduct =  Product::join("category",'category.id','=','product.id_category')->latest('id')->select("product.*", "category.name as category_name")->paginate(3);
+
+            }
+            else{
+                $myproduct =  Product::join("category",'category.id','=','product.id_category')->latest('id')->where('id_category','=',$idcategory)->select("product.*", "category.name as category_name")->paginate(3);
+
+            }
+            return view('main.product_list', compact('myproduct'))->render();
+        }
     }
 
     /**

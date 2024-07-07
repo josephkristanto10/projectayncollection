@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,10 +17,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('main.index');
-});
+Route::get('/', [HomeController::class,'index']);
 Route::resource('/product', ProductController::class);
+Route::get("/detailproduct",[ProductController::class,'getdetailproducts'] );
+Route::get('/getproductbycategory',[ProductController::class,'getproductbycategory'] );
+
+Route::get('/pagecategory/fetch_data_index',  [ProductController::class,"fetch_data"]);
+
 Route::get('/verify/{code}', [ProductController::class,'verify_user_first']);
 Route::get('/verify', [ProductController::class,'redirect_product']);
 
