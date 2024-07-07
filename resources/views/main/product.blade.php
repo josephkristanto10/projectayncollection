@@ -260,17 +260,16 @@ outline: 0;
                     <div > <img src= "{{asset('main/images/category/logo_cat1.png')}}" style = "width:70px;height:70px;margin:auto;"><p style = "color:black;">Cardigan</p> </div> --}}
                 </div>
             {{-- </div> --}}
+       
             <div class = "product">
                 <div class = "row  justify-content-center" style = "text-align:left;margin-bottom:10px;margin-top:10px;" id = "product_list">
-                 @include('main.product_list')
+                    @include('main.product_list')
                 </div>
             </div>
         </div>
         <div class = "topseller_gbr_section" style = "text-align:center; height:450px; background-size: cover;  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('{{asset('main/images/landing_page2.jpg')}}'); margin-top:20px;margin-bottom:20px;">
          <p class="line-1 anim-typewriter"><span style = "color:white;">Have you try on our </span> <span class = "maroon_color_bold" style = "font-size:30px;background-color:#800e13;color:white;padding:10px;">BEST SELLER PRODUCT ?</span></p>
         </div>
-    
-      
     </div>
    
     </div>
