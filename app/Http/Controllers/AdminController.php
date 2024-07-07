@@ -6,11 +6,13 @@ use App\Models\Product;
 use App\Models\Category;
 use App\Models\VariantProduct;
 use App\Models\Superadmin;
+use App\Models\VerifyLink;
 
 use Illuminate\Http\Request;
 use DataTables;
 use Session;
 use Hash;
+use Str;
 
 class AdminController extends Controller
 {
@@ -209,6 +211,21 @@ class AdminController extends Controller
         VariantProduct::destroy($request->id_variant);
         return response()->json(['output' => "ok"]);
     }
+
+    public function index_verify_link(){
+        $menu = "verify";
+        return view('Admin.pages.verify_link', compact("menu"));
+    }
+    public function gettabellink(Request $request){
+        $data = VerifyLink::latest()->get();
+        return DataTables::of($data)->make(true);
+    }
+    public function tambahlink(){
+        $str_link =  date("Y m d").Str::random(5);
+        $generate_link = rtrim(strtr(base64_encode($str_link), '+/', '-_'), '=');
+        VerifyLink::create(["code" => $generate_link,"duration_link" => now(), "updated_at" => now(), "created_at"=>now()]);
+        return response()->json(['output'=>$generate_link]);
+    }  
     
 
     /**

@@ -20,7 +20,9 @@ Route::get('/', function () {
     return view('main.index');
 });
 Route::resource('/product', ProductController::class);
-// Route::resource('/adminoffice', AdminController::class);
+Route::get('/verify/{code}', [ProductController::class,'verify_user_first']);
+Route::get('/verify', [ProductController::class,'redirect_product']);
+
 Route::group(['prefix'=>'adminoffice','as'=>'Admin.'], function(){
     Route::get('/', [AdminController::class,"index"]);
 
@@ -38,7 +40,10 @@ Route::group(['prefix'=>'adminoffice','as'=>'Admin.'], function(){
     Route::POST("variant/tambahvariant", [AdminController::class,"tambahvariant"]);
     Route::POST("variant/editvariant", [AdminController::class,"gantivariant"]);
     Route::POST("variant/deletevariant", [AdminController::class,"hapusvariant"]);
-  
+    
+    Route::get('linkverify', [AdminController::class,"index_verify_link"]);
+    Route::get('linkverify/getlinkverify', [AdminController::class,"gettabellink"]);
+    Route::POST('linkverify/tambahlink',  [AdminController::class,"tambahlink"]);
    
     Route::get('category', [CategoryController::class,"index"]);
     Route::get('category/getlistcategory', [CategoryController::class,"gettabelcategory"]);

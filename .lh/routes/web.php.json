@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 72,
+            "activePatchIndex": 91,
             "patches": [
                 {
                     "date": 1719819322244,
@@ -296,6 +296,82 @@
                 {
                     "date": 1720331039571,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,10 +36,10 @@\n     \n \n     Route::POST(\"variant/tambahvariant\", [AdminController::class,\"tambahvariant\"]);\n     Route::POST(\"variant/editvariant\", [AdminController::class,\"gantivariant\"]);\n-    Route::POST(\"variant/editvariant\", [AdminController::class,\"gantivariant\"]);\n-    variant/deletevariant\n+    Route::POST(\"variant/deletevariant\", [AdminController::class,\"gantivariant\"]);\n+  \n    \n     Route::get('category', [CategoryController::class,\"index\"]);\n     Route::get('category/getlistcategory', [CategoryController::class,\"gettabelcategory\"]);\n     Route::get('category/getdetailcategory',[CategoryController::class, \"getdetailcategory\"]);\n"
+                },
+                {
+                    "date": 1720334703963,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,10 @@\n Route::get('/', function () {\n     return view('main.index');\n });\n Route::resource('/product', ProductController::class);\n-// Route::resource('/adminoffice', AdminController::class);\n+Route::resource('/product', ProductController::class);\n+\n Route::group(['prefix'=>'adminoffice','as'=>'Admin.'], function(){\n     Route::get('/', [AdminController::class,\"index\"]);\n \n     Route::POST('login', [AdminController::class,\"checklogin\"]);\n@@ -36,9 +37,9 @@\n     \n \n     Route::POST(\"variant/tambahvariant\", [AdminController::class,\"tambahvariant\"]);\n     Route::POST(\"variant/editvariant\", [AdminController::class,\"gantivariant\"]);\n-    Route::POST(\"variant/deletevariant\", [AdminController::class,\"gantivariant\"]);\n+    Route::POST(\"variant/deletevariant\", [AdminController::class,\"hapusvariant\"]);\n   \n    \n     Route::get('category', [CategoryController::class,\"index\"]);\n     Route::get('category/getlistcategory', [CategoryController::class,\"gettabelcategory\"]);\n"
+                },
+                {
+                    "date": 1720334720683,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n Route::get('/', function () {\n     return view('main.index');\n });\n Route::resource('/product', ProductController::class);\n-Route::resource('/product', ProductController::class);\n+Route::resource('/verify/{code}', ProductController::class);\n \n Route::group(['prefix'=>'adminoffice','as'=>'Admin.'], function(){\n     Route::get('/', [AdminController::class,\"index\"]);\n \n"
+                },
+                {
+                    "date": 1720334769448,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n Route::get('/', function () {\n     return view('main.index');\n });\n Route::resource('/product', ProductController::class);\n-Route::resource('/verify/{code}', ProductController::class);\n+Route::get('/verify/{code}', ProductController::class);\n \n Route::group(['prefix'=>'adminoffice','as'=>'Admin.'], function(){\n     Route::get('/', [AdminController::class,\"index\"]);\n \n"
+                },
+                {
+                    "date": 1720334779946,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n Route::get('/', function () {\n     return view('main.index');\n });\n Route::resource('/product', ProductController::class);\n-Route::get('/verify/{code}', ProductController::class);\n+Route::get('/verify/{code}', [ProductController::class,'verified_user']);\n \n Route::group(['prefix'=>'adminoffice','as'=>'Admin.'], function(){\n     Route::get('/', [AdminController::class,\"index\"]);\n \n"
+                },
+                {
+                    "date": 1720334788419,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n Route::get('/', function () {\n     return view('main.index');\n });\n Route::resource('/product', ProductController::class);\n-Route::get('/verify/{code}', [ProductController::class,'verified_user']);\n+Route::get('/verify/{code}', [ProductController::class,'verify_user_first']);\n \n Route::group(['prefix'=>'adminoffice','as'=>'Admin.'], function(){\n     Route::get('/', [AdminController::class,\"index\"]);\n \n"
+                },
+                {
+                    "date": 1720335068363,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,8 +20,9 @@\n     return view('main.index');\n });\n Route::resource('/product', ProductController::class);\n Route::get('/verify/{code}', [ProductController::class,'verify_user_first']);\n+Route::get('/verify/{code}', [ProductController::class,'verify_user_first']);\n \n Route::group(['prefix'=>'adminoffice','as'=>'Admin.'], function(){\n     Route::get('/', [AdminController::class,\"index\"]);\n \n"
+                },
+                {
+                    "date": 1720335077148,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n     return view('main.index');\n });\n Route::resource('/product', ProductController::class);\n Route::get('/verify/{code}', [ProductController::class,'verify_user_first']);\n-Route::get('/verify/{code}', [ProductController::class,'verify_user_first']);\n+Route::get('/verify', [ProductController::class,'index']);\n \n Route::group(['prefix'=>'adminoffice','as'=>'Admin.'], function(){\n     Route::get('/', [AdminController::class,\"index\"]);\n \n"
+                },
+                {
+                    "date": 1720335122908,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n     return view('main.index');\n });\n Route::resource('/product', ProductController::class);\n Route::get('/verify/{code}', [ProductController::class,'verify_user_first']);\n-Route::get('/verify', [ProductController::class,'index']);\n+Route::get('/verify', [ProductController::class,'redirect_product']);\n \n Route::group(['prefix'=>'adminoffice','as'=>'Admin.'], function(){\n     Route::get('/', [AdminController::class,\"index\"]);\n \n"
+                },
+                {
+                    "date": 1720335868473,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,8 +39,10 @@\n \n     Route::POST(\"variant/tambahvariant\", [AdminController::class,\"tambahvariant\"]);\n     Route::POST(\"variant/editvariant\", [AdminController::class,\"gantivariant\"]);\n     Route::POST(\"variant/deletevariant\", [AdminController::class,\"hapusvariant\"]);\n+    Route::get('product/getlistproduct', [AdminController::class,\"gettabelproduct\"]);\n+    link/getlinkverify\n   \n    \n     Route::get('category', [CategoryController::class,\"index\"]);\n     Route::get('category/getlistcategory', [CategoryController::class,\"gettabelcategory\"]);\n"
+                },
+                {
+                    "date": 1720335876986,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,10 +39,11 @@\n \n     Route::POST(\"variant/tambahvariant\", [AdminController::class,\"tambahvariant\"]);\n     Route::POST(\"variant/editvariant\", [AdminController::class,\"gantivariant\"]);\n     Route::POST(\"variant/deletevariant\", [AdminController::class,\"hapusvariant\"]);\n-    Route::get('product/getlistproduct', [AdminController::class,\"gettabelproduct\"]);\n-    link/getlinkverify\n+    \n+    Route::get(' link/getlinkverify', [AdminController::class,\"gettabelproduct\"]);\n+   \n   \n    \n     Route::get('category', [CategoryController::class,\"index\"]);\n     Route::get('category/getlistcategory', [CategoryController::class,\"gettabelcategory\"]);\n"
+                },
+                {
+                    "date": 1720335885331,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,12 +40,10 @@\n     Route::POST(\"variant/tambahvariant\", [AdminController::class,\"tambahvariant\"]);\n     Route::POST(\"variant/editvariant\", [AdminController::class,\"gantivariant\"]);\n     Route::POST(\"variant/deletevariant\", [AdminController::class,\"hapusvariant\"]);\n     \n-    Route::get(' link/getlinkverify', [AdminController::class,\"gettabelproduct\"]);\n+    Route::get('link/getlinkverify', [AdminController::class,\"gettabellink\"]);\n    \n-  \n-   \n     Route::get('category', [CategoryController::class,\"index\"]);\n     Route::get('category/getlistcategory', [CategoryController::class,\"gettabelcategory\"]);\n     Route::get('category/getdetailcategory',[CategoryController::class, \"getdetailcategory\"]);\n     Route::POST('category/changestatuscategory',[CategoryController::class, \"changestatuscategory\"]);\n"
+                },
+                {
+                    "date": 1720335976830,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,8 +41,9 @@\n     Route::POST(\"variant/editvariant\", [AdminController::class,\"gantivariant\"]);\n     Route::POST(\"variant/deletevariant\", [AdminController::class,\"hapusvariant\"]);\n     \n     Route::get('link/getlinkverify', [AdminController::class,\"gettabellink\"]);\n+    Route::get('link/getlinkverify', [AdminController::class,\"gettabellink\"]);\n    \n     Route::get('category', [CategoryController::class,\"index\"]);\n     Route::get('category/getlistcategory', [CategoryController::class,\"gettabelcategory\"]);\n     Route::get('category/getdetailcategory',[CategoryController::class, \"getdetailcategory\"]);\n"
+                },
+                {
+                    "date": 1720335990442,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,10 +40,10 @@\n     Route::POST(\"variant/tambahvariant\", [AdminController::class,\"tambahvariant\"]);\n     Route::POST(\"variant/editvariant\", [AdminController::class,\"gantivariant\"]);\n     Route::POST(\"variant/deletevariant\", [AdminController::class,\"hapusvariant\"]);\n     \n+    Route::get('link/', [AdminController::class,\"gettabellink\"]);\n     Route::get('link/getlinkverify', [AdminController::class,\"gettabellink\"]);\n-    Route::get('link/getlinkverify', [AdminController::class,\"gettabellink\"]);\n    \n     Route::get('category', [CategoryController::class,\"index\"]);\n     Route::get('category/getlistcategory', [CategoryController::class,\"gettabelcategory\"]);\n     Route::get('category/getdetailcategory',[CategoryController::class, \"getdetailcategory\"]);\n"
+                },
+                {
+                    "date": 1720336003627,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,9 @@\n     Route::POST(\"variant/tambahvariant\", [AdminController::class,\"tambahvariant\"]);\n     Route::POST(\"variant/editvariant\", [AdminController::class,\"gantivariant\"]);\n     Route::POST(\"variant/deletevariant\", [AdminController::class,\"hapusvariant\"]);\n     \n-    Route::get('link/', [AdminController::class,\"gettabellink\"]);\n+    Route::get('link/', [AdminController::class,\"index_verify_link\"]);\n     Route::get('link/getlinkverify', [AdminController::class,\"gettabellink\"]);\n    \n     Route::get('category', [CategoryController::class,\"index\"]);\n     Route::get('category/getlistcategory', [CategoryController::class,\"gettabelcategory\"]);\n"
+                },
+                {
+                    "date": 1720336010154,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,9 @@\n     Route::POST(\"variant/tambahvariant\", [AdminController::class,\"tambahvariant\"]);\n     Route::POST(\"variant/editvariant\", [AdminController::class,\"gantivariant\"]);\n     Route::POST(\"variant/deletevariant\", [AdminController::class,\"hapusvariant\"]);\n     \n-    Route::get('link/', [AdminController::class,\"index_verify_link\"]);\n+    Route::get('linkverify', [AdminController::class,\"index_verify_link\"]);\n     Route::get('link/getlinkverify', [AdminController::class,\"gettabellink\"]);\n    \n     Route::get('category', [CategoryController::class,\"index\"]);\n     Route::get('category/getlistcategory', [CategoryController::class,\"gettabelcategory\"]);\n"
+                },
+                {
+                    "date": 1720336291728,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,8 +42,9 @@\n     Route::POST(\"variant/deletevariant\", [AdminController::class,\"hapusvariant\"]);\n     \n     Route::get('linkverify', [AdminController::class,\"index_verify_link\"]);\n     Route::get('link/getlinkverify', [AdminController::class,\"gettabellink\"]);\n+    Route::POST('link/tambahlink')\n    \n     Route::get('category', [CategoryController::class,\"index\"]);\n     Route::get('category/getlistcategory', [CategoryController::class,\"gettabelcategory\"]);\n     Route::get('category/getdetailcategory',[CategoryController::class, \"getdetailcategory\"]);\n"
+                },
+                {
+                    "date": 1720336297729,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,9 +42,9 @@\n     Route::POST(\"variant/deletevariant\", [AdminController::class,\"hapusvariant\"]);\n     \n     Route::get('linkverify', [AdminController::class,\"index_verify_link\"]);\n     Route::get('link/getlinkverify', [AdminController::class,\"gettabellink\"]);\n-    Route::POST('link/tambahlink')\n+    Route::POST('link/tambahlink',  [AdminController::class,\"gettabellink\"])\n    \n     Route::get('category', [CategoryController::class,\"index\"]);\n     Route::get('category/getlistcategory', [CategoryController::class,\"gettabelcategory\"]);\n     Route::get('category/getdetailcategory',[CategoryController::class, \"getdetailcategory\"]);\n"
+                },
+                {
+                    "date": 1720336304732,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,9 +42,9 @@\n     Route::POST(\"variant/deletevariant\", [AdminController::class,\"hapusvariant\"]);\n     \n     Route::get('linkverify', [AdminController::class,\"index_verify_link\"]);\n     Route::get('link/getlinkverify', [AdminController::class,\"gettabellink\"]);\n-    Route::POST('link/tambahlink',  [AdminController::class,\"gettabellink\"])\n+    Route::POST('link/tambahlink',  [AdminController::class,\"tambahlink\"]);\n    \n     Route::get('category', [CategoryController::class,\"index\"]);\n     Route::get('category/getlistcategory', [CategoryController::class,\"gettabelcategory\"]);\n     Route::get('category/getdetailcategory',[CategoryController::class, \"getdetailcategory\"]);\n"
+                },
+                {
+                    "date": 1720336532121,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,10 +41,10 @@\n     Route::POST(\"variant/editvariant\", [AdminController::class,\"gantivariant\"]);\n     Route::POST(\"variant/deletevariant\", [AdminController::class,\"hapusvariant\"]);\n     \n     Route::get('linkverify', [AdminController::class,\"index_verify_link\"]);\n-    Route::get('link/getlinkverify', [AdminController::class,\"gettabellink\"]);\n-    Route::POST('link/tambahlink',  [AdminController::class,\"tambahlink\"]);\n+    Route::get('linkverify/getlinkverify', [AdminController::class,\"gettabellink\"]);\n+    Route::POST('linkverify/tambahlink',  [AdminController::class,\"tambahlink\"]);\n    \n     Route::get('category', [CategoryController::class,\"index\"]);\n     Route::get('category/getlistcategory', [CategoryController::class,\"gettabelcategory\"]);\n     Route::get('category/getdetailcategory',[CategoryController::class, \"getdetailcategory\"]);\n"
                 }
             ],
             "date": 1719819322244,
