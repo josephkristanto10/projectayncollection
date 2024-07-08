@@ -655,9 +655,17 @@
   #spacing_best_seller_mobile{
     display:block !important;
   }
+  #tulisan_best_seller{
+    font-size:20px !important;
+}
   .mycards{
-    grid-template-columns: repeat(2,  1fr);
-  }
+  align-items: center;
+  margin-left: 10px;
+  margin-right: 10px;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(2,  1fr);
+}
   .line-1{
     font-size:140%;
   }
@@ -725,9 +733,15 @@
 
 
 @media (min-width: 768px) { 
+  
   .mycards{
-    grid-template-columns: repeat(2,  1fr);
-  }
+  align-items: center;
+  margin-left: 10px;
+  margin-right: 10px;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(3,  1fr);
+}
   #spacing_best_seller_mobile{
     display:block !important;
   }
@@ -763,6 +777,14 @@
 
 
 @media (min-width: 992px) { 
+  .mycards{
+  align-items: center;
+  margin-left: 10px;
+  margin-right: 10px;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(4,  1fr);
+}
   #footer_follow_us{
     font-size: 2vw;
   }
@@ -1005,19 +1027,7 @@ transition: all 0.3s;
            
          }
 }
-.mycards{
-  align-items: center;
-  margin-left: 10px;
-  margin-right: 10px;
-  display: grid;
-  grid-gap: 10px;
-  /* grid-template-columns: 1fr 1fr;  */
-  grid-template-columns: repeat(4,  1fr);
-  /* grid-auto-flow: dense; */
-  /* grid-column: span 2; */
-  /* justify-items: center; */
-  /* align-items: center; */
-}
+
     </style>
   </head>
   <body style = "height:100%;">

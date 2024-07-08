@@ -65,9 +65,13 @@ to{border-right-color: transparent;}
 @media (max-width: 767px) {  
 
 #mycards{
+    display:grid;
     grid-template-columns: repeat(2, 1fr);
     justify-items: center;
     align-items: center;
+}
+#tulisan_best_seller{
+    font-size:20px !important;
 }
 #spacing_best_seller_mobile{
     display:block !important;
@@ -150,6 +154,7 @@ font-size:10px !important;
     #spacing_best_seller_mobile{
         display:block !important;
       }
+      
     #mycards{
         grid-template-columns: repeat(3, 1fr);
         align-items: center;
