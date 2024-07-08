@@ -44,6 +44,9 @@ to{border-right-color: transparent;}
     100% { opacity: 1; }
 }
 
+.owl-stage{
+    width:100% !important;
+}
 /* .owl-item{
     padding:10px;
 } */

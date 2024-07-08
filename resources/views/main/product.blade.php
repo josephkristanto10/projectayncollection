@@ -251,7 +251,7 @@ outline: 0;
                 <div class="owl-carousel" id = "myowl" style = "margin-top:40px;">
                 
                   @foreach($category as $c)
-                  <div class  = "item" style = "width:150px;">
+                  <div class  = "item" >
                     <div style = "text-align:center" data-id = "{{$c->id}}" onclick = "getproductbycategory(this)"> 
                         <img src= "{{asset('main/images/category/')}}/{{$c->images_category}}" style = "border-radius:50px;width:70px;height:70px;margin:auto;"><p style = "color:black;">{{$c->name}}</p> 
                     </div>
@@ -343,7 +343,7 @@ outline: 0;
             loop: false,
             nav: false,
             dots: false,
-            items: 20,
+            items: 2,
             margin: 2,
             autoplay: true,
             autoWidth: true,
@@ -353,21 +353,17 @@ outline: 0;
                 0: {
                     items: 1,
                     rows:1,
-                    margin: 20
                 },
                 460: {
                     items: 1,
                     rows:1,
-                    margin: 20
                 },
                 576: {
                     items: 2,
                     rows:1,
-                    margin: 20
                 },
                 992: {
                     items: 3,
-                    margin: 20
                 }
             }
         });
