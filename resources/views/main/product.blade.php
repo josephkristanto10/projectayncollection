@@ -269,7 +269,7 @@ outline: 0;
             </div>
         </div>
         <div class = "topseller_gbr_section" style = "text-align:center; height:450px; background-size: cover;  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('{{asset('main/images/landing_page2.jpg')}}'); margin-top:20px;margin-bottom:20px;">
-         <p class="line-1 anim-typewriter"><span style = "color:white;">Have you try on our </span><span id = "spacing_best_seller_mobile" style = "display:none;"><br></span> <span  id = "tulisan_best_seller" class = "maroon_color_bold" style = "font-size:30px;background-color:#800e13;color:white;padding:10px;">BEST SELLER PRODUCT ?</span></p>
+         <p class="line-1 anim-typewriter"><span style = "color:white;">Have you try on our </span><span id = "spacing_best_seller_mobile" style = "display:none;"><br></span> <span  id = "tulisan_best_seller" class = "maroon_color_bold" style = "font-size:30px !important;background-color:#800e13;color:white;padding:10px;">BEST SELLER PRODUCT ?</span></p>
         </div>
     </div>
    
