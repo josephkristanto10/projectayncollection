@@ -247,23 +247,24 @@ outline: 0;
         <div class = "buythelatest_section" style = "text-align:center;padding:20px;font-size: 10px;">
             <span id = "buythe_style">Pick The</span> <span class = "maroon_color_bold" id = "latest_style">Categories</span>
             {{-- <div class = "row  justify-content-center" style = "text-align:left;border-radius:5px;width:100%;"> --}}
-                <div class="owl-carousel" style = "margin-top:40px;display: flex !important;flex-direction: row;justify-content: center;text-align:center;">
-                  
-                        @foreach($category as $c)
-                        <div  style = "text-align:center" data-id = "{{$c->id}}" onclick = "getproductbycategory(this)"> 
-                            <img src= "{{asset('main/images/category/')}}/{{$c->images_category}}" style = "border-radius:50px;width:70px;height:70px;margin:auto;"><p style = "color:black;">{{$c->name}}</p> 
-                        </div>
-                        @endforeach
-                    {{-- <div > <img src= "{{asset('main/images/category/logo_cat1.png')}}" style = "width:70px;height:70px;margin:auto;"><p style = "color:black;">Trendy Skirts</p> </div>
-                    <div > <img src= "{{asset('main/images/category/logo_cat1.png')}}" style = "width:70px;height:70px;margin:auto;"><p style = "color:black;">T-Shirts</p> </div>
-                    <div > <img src= "{{asset('main/images/category/logo_cat1.png')}}" style = "width:70px;height:70px;margin:auto;"><p style = "color:black;">Long Sleeves</p> </div>
-                    <div > <img src= "{{asset('main/images/category/logo_cat1.png')}}" style = "width:70px;height:70px;margin:auto;"><p style = "color:black;">Crop Tee</p> </div>
-                    <div > <img src= "{{asset('main/images/category/logo_cat1.png')}}" style = "width:70px;height:70px;margin:auto;"><p style = "color:black;">Cardigan</p> </div> --}}
-                </div>
+            
+                <div class="owl-carousel" id = "myowl" style = "margin-top:40px;">
+                
+                  @foreach($category as $c)
+                  <div class  = "item" style = "width:150px;">
+                    <div style = "text-align:center" data-id = "{{$c->id}}" onclick = "getproductbycategory(this)"> 
+                        <img src= "{{asset('main/images/category/')}}/{{$c->images_category}}" style = "border-radius:50px;width:70px;height:70px;margin:auto;"><p style = "color:black;">{{$c->name}}</p> 
+                    </div>
+                  </div>
+                  @endforeach
+
+                  </div>
+            
             {{-- </div> --}}
        
             <div class = "product">
-                <div class = "row  justify-content-center" style = "text-align:left;margin-bottom:10px;margin-top:10px;" id = "product_list">
+              <span id = "buythe_style">Choose The</span> <span class = "maroon_color_bold" id = "latest_style">Item</span>
+                <div class = "row  justify-content-center" style = "text-align:left;margin-bottom:10px;margin-top:10px;margin-top:40px;" id = "product_list">
                     @include('main.product_list')
                 </div>
             </div>
@@ -335,14 +336,44 @@ outline: 0;
 
 <script src="{{asset('main/js/script.js')}}"></script>
 <script src="{{asset('owl/dist/owl.carousel.min.js')}}"></script>
+
 <script>
    $(document).ready(function(){
-  $(".owl-carousel").owlCarousel({
-    margin:20,
-    loop:false,
-    autoWidth:true,
-    items:4
-  });
+    $('#myowl').owlCarousel({
+            loop: false,
+            nav: false,
+            dots: false,
+            items: 20,
+            margin: 2,
+            autoplay: true,
+            autoWidth: true,
+            smartSpeed: 700,
+            autoplayTimeout: 6000,
+            responsive: {
+                0: {
+                    items: 1,
+                    rows:1,
+                    margin: 20
+                },
+                460: {
+                    items: 1,
+                    rows:1,
+                    margin: 20
+                },
+                576: {
+                    items: 2,
+                    rows:1,
+                    margin: 20
+                },
+                992: {
+                    items: 3,
+                    margin: 20
+                }
+            }
+        });
+    if ($('#myowl').length) {
+        
+    }
 });
 var data_pilihan_category = 0;
 function getproductbycategory(myobj){

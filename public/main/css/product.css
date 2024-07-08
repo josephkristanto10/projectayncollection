@@ -43,15 +43,13 @@ to{border-right-color: transparent;}
     0% { opacity: 0; }
     100% { opacity: 1; }
 }
-.owl-stage{
-    width:100% !important;
-}
-.owl-item{
+
+/* .owl-item{
     padding:10px;
-}
-.owl-item p{
+} */
+/* .owl-item p{
     font-size:15px;
-}
+} */
 .owl-item:hover{
     color : white !important;
     background-color:#800e13;
@@ -171,7 +169,7 @@ font-size:10px !important;
 @media (min-width: 768px) { 
     @keyframes typewriter{
         from{width: 0;}
-        to{width: 5em;}
+        to{width: 20em;}
         }
     #spacing_best_seller_mobile{
         display:block !important;
@@ -196,7 +194,7 @@ display:block !important;
     }
 
     #tulisan_best_seller{
-        font-size:13px !important;
+        font-size:23px !important;
     }
 #footer_follow_us{
 font-size: 1.5vw;
@@ -256,14 +254,3 @@ font-size:1vw !important;
 
 }
 
-.parent {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  .child {
-    flex: 1 0 21%; /* explanation below */
-    margin: 5px;
-    height: 100px;
-    background-color: blue;
-  }
