@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 82,
+            "activePatchIndex": 85,
             "patches": [
                 {
                     "date": 1720191604745,
@@ -336,6 +336,18 @@
                 {
                     "date": 1720235790219,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -74,16 +74,16 @@\n         $ganti = \"0\";\n         $hasil = \"\";\n         if($status_category == \"0\"){\n             $ganti = \"1\";\n-            $hasil = \"berhasil diaktifkan kembali\";\n+            $hasil = \" berhasil diaktifkan kembali\";\n         }\n         else{\n             $ganti =\"0\";\n-            $hasil = \"Di nonaktifkan\";\n+            $hasil = \" Di nonaktifkan \";\n         }\n         Category::where(['id' => $id_category ])->update(['status_category' => $ganti]);\n-        return response()->json(['output' => \"ok\"]);\n+        return response()->json(['output' => $hasil]);\n     }\n     /**\n      * Show the form for creating a new resource.\n      *\n"
+                },
+                {
+                    "date": 1720442615427,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n         $menu = \"category\";\n         return view('Admin.pages.category', compact(\"menu\"));\n     }\n     public function gettabelcategory(){\n-        $data = Category::latest()->get();\n+        $data = Category::join(\"product\", \"product.id_category\", \"=\", \"category.id\")latest()->get();\n          return DataTables::of($data)->make(true);\n     }\n     public function tambahcategory(Request $request){\n         $nama_category = $request->add_nama_category;\n"
+                },
+                {
+                    "date": 1720442699312,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n         $menu = \"category\";\n         return view('Admin.pages.category', compact(\"menu\"));\n     }\n     public function gettabelcategory(){\n-        $data = Category::join(\"product\", \"product.id_category\", \"=\", \"category.id\")latest()->get();\n+        $data = Category::join(\"product\", \"product.id_category\", \"=\", \"category.id\")->groupBy(\"category.id\")->select(\"category.*\", DB::raw(\"count(product.id) as jumlah_produk_dalam_kategory\"))->latest()->get();\n          return DataTables::of($data)->make(true);\n     }\n     public function tambahcategory(Request $request){\n         $nama_category = $request->add_nama_category;\n"
+                },
+                {
+                    "date": 1720442769535,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,9 @@\n \n use App\\Models\\Category;\n use Illuminate\\Http\\Request;\n use DataTables;\n+use DB;\n \n class CategoryController extends Controller\n {\n     /**\n"
                 }
             ],
             "date": 1720191604745,

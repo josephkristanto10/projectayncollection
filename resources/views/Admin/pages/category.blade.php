@@ -236,7 +236,7 @@
               <div class ="col-12" style = "text-align:right;"><input type = "submit" class ="btn btn-success "  value = "Ganti"></div>
             </div>
           </form>
-            <h4>List Product in this Category</h4>
+            {{-- <h4>List Product in this Category</h4>
             <table id="table-product" class="table table-bordered table-hover">
               <thead>
                 <tr>
@@ -248,7 +248,7 @@
                 </tr>
               </thead>
               <tbody id = "isian_variant_produk"></tbody>
-            </table>
+            </table> --}}
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </div>
@@ -343,7 +343,7 @@
         },
         {
           "render": function ( data, type, row ) {
-             return '1';
+             return row.jumlah_produk_dalam_kategory + " Produk" ;
            }
         },
         {

@@ -17,15 +17,15 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $category = Category::latest()->get();
-        $myproduct = Product::join("category",'category.id','=','product.id_category')->latest()->select("product.*", "category.name as category_name")->paginate(12);
+        $category = Category::where('status_category', '=','1')->latest()->get();
+        $myproduct = Product::join("category",'category.id','=','product.id_category')->where('status_product', '=','1')->latest()->select("product.*", "category.name as category_name")->paginate(12);
         return view('main.product',compact('myproduct','category'));
     }
     public function verify_user_first(Request $request){
         $code_name = $request->code;
         $mylink = VerifyLink::where('code','=',$code_name)->get()->count();
-        $category = Category::latest()->get();
-        $myproduct = Product::latest()->get();
+        $category = Category::where('status_category', '=','1')->latest()->get();
+        $myproduct = Product::where('status_product', '=','1')->latest()->get();
         if($mylink > 0){
             Session::put("verifyuser", "ok");
             return redirect()->to('/product')->with("message", "verified");
@@ -51,11 +51,11 @@ class ProductController extends Controller
         if($request->ajax())
         {
             if($idcategory == 0){
-                $myproduct =  Product::join("category",'category.id','=','product.id_category')->latest('id')->select("product.*", "category.name as category_name")->paginate(12);
+                $myproduct =  Product::join("category",'category.id','=','product.id_category')->where('status_product', '=','1')->latest('id')->select("product.*", "category.name as category_name")->paginate(12);
 
             }
             else{
-                $myproduct =  Product::join("category",'category.id','=','product.id_category')->latest('id')->where('id_category','=',$idcategory)->select("product.*", "category.name as category_name")->paginate(12);
+                $myproduct =  Product::join("category",'category.id','=','product.id_category')->where('status_product', '=','1')->latest('id')->where('id_category','=',$idcategory)->select("product.*", "category.name as category_name")->paginate(12);
 
             }
             return view('main.product_list', compact('myproduct'))->render();

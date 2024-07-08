@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use DataTables;
+use DB;
 
 class CategoryController extends Controller
 {
@@ -19,7 +20,7 @@ class CategoryController extends Controller
         return view('Admin.pages.category', compact("menu"));
     }
     public function gettabelcategory(){
-        $data = Category::latest()->get();
+        $data = Category::join("product", "product.id_category", "=", "category.id")->groupBy("category.id")->select("category.*", DB::raw("count(product.id) as jumlah_produk_dalam_kategory"))->latest()->get();
          return DataTables::of($data)->make(true);
     }
     public function tambahcategory(Request $request){

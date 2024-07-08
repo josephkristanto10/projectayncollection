@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 40,
+            "activePatchIndex": 41,
             "patches": [
                 {
                     "date": 1720322963217,
@@ -168,6 +168,10 @@
                 {
                     "date": 1720324265252,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -108,9 +108,9 @@\n             cache: false,\r\n             processData:false,\r\n             success: function(data){\r\n          \r\n-\t\t\t\t\tif(response == \"cocok\"){\r\n+\t\t\t\t\tif(data== \"cocok\"){\r\n \t\t\t\t\t\tSwal.fire({\r\n \t\t\t\t\t\t\ttitle: 'Success!',\r\n \t\t\t\t\t\t\ttext: 'Selamat datang kembali',\r\n \t\t\t\t\t\t\ticon: 'success',\r\n@@ -122,9 +122,9 @@\n \t\t\t\t\t\t\t\tlocation.href = \"{{url('/adminoffice')}}\";\r\n \t\t\t\t\t\t\t} \r\n \t\t\t\t\t\t\t});\r\n \t\t\t\t\t\t}\r\n-\t\t\t\t\t\telse if(response == \"tidak cocok\"){\r\n+\t\t\t\t\t\telse if(data == \"tidak cocok\"){\r\n \t\t\t\t\t\tSwal.fire({\r\n \t\t\t\t\t\t\ttitle: 'Salah Password!',\r\n \t\t\t\t\t\t\ttext: 'Kombinasi passwordmu salah',\r\n \t\t\t\t\t\t\ticon: 'error',\r\n"
+                },
+                {
+                    "date": 1720442453142,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n \t<title>Ayn Control Center</title>\r\n \t<meta charset=\"UTF-8\">\r\n \t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n <!--===============================================================================================-->\t\r\n-\t<link rel=\"icon\" type=\"image/png\" href=\"images/icons/favicon.ico\"/>\r\n+<link rel=\"icon\" type=\"image/x-icon\" href=\"{{asset('main/images/logo.png')}}\">\r\n <!--===============================================================================================-->\r\n \t<link rel=\"stylesheet\" type=\"text/css\" href=\"{{asset('login/vendor/bootstrap/css/bootstrap.min.css')}}\">\r\n <!--===============================================================================================-->\r\n \t<link rel=\"stylesheet\" type=\"text/css\" href=\"{{asset('login/fonts/font-awesome-4.7.0/css/font-awesome.min.css')}}\">\r\n"
                 }
             ],
             "date": 1720322963217,
