@@ -268,7 +268,7 @@ outline: 0;
             </div>
         </div>
         <div class = "topseller_gbr_section" style = "text-align:center; height:450px; background-size: cover;  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('{{asset('main/images/landing_page2.jpg')}}'); margin-top:20px;margin-bottom:20px;">
-         <p class="line-1 anim-typewriter"><span style = "color:white;">Have you try on our </span> <span class = "maroon_color_bold" style = "font-size:30px;background-color:#800e13;color:white;padding:10px;">BEST SELLER PRODUCT ?</span></p>
+         <p class="line-1 anim-typewriter"><span style = "color:white;">Have you try on our </span><span id = "spacing_best_seller_mobile" style = "display:none;"><br></span> <span class = "maroon_color_bold" style = "font-size:30px;background-color:#800e13;color:white;padding:10px;">BEST SELLER PRODUCT ?</span></p>
         </div>
     </div>
    
@@ -288,7 +288,7 @@ outline: 0;
         <div class = "row">
           <div class = 'col-12 col-xl-4'>
             <div class="photo" style = "text-align:center;margin:auto;width:100%;">
-              <img id = "gambar_detail_product" src="https://s-media-cache-ak0.pinimg.com/236x/3b/36/ca/3b36ca3afe0fa0fd4984b9eee2e154bb.jpg">
+              <img id = "gambar_detail_product" src="{{asset('main/images/logo.png')}}">
             </div>
           </div>
           <div class = 'col-12 col-xl-8'>

@@ -655,6 +655,9 @@
   #spacing_best_seller_mobile{
     display:block !important;
   }
+  .mycards{
+    grid-template-columns: repeat(2,  1fr);
+  }
   .line-1{
     font-size:140%;
   }
@@ -722,6 +725,9 @@
 
 
 @media (min-width: 768px) { 
+  .mycards{
+    grid-template-columns: repeat(2,  1fr);
+  }
   #spacing_best_seller_mobile{
     display:block !important;
   }
@@ -999,7 +1005,19 @@ transition: all 0.3s;
            
          }
 }
-        
+.mycards{
+  align-items: center;
+  margin-left: 10px;
+  margin-right: 10px;
+  display: grid;
+  grid-gap: 10px;
+  /* grid-template-columns: 1fr 1fr;  */
+  grid-template-columns: repeat(4,  1fr);
+  /* grid-auto-flow: dense; */
+  /* grid-column: span 2; */
+  /* justify-items: center; */
+  /* align-items: center; */
+}
     </style>
   </head>
   <body style = "height:100%;">
@@ -1012,22 +1030,25 @@ transition: all 0.3s;
         <div class = "buythelatest_section" style = "text-align:center;padding:20px;">
             <span id = "buythe_style">Buy The</span> <span class = "maroon_color_bold" id = "latest_style">Latest</span>
             <div class = "product">
-                <div class = "row  justify-content-center" style = "text-align:left;">
-                    @foreach($latest_product as $lp)
-                    <div class = "col col-lg-3">
-                      <image src = "{{asset('main/images/product/')}}/{{$lp->images}}" style = "width:300px !important;max-width:100%;;height:300px;border-radius:7px;"/>
-                      <p style = "margin-top:10px;padding-left:10px; font-size:1.3vw;margin-bottom:0px !important;"><b></b> <span id = "product_category" class = "maroon_color category_product" style = "font-size:1.4vw"><b>{{$lp->category_name}}</b></span></p>
-                      {{-- <p style = "font-size:13px;margin-top:10px;padding-left:10px;"><b>#TK200153</b></p> --}}
-                      <p style = "font-size:1.5vw;margin-top:2px;padding-left:10px;font-weight:bold;margin-bottom:0px !important;margin-top:10px;">{{$lp->name}}</p>
-                      <p style = "font-size:1.3vw;margin-top:10px;padding-left:10px; " class = "description_product">Uncover style gems with our chic, mix-ready sets. <br><br><span class = "maroon_color" style = "font-weight:bold;" data-id = "{{$lp->id}}" onclick = "openmodal(this)">Read the Spesification <i class="fa fa-angle-right maroon_color" aria-hidden="true"></i></span></p> <i class="bi bi-arrow-right"></i>
-                  
-
-                  </div>
-                    @endforeach
+             
+                <div class = "row  justify-content-center" style = "text-align:center;margin-bottom:10px;margin-top:10px;" id = "product_list">
+                  <div class = "mycards">
+              @foreach($latest_product as $lp)
+        
+              <div class="flex flex-col" style = "text-align:left;"><image id = "gambar_product" src = "{{asset('main/images/product/')}}/{{$lp->images}}" style = "width:100% !important;max-width:500px;;height:300px;border-radius:7px;"/>
+                <p style = "margin-top:10px;padding-left:10px; font-size:1.5vw;margin-bottom:0px !important;"><span id = "product_category" class = "maroon_color category_product" style = "font-size:1.5vw"><b>{{$lp->category_name}}</b></span></p>
+                <p style = "font-size:1.4vw;margin-top:2px;padding-left:10px;font-weight:bold;margin-bottom:0px !important;">{{$lp->name}}</p>
+                <p style = "font-size:1.1vw;margin-top:10px;padding-left:10px;">#Ayn - {{$lp->code}}</p>
+                @if(session()->has('verifyuser'))
+                <p style = "font-size:1.1vw;margin-top:10px;padding-left:10px;">Rp {{number_format($lp->price)}} / Piece</p>
+                
+                @endif
+                <p style = "font-size:1.1vw;margin-top:10px;padding-left:10px; " class = "description_product"><span class = "maroon_color" style = "font-weight:bold;" data-kode = "{{$lp->code}}" data-id = "{{$lp->id}}" onclick = "openmodal(this)">Read the Spesification <i class="fa fa-angle-right maroon_color" aria-hidden="true"></i></span></p> <i class="bi bi-arrow-right"></i>
+               </div>
+                @endforeach
+              </div>
+              </div>
             
-               
-                   
-                </div>
             </div>
         </div>
         <div class = "topseller_gbr_section" style = "text-align:center; height:450px; background-size: cover;  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('{{asset('main/images/landing_page2.jpg')}}'); margin-top:20px;margin-bottom:20px;">
@@ -1036,33 +1057,22 @@ transition: all 0.3s;
         <div class = "topseller_product_section" style = "text-align:center; height:100%;position:relative;margin-top:40px;padding-top:20px;padding:20px;">
             <span class = "maroon_color_bold" style = "font-size:30px;color:#131312;padding:10px;">BEST SELLER <u style = "text-decoration: underline;text-decoration-color: #800e13;  text-decoration-thickness: 3px;text-underline-offset: 10px; ">PRODUCT</u></span>
             <div class = "product" style = "padding-top:30px;">
-                <div class = "row  justify-content-center" style = "text-align:left;">
-                    <div class = "col col-lg-3">
-                      <image src = "{{asset('main/images/product/product3.jpg')}}" style = "max-width:100%;;height:auto;border-radius:7px;"/>
-                      <p style = "margin-top:10px;padding-left:10px; font-size:1.5vw;margin-bottom:0px !important;"><b>Trending</b> <span id = "product_category" class = "maroon_color category_product" style = "font-size:2vw"><b>Skirts</b></span></p>
-                      {{-- <p style = "font-size:13px;margin-top:10px;padding-left:10px;"><b>#TK200153</b></p> --}}
-                      <p style = "font-size:2vw;margin-top:2px;padding-left:10px;font-weight:bold;margin-bottom:0px !important;">Long Skirt</p>
-                      <p style = "font-size:1.3vw;margin-top:10px;padding-left:10px; " class = "description_product">Uncover style gems with our chic, mix-ready sets. <br><br><span class = "maroon_color" style = "font-weight:bold;" data-id = '1' onclick = "openmodal(this)">Read the Spesification <i class="fa fa-angle-right maroon_color" aria-hidden="true"></i></span></p> <i class="bi bi-arrow-right"></i>
+                  <div class = "row  justify-content-center" style = "text-align:center;margin-bottom:10px;margin-top:10px;" id = "product_list">
+                    <div class = "mycards">
+                @foreach($latest_product as $lp)
+          
+                <div class="flex flex-col" style = "text-align:left;"><image id = "gambar_product" src = "{{asset('main/images/product/')}}/{{$lp->images}}" style = "width:100% !important;max-width:500px;;height:300px;border-radius:7px;"/>
+                  <p style = "margin-top:10px;padding-left:10px; font-size:1.5vw;margin-bottom:0px !important;"><span id = "product_category" class = "maroon_color category_product" style = "font-size:1.5vw"><b>{{$lp->category_name}}</b></span></p>
+                  <p style = "font-size:1.4vw;margin-top:2px;padding-left:10px;font-weight:bold;margin-bottom:0px !important;">{{$lp->name}}</p>
+                  <p style = "font-size:1.1vw;margin-top:10px;padding-left:10px;">#Ayn - {{$lp->code}}</p>
+                  @if(session()->has('verifyuser'))
+                  <p style = "font-size:1.1vw;margin-top:10px;padding-left:10px;">Rp {{number_format($lp->price)}} / Piece</p>
                   
-
-                    </div>
-                    <div class = "col col-lg-3">
-                      <image src = "{{asset('main/images/product/product2.jpg')}}" style = "max-width:100%;;height:auto;border-radius:7px;"/>
-                      <p style = "margin-top:10px;padding-left:10px; font-size:1.5vw;margin-bottom:0px !important;"><b>Trending</b> <span id = "product_category" class = "maroon_color category_product" style = "font-size:2vw"><b>Skirts</b></span></p>
-                      {{-- <p style = "font-size:13px;margin-top:10px;padding-left:10px;"><b>#TK200153</b></p> --}}
-                      <p style = "font-size:2vw;margin-top:2px;padding-left:10px;font-weight:bold;margin-bottom:0px !important;">Long Skirt</p>
-                      <p style = "font-size:1.3vw;margin-top:10px;padding-left:10px; " class = "description_product">Uncover style gems with our chic, mix-ready sets. <br><br><span class = "maroon_color" style = "font-weight:bold;" data-id = '1' onclick = "openmodal(this)">Read the Spesification <i class="fa fa-angle-right maroon_color" aria-hidden="true"></i></span></p> <i class="bi bi-arrow-right"></i>
-                  
-                    </div>
-                    <div class = "col col-lg-3">
-                      <image src = "{{asset('main/images/product/product1.jpg')}}" style = "max-width:100%;;height:auto;border-radius:7px;"/>
-                      <p style = "margin-top:10px;padding-left:10px; font-size:1.5vw;margin-bottom:0px !important;"><b>Trending</b> <span id = "product_category" class = "maroon_color category_product" style = "font-size:2vw"><b>Skirts</b></span></p>
-                      {{-- <p style = "font-size:13px;margin-top:10px;padding-left:10px;"><b>#TK200153</b></p> --}}
-                      <p style = "font-size:2vw;margin-top:2px;padding-left:10px;font-weight:bold;margin-bottom:0px !important;">Long Skirt</p>
-                      <p style = "font-size:1.3vw;margin-top:10px;padding-left:10px; " class = "description_product">Uncover style gems with our chic, mix-ready sets. <br><br><span class = "maroon_color" style = "font-weight:bold;" data-id = '1' onclick = "openmodal(this)">Read the Spesification <i class="fa fa-angle-right maroon_color" aria-hidden="true"></i></span></p> <i class="bi bi-arrow-right"></i>
-                  
-                    </div>
-                   
+                  @endif
+                  <p style = "font-size:1.1vw;margin-top:10px;padding-left:10px; " class = "description_product"><span class = "maroon_color" style = "font-weight:bold;" data-kode = "{{$lp->code}}" data-id = "{{$lp->id}}" onclick = "openmodal(this)">Read the Spesification <i class="fa fa-angle-right maroon_color" aria-hidden="true"></i></span></p> <i class="bi bi-arrow-right"></i>
+                </div>
+                  @endforeach
+                </div>
                 </div>
             </div>
         </div>
@@ -1087,7 +1097,7 @@ transition: all 0.3s;
         <div class = "row">
           <div class = 'col-12 col-xl-4'>
             <div class="photo" style = "text-align:center;margin:auto;width:100%;">
-              <img id = "gambar_detail_product" src="https://s-media-cache-ak0.pinimg.com/236x/3b/36/ca/3b36ca3afe0fa0fd4984b9eee2e154bb.jpg">
+              <img id = "gambar_detail_product" src="{{asset('main/images/logo.png')}}">
             </div>
           </div>
           <div class = 'col-12 col-xl-8'>
