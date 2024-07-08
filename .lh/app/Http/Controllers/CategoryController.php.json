@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 85,
+            "activePatchIndex": 86,
             "patches": [
                 {
                     "date": 1720191604745,
@@ -348,6 +348,10 @@
                 {
                     "date": 1720442769535,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,9 @@\n \n use App\\Models\\Category;\n use Illuminate\\Http\\Request;\n use DataTables;\n+use DB;\n \n class CategoryController extends Controller\n {\n     /**\n"
+                },
+                {
+                    "date": 1720445321147,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n         $menu = \"category\";\n         return view('Admin.pages.category', compact(\"menu\"));\n     }\n     public function gettabelcategory(){\n-        $data = Category::join(\"product\", \"product.id_category\", \"=\", \"category.id\")->groupBy(\"category.id\")->select(\"category.*\", DB::raw(\"count(product.id) as jumlah_produk_dalam_kategory\"))->latest()->get();\n+        $data = Category::leftJoin(\"product\", \"product.id_category\", \"=\", \"category.id\")->groupBy(\"category.id\")->select(\"category.*\", DB::raw(\"count(product.id) as jumlah_produk_dalam_kategory\"))->latest()->get();\n          return DataTables::of($data)->make(true);\n     }\n     public function tambahcategory(Request $request){\n         $nama_category = $request->add_nama_category;\n"
                 }
             ],
             "date": 1720191604745,

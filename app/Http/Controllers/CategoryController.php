@@ -20,7 +20,7 @@ class CategoryController extends Controller
         return view('Admin.pages.category', compact("menu"));
     }
     public function gettabelcategory(){
-        $data = Category::join("product", "product.id_category", "=", "category.id")->groupBy("category.id")->select("category.*", DB::raw("count(product.id) as jumlah_produk_dalam_kategory"))->latest()->get();
+        $data = Category::leftJoin("product", "product.id_category", "=", "category.id")->groupBy("category.id")->select("category.*", DB::raw("count(product.id) as jumlah_produk_dalam_kategory"))->latest()->get();
          return DataTables::of($data)->make(true);
     }
     public function tambahcategory(Request $request){
