@@ -347,11 +347,11 @@ outline: 0;
             margin: 1,
             responsive:{
                 0:{
-                    items:2,
+                    items:1,
                     rows:1
                 },
                 768:{
-                    items:4,
+                    items:5,
                     rows:1
                 }
             }
