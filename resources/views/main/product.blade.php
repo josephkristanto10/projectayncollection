@@ -248,14 +248,14 @@ outline: 0;
             <span id = "buythe_style">Pick The</span> <span class = "maroon_color_bold" id = "latest_style">Categories</span>
             {{-- <div class = "row  justify-content-center" style = "text-align:left;border-radius:5px;width:100%;"> --}}
             
-                <div class="owl-carousel" id = "myowl" style = "margin-top:40px;">
+                <div class="owl-carousel" id = "myowl" style = "margin-top:40px;width:100%;">
                 
                   @foreach($category as $c)
-                  <div class  = "item" >
+                  {{-- <div class = "item"> --}}
                     <div style = "text-align:center" data-id = "{{$c->id}}" onclick = "getproductbycategory(this)"> 
                         <img src= "{{asset('main/images/category/')}}/{{$c->images_category}}" style = "border-radius:50px;width:70px;height:70px;margin:auto;"><p style = "color:black;">{{$c->name}}</p> 
                     </div>
-                  </div>
+                  {{-- </div> --}}
                   @endforeach
 
                   </div>
@@ -343,33 +343,37 @@ outline: 0;
             loop: false,
             nav: false,
             dots: false,
-            items: 2,
-            margin: 2,
-            autoplay: true,
-            autoWidth: true,
-            smartSpeed: 700,
-            autoplayTimeout: 6000,
-            responsive: {
-                0: {
-                    items: 1,
-                    rows:1,
+            items: 20,
+            margin: 1,
+            responsive:{
+                0:{
+                    items:2,
+                    rows:1
                 },
-                460: {
-                    items: 1,
-                    rows:1,
-                },
-                576: {
-                    items: 2,
-                    rows:1,
-                },
-                992: {
-                    items: 3,
+                768:{
+                    items:4,
+                    rows:1
                 }
             }
+            // responsive: {
+            //     0: {
+            //         items: 1,
+            //         rows:1,
+            //     },
+            //     460: {
+            //         items: 1,
+            //         rows:1,
+            //     },
+            //     576: {
+            //         items: 2,
+            //         rows:1,
+            //     },
+            //     992: {
+            //         items: 3,
+            //     }
+            // }
         });
-    if ($('#myowl').length) {
-        
-    }
+   
 });
 var data_pilihan_category = 0;
 function getproductbycategory(myobj){
