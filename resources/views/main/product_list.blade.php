@@ -7,9 +7,9 @@
 @foreach($myproduct as $mp)
 {{-- <div class="parent"> --}}
     <div class="flex flex-col" style = "text-align:left;"><image id = "gambar_product" src = "{{asset('main/images/product/')}}/{{$mp->images}}" style = "width:100% !important;max-width:500px;;height:300px;border-radius:7px;"/>
-        <p style = "margin-top:10px;padding-left:10px; font-size:1.5vw;margin-bottom:0px !important;"><span id = "product_category" class = "maroon_color category_product" style = "font-size:1.5vw"><b>{{$mp->category_name}}</b></span></p>
-        <p style = "font-size:1.4vw;margin-top:2px;padding-left:10px;font-weight:bold;margin-bottom:0px !important;">{{$mp->name}}</p>
-        <p style = "font-size:1.1vw;margin-top:10px;padding-left:10px;">#Ayn - {{$mp->code}}</p>
+        <p style = "margin-top:10px;padding-left:10px; font-size:1.5vw;margin-bottom:0px !important;"><span id = "product_category" class = "maroon_color category_product" style = "font-size:1.3vw"><b>{{$mp->category_name}}</b></span></p>
+        <p class = 'name_products' style = "font-size:1.4vw;margin-top:2px;padding-left:10px;font-weight:bold;margin-bottom:0px !important;">{{$mp->name}}</p>
+        <p class = 'code_products' style = "font-size:1.1vw;margin-top:10px;padding-left:10px;"># {{$mp->code}}</p>
         @if(session()->has('verifyuser'))
         <p style = "font-size:1.1vw;margin-top:10px;padding-left:10px;">Rp {{number_format($mp->price)}} / Piece</p>
         

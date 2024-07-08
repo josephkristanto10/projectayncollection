@@ -32,7 +32,8 @@ nav .logo{
     animation: fadeIns 2.8s;
 }
 nav #store_name{
-    animation: fadeIns 3.8s;
+    animation: fadeIns 3.8s !important;
+
 }
 nav #m1{
     animation: fadeIns 3.8s;
@@ -91,7 +92,17 @@ nav ul li a:hover  {
   background-color: #800e13;
   color:#ffffff !important;
   border-radius: 30px;
-  animation: fadeIn 0.8s;
+  animation: fadeIns 0.8s;
+}
+
+#store_name:hover{
+  color:#ffffff !important;
+}
+#store_name_mobile:hover{
+  color:#800e13;
+}
+#m2_mobile:hover{
+  color:#800e13 !important;
 }
 
 .special_nav{

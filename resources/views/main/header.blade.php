@@ -1,10 +1,10 @@
 <nav>
     <div class="logo">
-      <img src="{{asset('main/images/logo.png')}}" alt="logo" />
+      <a  href="{{url('/')}}"><img src="{{asset('main/images/logo.png')}}" alt="logo" /></a>
       {{-- <h2 style = "color:#800e13 !important;font-weight:200px !important;">Ayn Collection</h2> --}}
     </div>
     <ul>
-        <li><a>
+        <li><a  href="{{url('/')}}">
             <span id = "store_name" style = "color:#800e13 ;font-weight:200px !important;">Ayn Collection</span></a></li>
       <li>
         <a href="{{url('/')}}" id = "m1" class = "active"> Home</a>
@@ -28,20 +28,20 @@
   </nav>
   <div class="menubar">
     <ul>
-      <li>
-        <a href="#">Home</a>
-      </li>
-      <li>
-        <a href="#">Services</a>
-      </li>
-      <li>
-        <a href="#">Blog</a>
-      </li>
-      <li>
-        <a href="#">Contact Us</a>
-      </li>
-      <li>
-        <a href="{{url('/product')}}" id = "m2" class = "special_nav">Product</a>
-      </li>
-    </ul>
+      <li><a  href="{{url('/')}}">
+          <span id = "store_name_mobile" style = "color:#800e13 ;font-weight:200px !important;">Ayn Collection</span></a></li>
+    <li>
+      <a href="{{url('/')}}" id = "m1" class = "active"> Home</a>
+    </li>
+
+    <li>
+      <a href="#" id = "m3">About us</a>
+    </li>
+    <li>
+      <a href="#" id = "m4">Contact Us</a>
+    </li>
+    <li>
+      <a href="{{url('/product')}}" id = "m2_mobile" class = "special_nav">Product</a>
+    </li>
+  </ul>
   </div>

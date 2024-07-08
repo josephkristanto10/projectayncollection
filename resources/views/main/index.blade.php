@@ -652,12 +652,23 @@
 
 
 @media (max-width: 767px) {  
+
+  .code_products{
+    font-size:1.9vw !important;
+}
+.name_products{
+    font-size:2.1vw !important;
+}
   #spacing_best_seller_mobile{
     display:block !important;
   }
   #tulisan_best_seller{
     font-size:20px !important;
 }
+
+  .mycards img{
+    height:200px !important;
+  }
   .mycards{
   align-items: center;
   margin-left: 10px;
@@ -733,7 +744,9 @@
 
 
 @media (min-width: 768px) { 
-  
+  .code_products{
+        font-size:1.2vw !important;
+    }
   .mycards{
   align-items: center;
   margin-left: 10px;
@@ -742,6 +755,9 @@
   grid-gap: 10px;
   grid-template-columns: repeat(3,  1fr);
 }
+  .mycards img{
+    height:300px !important;
+  }
   #spacing_best_seller_mobile{
     display:block !important;
   }
@@ -789,7 +805,7 @@
     font-size: 2vw;
   }
   #footer_instagram{
-    width:135px !important;
+    width:155px !important;
     font-size:1vw !important;
   }
   #footer_tiktok{
@@ -1047,8 +1063,8 @@ transition: all 0.3s;
         
               <div class="flex flex-col" style = "text-align:left;"><image id = "gambar_product" src = "{{asset('main/images/product/')}}/{{$lp->images}}" style = "width:100% !important;max-width:500px;;height:300px;border-radius:7px;"/>
                 <p style = "margin-top:10px;padding-left:10px; font-size:1.5vw;margin-bottom:0px !important;"><span id = "product_category" class = "maroon_color category_product" style = "font-size:1.5vw"><b>{{$lp->category_name}}</b></span></p>
-                <p style = "font-size:1.4vw;margin-top:2px;padding-left:10px;font-weight:bold;margin-bottom:0px !important;">{{$lp->name}}</p>
-                <p style = "font-size:1.1vw;margin-top:10px;padding-left:10px;">#Ayn - {{$lp->code}}</p>
+                <p class = 'name_products' style = "font-size:1.4vw;margin-top:2px;padding-left:10px;font-weight:bold;margin-bottom:0px !important;">{{$lp->name}}</p>
+                <p class = 'code_products' style = "font-size:1.1vw;margin-top:10px;padding-left:10px;">#{{$lp->code}}</p>
                 @if(session()->has('verifyuser'))
                 <p style = "font-size:1.1vw;margin-top:10px;padding-left:10px;">Rp {{number_format($lp->price)}} / Piece</p>
                 
@@ -1106,14 +1122,16 @@ transition: all 0.3s;
         </nav>
         <div class = "row">
           <div class = 'col-12 col-xl-4'>
-            <div class="photo" style = "text-align:center;margin:auto;width:100%;">
+            {{-- <div class="photo" style = "text-align:center;margin:auto;width:100%;">
               <img id = "gambar_detail_product" src="{{asset('main/images/logo.png')}}">
-            </div>
+            </div> --}}
           </div>
           <div class = 'col-12 col-xl-8'>
             <div class="description"style = "text-align: left !important;;width:100%;">
               <h3 id = "modal_title_product" style = 'width:100%;'>Product Name</h3>
               <h4 id = "modal_code_product">Product Code</h4>
+              <br>
+              <h5 id = "modal_variants_product">Variant : </h5>
               <br>
               <h5>Price : </h5>
               @if(session()->has('verifyuser'))

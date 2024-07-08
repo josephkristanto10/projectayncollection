@@ -63,12 +63,22 @@ to{border-right-color: transparent;}
     /* background-color:#800e13; */
 }
 @media (max-width: 767px) {  
-
+    .mycards img{
+        height:200px !important;
+      }
+      
 #mycards{
     display:grid;
     grid-template-columns: repeat(2, 1fr);
     justify-items: center;
     align-items: center;
+}
+
+.code_products{
+    font-size:1.9vw !important;
+}
+.name_products{
+    font-size:2.1vw !important;
 }
 #tulisan_best_seller{
     font-size:20px !important;
@@ -154,7 +164,13 @@ font-size:10px !important;
     #spacing_best_seller_mobile{
         display:block !important;
       }
-      
+      .mycards img{
+        height:300px !important;
+      }
+      .code_products{
+        font-size:1.2vw !important;
+    }
+
     #mycards{
         grid-template-columns: repeat(3, 1fr);
         align-items: center;
