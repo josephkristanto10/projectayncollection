@@ -63,6 +63,10 @@ to{border-right-color: transparent;}
     /* background-color:#800e13; */
 }
 @media (max-width: 767px) {  
+    @keyframes typewriter{
+        from{width: 0;}
+        to{width: 10em;}
+        }
     .mycards img{
         height:200px !important;
       }
@@ -80,6 +84,7 @@ to{border-right-color: transparent;}
 .name_products{
     font-size:2.1vw !important;
 }
+
 #tulisan_best_seller{
     font-size:20px !important;
 }
