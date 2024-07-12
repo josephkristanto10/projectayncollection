@@ -7,7 +7,7 @@
 <div class = "myfooter" style = "height:250px;background-color:#800e13;color:white;padding:20px;margin-top:10px;">
     <div class = "row justify-content-center">
         <div class = "col-5" id = "kotak_ayn_collection" style = "vertical-align:middle;margin-top:60px;text-align:right;">
-            <h4 id = "footer_ayn_collection">AYN Collection</h4>
+            <h4 id = "footer_ayn_collection">AYN Collections</h4>
             <p id = "footer_tagline" style = "font-size:12px;">“Make the mood with your outfit”</p>
         </div>
       
