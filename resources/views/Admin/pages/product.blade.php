@@ -76,10 +76,10 @@
                   <tr>
                     <th>Code</th>
                     <th>Images</th>
-                    <th>Name</th>
+                    {{-- <th>Name</th> --}}
                     <th>Price</th>
                     <th>Stock</th>
-                    <th>Description</th>
+                    {{-- <th>Description</th> --}}
                     <th>Status</th>
                     <th>Action</th>
                   </tr>
@@ -229,13 +229,13 @@
                 <div class = "col-6">Code Product <input id = "add_kodeproduk" name = "add_code_product" type = "text" class = "form-control" required> </div>
               </div>
               <div class = "row mt-3 mb-3">
-                <div class = "col-6">Nama Product <input  id = "add_namaproduk" name = "add_nama_product" type = "text" class = "form-control" required></div>
+                {{-- <div class = "col-6">Nama Product <input  id = "add_namaproduk" name = "add_nama_product" type = "text" class = "form-control" required></div> --}}
                 <div class = "col-3">Harga Product <input id = "add_hargaproduk" name = "add_harga_product" type = "text" class = "form-control" required> </div>
                 <div class = "col-3">Stock Product <input  id = "add_stockproduk" name = "add_stock_product" type = "text" class = "form-control" required></div>
 
               </div>
               <div class = "row mt-3 mb-3">
-                <div class = "col-12">Description Product <input id = "add_descproduk" name = "add_desc_product" type = "text" class = "form-control" required> </div>
+                {{-- <div class = "col-12">Description Product <input id = "add_descproduk" name = "add_desc_product" type = "text" class = "form-control" required> </div> --}}
               </div>
             
               <div class="alert alert-success d-flex align-items-center" role="alert" id = "add_alert_notif_success" style = "display:none !important;">
@@ -343,7 +343,7 @@
             </span>
          
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
           </div>
     </div>
   </div>
@@ -390,11 +390,11 @@
              return '  <div class="d-flex px-2 py-1" style = "align-items: stretch;"><div style = "text-align:center;width:100%;"><div><img src="{{asset("main/images/product/")}}/'+row.images+'" style = "width:50px !important;height:50px !important;" class="avatar avatar-sm me-3" alt="user1"></div></div></div>';
            }
         },
-        {
-          "render": function ( data, type, row ) {
-             return '<div class="d-flex flex-column justify-content-center mt-2"><h6 class="mb-0 text-sm">'+row.name+'</h6></div>';
-           }
-        },
+        // {
+        //   "render": function ( data, type, row ) {
+        //      return '<div class="d-flex flex-column justify-content-center mt-2"><h6 class="mb-0 text-sm">'+row.name+'</h6></div>';
+        //    }
+        // },
         {
           "render": function ( data, type, row ) {
             return '<div class="d-flex flex-column justify-content-center mt-2"><h6 class="mb-0 text-sm">'+row.price+'</h6></div>';
@@ -405,11 +405,11 @@
             return '<div class="d-flex flex-column justify-content-center mt-2"><h6 class="mb-0 text-sm">'+row.stock+'</h6></div>';
            }
         },
-        {
-          "render": function ( data, type, row ) {
-            return '<div class="d-flex flex-column justify-content-center mt-2"><h6 class="mb-0 text-sm">'+row.descriptions+'</h6></div>';
-           }
-        },
+        // {
+        //   "render": function ( data, type, row ) {
+        //     return '<div class="d-flex flex-column justify-content-center mt-2"><h6 class="mb-0 text-sm">'+row.descriptions+'</h6></div>';
+        //    }
+        // },
         {
           "render": function ( data, type, row ) {
              var status = "<span style = 'color:red'>Tidak Tampil</span>";

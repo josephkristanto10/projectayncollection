@@ -19,8 +19,26 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $latest_product = Product::join('category','category.id', '=', 'product.id_category')->latest()->limit(3)->select("product.*", "category.name as category_name")->get();
-        return view('main.index', compact('latest_product'));
+        $latest_product = Product::join('category','category.id', '=', 'product.id_category')->leftJoin("variant_product", "variant_product.id_product", '=',"product.id")->latest()->select("product.*", "variant_product.variant_name", "variant_product.variant_images", "category.name as category_name")->get();
+        $array_product = [];
+        $array_id = [];
+        foreach($latest_product as $lp){
+            if(!in_array($lp->id,$array_id)){
+                $array_id[] = $lp->id;
+            }
+          
+            // $array_products["id"][] =  $array_id;
+            $array_product["$lp->id"]["product"] = $lp->id;
+            $array_product["$lp->id"]["detail"] = $lp;
+            $variants = "tidak ada";
+            if($lp->variant_images){
+                $variants = $lp->variant_images;
+            }
+            $array_product["$lp->id"]["variant_product"][] = $variants;
+        
+        }
+   
+        return view('main.index', compact('latest_product','array_product', "array_id"));
     }
 
     /**

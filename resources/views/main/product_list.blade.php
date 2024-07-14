@@ -4,28 +4,27 @@
   display: grid;
   grid-gap: 10px;" >
 
-@foreach($myproduct as $mp)
-{{-- <div class="parent"> --}}
-    <div class="flex flex-col" style = "text-align:left;"><image class = "gambar_product" src = "{{asset('main/images/product/')}}/{{$mp->images}}" style = "width:100% !important;max-width:500px;;height:300px;border-radius:7px;"/>
-        <p style = "margin-top:10px;padding-left:10px; font-size:1.5vw;margin-bottom:0px !important;"><span id = "product_category" class = "maroon_color category_product" style = "font-size:1.3vw"><b>{{$mp->category_name}}</b></span></p>
-        <p class = 'name_products' style = "font-size:1.4vw;margin-top:2px;padding-left:10px;font-weight:bold;margin-bottom:0px !important;">{{$mp->name}}</p>
-        <p class = 'code_products' style = "font-size:1.1vw;margin-top:10px;padding-left:10px;"># {{$mp->code}}</p>
-        @if(session()->has('verifyuser'))
-        <p style = "font-size:1.1vw;margin-top:10px;padding-left:10px;">Rp {{number_format($mp->price)}} / Piece</p>
-        
-        @endif
-        <p style = "font-size:1.1vw;margin-top:10px;padding-left:10px; " class = "description_product"><span class = "maroon_color" style = "font-weight:bold;" data-kode = "{{$mp->code}}" data-id = "{{$mp->id}}" onclick = "openmodal(this)">Read the Spesification <i class="fa fa-angle-right maroon_color" aria-hidden="true"></i></span></p> <i class="bi bi-arrow-right"></i>
-    </div>
-    {{-- <div class="flex flex-col"><image id = "gambar_product" src = "{{asset('main/images/product/')}}/{{$mp->images}}" style = "width:300px !important;max-width:100%;;height:300px;border-radius:7px;"/>
-    </div> --}}
-    {{-- <div class="card">xzczxcasd</div>
-    <div class="card">qweweqwewq</div>
-    <div class="card">asdsadsad</div>
-    <div class="card">asdsad</div>
-    <div class="card">zxcxzc</div>
-    <div class="card">asdsad</div>
-    <div class="card">qwewqewq</div> --}}
-  {{-- </div> --}}
+@foreach($array_id as $keys=> $ai)
+<div class="flex flex-col" style = "text-align:left;"><image id = "gambar_product" src = "{{asset('main/images/product/')}}/{{$array_product[$ai]['detail']['images']}}" style = "width:100% !important;max-width:500px;;height:300px;border-radius:7px;"/>
+    <p style = "margin-top:10px;padding-left:10px; font-size:1.5vw;margin-bottom:0px !important;"><span id = "product_category" class = "maroon_color category_product" style = "font-size:1.5vw"><b>{{$array_product[$ai]['detail']['category_name']}}</b></span></p>
+   {{-- {{dd($array_product[$ai]["detail"]['name'])}} --}}
+    @if(session()->has('message') || session()->has('verifyuser'))
+        <p style = "font-size:1.1vw;margin-top:10px;padding-left:10px;">Rp <b>{{$array_product[$ai]['detail']['price']}}</b> / Piece</p>
+    @else 
+        <p style = "font-size:1.1vw;margin-top:10px;padding-left:10px;">Contact our Admin for prices</p>
+    @endif
+
+    <p style = "font-size:1.1vw;margin-top:10px;padding-left:10px;">Variant : 
+    @if($array_product[$ai]['variant_product'][0] != "tidak ada")
+      @foreach($array_product[$ai]['variant_product'] as $values => $ap)
+      {{-- {{$ap}} --}}
+      {{-- testset --}}
+      <img src = '{{asset("main/images/variant/$ap")}}' style = "width:30px !important;height:30px !important;border-radius:10px;">
+  
+      @endforeach
+    @endif
+     </p>
+  </div>
 @endforeach
 </div>
 <div class = "mylinks" >

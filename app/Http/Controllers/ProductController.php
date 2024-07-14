@@ -18,8 +18,25 @@ class ProductController extends Controller
     public function index()
     {
         $category = Category::where('status_category', '=','1')->latest()->get();
-        $myproduct = Product::join("category",'category.id','=','product.id_category')->where('status_product', '=','1')->latest()->select("product.*", "category.name as category_name")->paginate(12);
-        return view('main.product',compact('myproduct','category'));
+        $myproduct = Product::join("category",'category.id','=','product.id_category')->leftJoin("variant_product", "variant_product.id_product", '=',"product.id")->where('status_product', '=','1')->latest()->select("product.*", "category.name as category_name", "variant_product.variant_name", "variant_product.variant_images")->paginate(12);
+        $array_product = [];
+        $array_id = [];
+        foreach($myproduct as $lp){
+            if(!in_array($lp->id,$array_id)){
+                $array_id[] = $lp->id;
+            }
+          
+            // $array_products["id"][] =  $array_id;
+            $array_product["$lp->id"]["product"] = $lp->id;
+            $array_product["$lp->id"]["detail"] = $lp;
+            $variants = "tidak ada";
+            if($lp->variant_images){
+                $variants = $lp->variant_images;
+            }
+            $array_product["$lp->id"]["variant_product"][] = $variants;
+        
+        }
+        return view('main.product',compact('myproduct','array_product', "array_id", "category"));
     }
     public function verify_user_first(Request $request){
         $code_name = $request->code;
@@ -51,14 +68,32 @@ class ProductController extends Controller
         if($request->ajax())
         {
             if($idcategory == 0){
-                $myproduct =  Product::join("category",'category.id','=','product.id_category')->where('status_product', '=','1')->latest('id')->select("product.*", "category.name as category_name")->paginate(12);
+                $myproduct =  Product::join("category",'category.id','=','product.id_category')->leftJoin("variant_product", "variant_product.id_product", '=',"product.id")->where('status_product', '=','1')->latest('id')->select("product.*", "category.name as category_name", "variant_product.variant_name", "variant_product.variant_images")->paginate(12);
 
             }
             else{
-                $myproduct =  Product::join("category",'category.id','=','product.id_category')->where('status_product', '=','1')->latest('id')->where('id_category','=',$idcategory)->select("product.*", "category.name as category_name")->paginate(12);
+                $myproduct =  Product::join("category",'category.id','=','product.id_category')->leftJoin("variant_product", "variant_product.id_product", '=',"product.id")->where('status_product', '=','1')->latest('id')->where('id_category','=',$idcategory)->select("product.*", "category.name as category_name", "variant_product.variant_name", "variant_product.variant_images")->paginate(12);
 
             }
-            return view('main.product_list', compact('myproduct'))->render();
+
+            $array_product = [];
+            $array_id = [];
+            foreach($myproduct as $lp){
+                if(!in_array($lp->id,$array_id)){
+                    $array_id[] = $lp->id;
+                }
+              
+                // $array_products["id"][] =  $array_id;
+                $array_product["$lp->id"]["product"] = $lp->id;
+                $array_product["$lp->id"]["detail"] = $lp;
+                $variants = "tidak ada";
+                if($lp->variant_images){
+                    $variants = $lp->variant_images;
+                }
+                $array_product["$lp->id"]["variant_product"][] = $variants;
+            
+            }
+            return view('main.product_list', compact('myproduct', 'array_product', "array_id"))->render();
         }
     }
 

@@ -1043,7 +1043,9 @@ transition: all 0.3s;
            
          }
 }
-
+    .card_image:hover{
+        background-color:#800e13;
+    }
     </style>
   </head>
   <body style = "height:100%;">
@@ -1059,24 +1061,37 @@ transition: all 0.3s;
              
                 <div class = "row  justify-content-center" style = "text-align:center;margin-bottom:10px;margin-top:10px;" id = "product_list">
                   <div class = "mycards">
-              @foreach($latest_product as $lp)
-        
-              <div class="flex flex-col" style = "text-align:left;"><image id = "gambar_product" src = "{{asset('main/images/product/')}}/{{$lp->images}}" style = "width:100% !important;max-width:500px;;height:300px;border-radius:7px;"/>
-                <p style = "margin-top:10px;padding-left:10px; font-size:1.5vw;margin-bottom:0px !important;"><span id = "product_category" class = "maroon_color category_product" style = "font-size:1.5vw"><b>{{$lp->category_name}}</b></span></p>
-                <p class = 'name_products' style = "font-size:1.4vw;margin-top:2px;padding-left:10px;font-weight:bold;margin-bottom:0px !important;">{{$lp->name}}</p>
-                <p class = 'code_products' style = "font-size:1.1vw;margin-top:10px;padding-left:10px;">#{{$lp->code}}</p>
-                @if(session()->has('verifyuser'))
-                <p style = "font-size:1.1vw;margin-top:10px;padding-left:10px;">Rp {{number_format($lp->price)}} / Piece</p>
+                    <?php $id_array=[]; ?>
                 
-                @endif
-                <p style = "font-size:1.1vw;margin-top:10px;padding-left:10px; " class = "description_product"><span class = "maroon_color" style = "font-weight:bold;" data-kode = "{{$lp->code}}" data-id = "{{$lp->id}}" onclick = "openmodal(this)">Read the Spesification <i class="fa fa-angle-right maroon_color" aria-hidden="true"></i></span></p> <i class="bi bi-arrow-right"></i>
-               </div>
-                @endforeach
+                    @foreach($array_id as $keys=> $ai)
+                    <div class="flex flex-col" style = "text-align:left;"><image id = "gambar_product" src = "{{asset('main/images/product/')}}/{{$array_product[$ai]['detail']['images']}}" style = "width:100% !important;max-width:500px;;height:300px;border-radius:7px;"/>
+                        <p style = "margin-top:10px;padding-left:10px; font-size:1.5vw;margin-bottom:0px !important;"><span id = "product_category" class = "maroon_color category_product" style = "font-size:1.5vw"><b>{{$array_product[$ai]['detail']['category_name']}}</b></span></p>
+                       {{-- {{dd($array_product[$ai]["detail"]['name'])}} --}}
+                        @if(session()->has('message') || session()->has('verifyuser'))
+                            <p style = "font-size:1.1vw;margin-top:10px;padding-left:10px;">Rp <b>{{$array_product[$ai]['detail']['price']}}</b>  / Piece</p>
+                        @else 
+                            <p style = "font-size:1.1vw;margin-top:10px;padding-left:10px;">Contact our Admin for prices</p>
+                        @endif
+
+                        <p style = "font-size:1.1vw;margin-top:10px;padding-left:10px;">Variant : 
+                        @if($array_product[$ai]['variant_product'][0] != "tidak ada")
+                          @foreach($array_product[$ai]['variant_product'] as $values => $ap)
+                          {{-- {{$ap}} --}}
+                          {{-- testset --}}
+                          <img class = "card_image" src = '{{asset("main/images/variant/$ap")}}' style = "width:30px !important;height:30px !important;border-radius:10px;padding:2px;border:1px solid grey;">
+                      
+                          @endforeach
+                        @endif
+                         </p>
+                      </div>
+                    @endforeach
+             
               </div>
               </div>
             
             </div>
         </div>
+        {{-- {{dd($array_product)}} --}}
         <div class = "topseller_gbr_section" style = "text-align:center; height:450px; background-size: cover;  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('{{asset('main/images/landing_page2.jpg')}}'); margin-top:20px;margin-bottom:20px;">
          <p class="line-1 anim-typewriter"><span style = "color:white;">Have you try on our </span> <span id = "spacing_best_seller_mobile" style = "display:none;"><br></span> <span class = "maroon_color_bold" style = "font-size:30px;background-color:#800e13;color:white;padding:10px;">BEST SELLER PRODUCT ?</span></p>
         </div>
@@ -1085,19 +1100,21 @@ transition: all 0.3s;
             <div class = "product" style = "padding-top:30px;">
                   <div class = "row  justify-content-center" style = "text-align:center;margin-bottom:10px;margin-top:10px;" id = "product_list">
                     <div class = "mycards">
-                @foreach($latest_product as $lp)
-          
-                <div class="flex flex-col" style = "text-align:left;"><image id = "gambar_product" src = "{{asset('main/images/product/')}}/{{$lp->images}}" style = "width:100% !important;max-width:500px;;height:300px;border-radius:7px;"/>
-                  <p style = "margin-top:10px;padding-left:10px; font-size:1.5vw;margin-bottom:0px !important;"><span id = "product_category" class = "maroon_color category_product" style = "font-size:1.5vw"><b>{{$lp->category_name}}</b></span></p>
-                  <p style = "font-size:1.4vw;margin-top:2px;padding-left:10px;font-weight:bold;margin-bottom:0px !important;">{{$lp->name}}</p>
-                  <p style = "font-size:1.1vw;margin-top:10px;padding-left:10px;">#Ayn - {{$lp->code}}</p>
-                  @if(session()->has('verifyuser'))
-                  <p style = "font-size:1.1vw;margin-top:10px;padding-left:10px;">Rp {{number_format($lp->price)}} / Piece</p>
-                  
-                  @endif
-                  <p style = "font-size:1.1vw;margin-top:10px;padding-left:10px; " class = "description_product"><span class = "maroon_color" style = "font-weight:bold;" data-kode = "{{$lp->code}}" data-id = "{{$lp->id}}" onclick = "openmodal(this)">Read the Spesification <i class="fa fa-angle-right maroon_color" aria-hidden="true"></i></span></p> <i class="bi bi-arrow-right"></i>
-                </div>
-                  @endforeach
+                      @foreach($latest_product as $lp)
+        
+                      <div class="flex flex-col" style = "text-align:left;"><image id = "gambar_product" src = "{{asset('main/images/product/')}}/{{$lp->images}}" style = "width:100% !important;max-width:500px;;height:300px;border-radius:7px;"/>
+                        <p style = "margin-top:10px;padding-left:10px; font-size:1.5vw;margin-bottom:0px !important;"><span id = "product_category" class = "maroon_color category_product" style = "font-size:1.5vw"><b>{{$lp->category_name}}</b></span></p>
+                        {{-- <p class = 'name_products' style = "font-size:1.4vw;margin-top:2px;padding-left:10px;font-weight:bold;margin-bottom:0px !important;">{{$lp->name}}</p> --}}
+                        {{-- <p class = 'code_products' style = "font-size:1.1vw;margin-top:10px;padding-left:10px;">#{{$lp->code}}</p> --}}
+                        @if(session()->has('message') || session()->has('verifyuser'))
+                        <p style = "font-size:1.1vw;margin-top:10px;padding-left:10px;">Rp {{number_format($lp->price)}} / Piece</p>
+                        @else 
+                        <p style = "font-size:1.1vw;margin-top:10px;padding-left:10px;">Contact our Admin for prices</p>
+                        @endif
+                        <p style = "font-size:1.1vw;margin-top:10px;padding-left:10px;">Variant : </p>
+                        {{-- <p style = "font-size:1.1vw;margin-top:10px;padding-left:10px; " class = "description_product"><span class = "maroon_color" style = "font-weight:bold;" data-kode = "{{$lp->code}}" data-id = "{{$lp->id}}" onclick = "openmodal(this)">Read the Spesification <i class="fa fa-angle-right maroon_color" aria-hidden="true"></i></span></p> <i class="bi bi-arrow-right"></i> --}}
+                       </div>
+                        @endforeach
                 </div>
                 </div>
             </div>
