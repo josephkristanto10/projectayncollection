@@ -37,8 +37,26 @@ class HomeController extends Controller
             $array_product["$lp->id"]["variant_product"][] = $variants;
         
         }
+        $best_seller = Product::join("best_seller", "best_seller.id_product", "=", "product.id")->join('category','category.id', '=', 'product.id_category')->leftJoin("variant_product", "variant_product.id_product", '=',"product.id")->latest()->select("product.*", "variant_product.variant_name", "variant_product.variant_images", "category.name as category_name")->get();
+        $array_product_best_seller = [];
+        $array_id_best_seller = [];
+        foreach($best_seller as $bs){
+            if(!in_array($bs->id,$array_id_best_seller)){
+                $array_id_best_seller[] = $bs->id;
+            }
+          
+            // $array_products["id"][] =  $array_id;
+            $array_product_best_seller["$bs->id"]["product"] = $bs->id;
+            $array_product_best_seller["$bs->id"]["detail"] = $bs;
+            $variants = "tidak ada";
+            if($bs->variant_images){
+                $variants = $bs->variant_images;
+            }
+            $array_product_best_seller["$bs->id"]["variant_product"][] = $variants;
+        
+        }
    
-        return view('main.index', compact('latest_product','array_product', "array_id"));
+        return view('main.index', compact('latest_product','array_product', "array_id", "array_product_best_seller", "array_id_best_seller"));
     }
 
     /**

@@ -33,6 +33,10 @@ Route::group(['prefix'=>'adminoffice','as'=>'Admin.'], function(){
     Route::POST('login', [AdminController::class,"checklogin"]);
     Route::get('logout', [AdminController::class,"logout"]);
 
+    Route::get('best_seller', [AdminController::class,"index_best_seller"]);
+    Route::get('best_seller/getbestseller', [AdminController::class,"gettabelbestseller"]);
+    Route::POST('best_seller/editbestseller', [AdminController::class,"editbestseller"]);
+
     Route::get('product', [AdminController::class,"index_product"]);
     Route::get('product/getlistproduct', [AdminController::class,"gettabelproduct"]);
     Route::get('product/getdetailproduct', [AdminController::class,"getdetailproduct"]);

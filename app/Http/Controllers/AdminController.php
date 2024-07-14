@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\VariantProduct;
 use App\Models\Superadmin;
 use App\Models\VerifyLink;
+use App\Models\BestSeller;
 
 use Illuminate\Http\Request;
 use DataTables;
@@ -66,11 +67,27 @@ class AdminController extends Controller
         $category = Category::latest()->get();
         return view('Admin.pages.product', compact("menu", "category"));
     }
-
+    public function index_best_seller(){
+        $menu = "best_seller";
+        $product = Product::latest()->get();
+        // $category = BestSeller::latest("kolom")->get();
+        return view('Admin.pages.best_seller', compact("menu", "product"));
+    }
+    public function gettabelbestseller(){
+        $data = BestSeller::join("product", "product.id", "=", "best_seller.id_product" )->latest("kolom")->get();
+        return DataTables::of($data)->make(true);
+    }
     public function gettabelproduct(){
         $data = Product::latest()->get();
         return DataTables::of($data)->make(true);
     }
+    public function editbestseller(Request $request){
+        $pilihan_produk = $request->best_seller;
+        $kolom = $request->kolom_best_seller;
+        $change = BestSeller::where(['kolom' => $kolom ])->update(["id_product" => $pilihan_produk]);
+
+    }   
+    
 
     public function tambahproduk(Request $request){
         $disable = "-";

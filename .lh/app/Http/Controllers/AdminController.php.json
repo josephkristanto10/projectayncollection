@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 283,
+            "activePatchIndex": 312,
             "patches": [
                 {
                     "date": 1720190184435,
@@ -1140,6 +1140,122 @@
                 {
                     "date": 1720945872638,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -78,9 +78,9 @@\n         $code_product = $request->add_code_product;\n         // $name_product = $request->add_nama_product;\n         $harga_product = $request->add_harga_product;\n         $stock_product = $request->add_stock_product;\n-        $desc_product = $request->add_desc_product;\n+        // $desc_product = $request->add_desc_product;\n         $status_gbr_product = \"\";\n         if($request->hasFile('add_gbr_product')) {\n             $file_product = $request->file('add_gbr_product');\n             $tujuan_upload = public_path('main/images/product');\n"
+                },
+                {
+                    "date": 1720947345080,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -65,8 +65,9 @@\n         $menu = \"product\";\n         $category = Category::latest()->get();\n         return view('Admin.pages.product', compact(\"menu\", \"category\"));\n     }\n+    index_best_seller\n \n     public function gettabelproduct(){\n         $data = Product::latest()->get();\n         return DataTables::of($data)->make(true);\n"
+                },
+                {
+                    "date": 1720947356182,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -65,9 +65,14 @@\n         $menu = \"product\";\n         $category = Category::latest()->get();\n         return view('Admin.pages.product', compact(\"menu\", \"category\"));\n     }\n-    index_best_seller\n+    public function index_best_seller(){\n+        $menu = \"best_seller\";\n+        $category = Category::latest()->get();\n+        return view('Admin.pages.product', compact(\"menu\", \"category\"));\n+    }\n+    \n \n     public function gettabelproduct(){\n         $data = Product::latest()->get();\n         return DataTables::of($data)->make(true);\n"
+                },
+                {
+                    "date": 1720947402278,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,8 +6,9 @@\n use App\\Models\\Category;\n use App\\Models\\VariantProduct;\n use App\\Models\\Superadmin;\n use App\\Models\\VerifyLink;\n+use App\\Models\\VerifyLink;\n \n use Illuminate\\Http\\Request;\n use DataTables;\n use Session;\n"
+                },
+                {
+                    "date": 1720947407608,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n use App\\Models\\Category;\n use App\\Models\\VariantProduct;\n use App\\Models\\Superadmin;\n use App\\Models\\VerifyLink;\n-use App\\Models\\VerifyLink;\n+use App\\Models\\BestSeller;\n \n use Illuminate\\Http\\Request;\n use DataTables;\n use Session;\n"
+                },
+                {
+                    "date": 1720947422585,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -68,10 +68,10 @@\n         return view('Admin.pages.product', compact(\"menu\", \"category\"));\n     }\n     public function index_best_seller(){\n         $menu = \"best_seller\";\n-        $category = Category::latest()->get();\n-        return view('Admin.pages.product', compact(\"menu\", \"category\"));\n+        $category = BestSeller::latest()->get();\n+        return view('Admin.pages.BestSeller', compact(\"menu\", \"category\"));\n     }\n     \n \n     public function gettabelproduct(){\n"
+                },
+                {
+                    "date": 1720947428253,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -68,9 +68,9 @@\n         return view('Admin.pages.product', compact(\"menu\", \"category\"));\n     }\n     public function index_best_seller(){\n         $menu = \"best_seller\";\n-        $category = BestSeller::latest()->get();\n+        $category = BestSeller::latest(\"kolom\")->get();\n         return view('Admin.pages.BestSeller', compact(\"menu\", \"category\"));\n     }\n     \n \n"
+                },
+                {
+                    "date": 1720947488687,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -69,9 +69,9 @@\n     }\n     public function index_best_seller(){\n         $menu = \"best_seller\";\n         $category = BestSeller::latest(\"kolom\")->get();\n-        return view('Admin.pages.BestSeller', compact(\"menu\", \"category\"));\n+        return view('Admin.pages.best_seller', compact(\"menu\", \"category\"));\n     }\n     \n \n     public function gettabelproduct(){\n"
+                },
+                {
+                    "date": 1720947530621,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -68,9 +68,9 @@\n         return view('Admin.pages.product', compact(\"menu\", \"category\"));\n     }\n     public function index_best_seller(){\n         $menu = \"best_seller\";\n-        $category = BestSeller::latest(\"kolom\")->get();\n+        // $category = BestSeller::latest(\"kolom\")->get();\n         return view('Admin.pages.best_seller', compact(\"menu\", \"category\"));\n     }\n     \n \n"
+                },
+                {
+                    "date": 1720947538124,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -72,13 +72,16 @@\n         // $category = BestSeller::latest(\"kolom\")->get();\n         return view('Admin.pages.best_seller', compact(\"menu\", \"category\"));\n     }\n     \n-\n     public function gettabelproduct(){\n         $data = Product::latest()->get();\n         return DataTables::of($data)->make(true);\n     }\n+    public function gettabelproduct(){\n+        $data = Product::latest()->get();\n+        return DataTables::of($data)->make(true);\n+    }\n \n     public function tambahproduk(Request $request){\n         $disable = \"-\";\n         $id_category = $request->add_pil_category;\n"
+                },
+                {
+                    "date": 1720947544875,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -72,9 +72,9 @@\n         // $category = BestSeller::latest(\"kolom\")->get();\n         return view('Admin.pages.best_seller', compact(\"menu\", \"category\"));\n     }\n     \n-    public function gettabelproduct(){\n+    public function gettabelbestseller(){\n         $data = Product::latest()->get();\n         return DataTables::of($data)->make(true);\n     }\n     public function gettabelproduct(){\n"
+                },
+                {
+                    "date": 1720947559669,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -71,9 +71,8 @@\n         $menu = \"best_seller\";\n         // $category = BestSeller::latest(\"kolom\")->get();\n         return view('Admin.pages.best_seller', compact(\"menu\", \"category\"));\n     }\n-    \n     public function gettabelbestseller(){\n         $data = Product::latest()->get();\n         return DataTables::of($data)->make(true);\n     }\n"
+                },
+                {
+                    "date": 1720947565295,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -72,9 +72,9 @@\n         // $category = BestSeller::latest(\"kolom\")->get();\n         return view('Admin.pages.best_seller', compact(\"menu\", \"category\"));\n     }\n     public function gettabelbestseller(){\n-        $data = Product::latest()->get();\n+        $data = BestSeller::latest()->get();\n         return DataTables::of($data)->make(true);\n     }\n     public function gettabelproduct(){\n         $data = Product::latest()->get();\n"
+                },
+                {
+                    "date": 1720947570966,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -72,9 +72,9 @@\n         // $category = BestSeller::latest(\"kolom\")->get();\n         return view('Admin.pages.best_seller', compact(\"menu\", \"category\"));\n     }\n     public function gettabelbestseller(){\n-        $data = BestSeller::latest()->get();\n+        $data = BestSeller::latest(\"kolom\")->get();\n         return DataTables::of($data)->make(true);\n     }\n     public function gettabelproduct(){\n         $data = Product::latest()->get();\n"
+                },
+                {
+                    "date": 1720947788208,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -72,9 +72,9 @@\n         // $category = BestSeller::latest(\"kolom\")->get();\n         return view('Admin.pages.best_seller', compact(\"menu\", \"category\"));\n     }\n     public function gettabelbestseller(){\n-        $data = BestSeller::latest(\"kolom\")->get();\n+        $data = BestSeller::join()->latest(\"kolom\")->get();\n         return DataTables::of($data)->make(true);\n     }\n     public function gettabelproduct(){\n         $data = Product::latest()->get();\n"
+                },
+                {
+                    "date": 1720947841742,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -72,9 +72,9 @@\n         // $category = BestSeller::latest(\"kolom\")->get();\n         return view('Admin.pages.best_seller', compact(\"menu\", \"category\"));\n     }\n     public function gettabelbestseller(){\n-        $data = BestSeller::join()->latest(\"kolom\")->get();\n+        $data = BestSeller::join(\"product.id\", \"product.id\", \"=\", \"best_seller.id_product\" )->latest(\"kolom\")->get();\n         return DataTables::of($data)->make(true);\n     }\n     public function gettabelproduct(){\n         $data = Product::latest()->get();\n"
+                },
+                {
+                    "date": 1720947848248,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -72,9 +72,9 @@\n         // $category = BestSeller::latest(\"kolom\")->get();\n         return view('Admin.pages.best_seller', compact(\"menu\", \"category\"));\n     }\n     public function gettabelbestseller(){\n-        $data = BestSeller::join(\"product.id\", \"product.id\", \"=\", \"best_seller.id_product\" )->latest(\"kolom\")->get();\n+        $data = BestSeller::join(\"product\", \"product.id\", \"=\", \"best_seller.id_product\" )->latest(\"kolom\")->get();\n         return DataTables::of($data)->make(true);\n     }\n     public function gettabelproduct(){\n         $data = Product::latest()->get();\n"
+                },
+                {
+                    "date": 1720947906070,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -69,9 +69,9 @@\n     }\n     public function index_best_seller(){\n         $menu = \"best_seller\";\n         // $category = BestSeller::latest(\"kolom\")->get();\n-        return view('Admin.pages.best_seller', compact(\"menu\", \"category\"));\n+        return view('Admin.pages.best_seller', compact(\"menu\"));\n     }\n     public function gettabelbestseller(){\n         $data = BestSeller::join(\"product\", \"product.id\", \"=\", \"best_seller.id_product\" )->latest(\"kolom\")->get();\n         return DataTables::of($data)->make(true);\n"
+                },
+                {
+                    "date": 1720948723572,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -79,8 +79,11 @@\n     public function gettabelproduct(){\n         $data = Product::latest()->get();\n         return DataTables::of($data)->make(true);\n     }\n+    public function editbestseller(){\n+        \n+    }\n \n     public function tambahproduk(Request $request){\n         $disable = \"-\";\n         $id_category = $request->add_pil_category;\n"
+                },
+                {
+                    "date": 1720948736546,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -79,10 +79,10 @@\n     public function gettabelproduct(){\n         $data = Product::latest()->get();\n         return DataTables::of($data)->make(true);\n     }\n-    public function editbestseller(){\n-        \n+    public function editbestseller(Request $request){\n+        $change = BestSeller\n     }\n \n     public function tambahproduk(Request $request){\n         $disable = \"-\";\n"
+                },
+                {
+                    "date": 1720948767306,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -80,9 +80,10 @@\n         $data = Product::latest()->get();\n         return DataTables::of($data)->make(true);\n     }\n     public function editbestseller(Request $request){\n-        $change = BestSeller\n+        $change = BestSeller::Product::where(['id' => $product_id ])->update(['images' => $nama_file]);\n+\n     }\n \n     public function tambahproduk(Request $request){\n         $disable = \"-\";\n"
+                },
+                {
+                    "date": 1720948776898,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -80,9 +80,9 @@\n         $data = Product::latest()->get();\n         return DataTables::of($data)->make(true);\n     }\n     public function editbestseller(Request $request){\n-        $change = BestSeller::Product::where(['id' => $product_id ])->update(['images' => $nama_file]);\n+        $change = BestSeller::where(['id' => $product_id ])->update(['images' => $nama_file]);\n \n     }\n \n     public function tambahproduk(Request $request){\n"
+                },
+                {
+                    "date": 1720948806001,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -80,9 +80,11 @@\n         $data = Product::latest()->get();\n         return DataTables::of($data)->make(true);\n     }\n     public function editbestseller(Request $request){\n-        $change = BestSeller::where(['id' => $product_id ])->update(['images' => $nama_file]);\n+        $pilihan_kolom = $request->best_seller\n+        kolom_best_seller\n+        $change = BestSeller::where(['kolom' => $product_id ])->update(['images' => $nama_file]);\n \n     }\n \n     public function tambahproduk(Request $request){\n"
+                },
+                {
+                    "date": 1720948813328,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -80,9 +80,10 @@\n         $data = Product::latest()->get();\n         return DataTables::of($data)->make(true);\n     }\n     public function editbestseller(Request $request){\n-        $pilihan_kolom = $request->best_seller\n+        $pilihan_produk = $request->best_seller;\n+        $kolom = \n         kolom_best_seller\n         $change = BestSeller::where(['kolom' => $product_id ])->update(['images' => $nama_file]);\n \n     }\n"
+                },
+                {
+                    "date": 1720948822906,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -81,10 +81,9 @@\n         return DataTables::of($data)->make(true);\n     }\n     public function editbestseller(Request $request){\n         $pilihan_produk = $request->best_seller;\n-        $kolom = \n-        kolom_best_seller\n+        $kolom = $request->kolom_best_seller\n         $change = BestSeller::where(['kolom' => $product_id ])->update(['images' => $nama_file]);\n \n     }\n \n"
+                },
+                {
+                    "date": 1720948829915,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -81,10 +81,10 @@\n         return DataTables::of($data)->make(true);\n     }\n     public function editbestseller(Request $request){\n         $pilihan_produk = $request->best_seller;\n-        $kolom = $request->kolom_best_seller\n-        $change = BestSeller::where(['kolom' => $product_id ])->update(['images' => $nama_file]);\n+        $kolom = $request->kolom_best_seller;\n+        $change = BestSeller::where(['kolom' => $kolom ])->update(['images' => $nama_file]);\n \n     }\n \n     public function tambahproduk(Request $request){\n"
+                },
+                {
+                    "date": 1720948845750,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -82,9 +82,9 @@\n     }\n     public function editbestseller(Request $request){\n         $pilihan_produk = $request->best_seller;\n         $kolom = $request->kolom_best_seller;\n-        $change = BestSeller::where(['kolom' => $kolom ])->update(['images' => $nama_file]);\n+        $change = BestSeller::where(['kolom' => $kolom ])->update([\"id_product\" => $nama_file]);\n \n     }\n \n     public function tambahproduk(Request $request){\n"
+                },
+                {
+                    "date": 1720948944620,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -82,9 +82,9 @@\n     }\n     public function editbestseller(Request $request){\n         $pilihan_produk = $request->best_seller;\n         $kolom = $request->kolom_best_seller;\n-        $change = BestSeller::where(['kolom' => $kolom ])->update([\"id_product\" => $nama_file]);\n+        $change = BestSeller::where(['kolom' => $kolom ])->update([\"id_product\" => $pilihan_produk]);\n \n     }\n \n     public function tambahproduk(Request $request){\n"
+                },
+                {
+                    "date": 1720949032604,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -68,8 +68,9 @@\n         return view('Admin.pages.product', compact(\"menu\", \"category\"));\n     }\n     public function index_best_seller(){\n         $menu = \"best_seller\";\n+        $product = Product::latest()->get();\n         // $category = BestSeller::latest(\"kolom\")->get();\n         return view('Admin.pages.best_seller', compact(\"menu\"));\n     }\n     public function gettabelbestseller(){\n"
+                },
+                {
+                    "date": 1720954429804,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -70,9 +70,9 @@\n     public function index_best_seller(){\n         $menu = \"best_seller\";\n         $product = Product::latest()->get();\n         // $category = BestSeller::latest(\"kolom\")->get();\n-        return view('Admin.pages.best_seller', compact(\"menu\"));\n+        return view('Admin.pages.best_seller', compact(\"menu\", \"product\"));\n     }\n     public function gettabelbestseller(){\n         $data = BestSeller::join(\"product\", \"product.id\", \"=\", \"best_seller.id_product\" )->latest(\"kolom\")->get();\n         return DataTables::of($data)->make(true);\n@@ -85,9 +85,10 @@\n         $pilihan_produk = $request->best_seller;\n         $kolom = $request->kolom_best_seller;\n         $change = BestSeller::where(['kolom' => $kolom ])->update([\"id_product\" => $pilihan_produk]);\n \n-    }\n+    }   \n+    \n \n     public function tambahproduk(Request $request){\n         $disable = \"-\";\n         $id_category = $request->add_pil_category;\n"
                 }
             ],
             "date": 1720190184434,
