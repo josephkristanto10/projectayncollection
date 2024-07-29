@@ -37,6 +37,7 @@
                     <div class = "mycards">
                      
                     @foreach($array_id as $keys=> $ai)
+                    @if($keys < 4)
                     <div class="flex flex-col" style = "text-align:left;">
                       <div id="carouselExampleControls"  class="carousel slide car_{{$keys}}">
                         <div class="carousel-inner">
@@ -46,7 +47,7 @@
                           @if($array_product[$ai]['variant_product'][0] != "tidak ada")
                           @foreach($array_product[$ai]['variant_product'] as $values => $ap)
                           <div class="carousel-item">
-                              <img class="card_image" src = '{{asset("main/images/variant/$ap")}}' style = "width:300px; !important;border-radius:10px;padding:2px;border:1px solid grey;">
+                              <img class="card_image" src = '{{asset("main/images/variant/$ap")}}' style = "width:300px; height:400px; !important;border-radius:10px;padding:2px;">
                           </div>
                           @endforeach
                         @endif
@@ -72,6 +73,7 @@
                        
                          </p>
                         </div>
+                      @endif
                     @endforeach
                     
                   </div>
@@ -99,7 +101,7 @@
                             @if($array_product_best_seller[$ai]['variant_product'][0] != "tidak ada")
                             @foreach($array_product_best_seller[$ai]['variant_product'] as $values => $ap)
                             <div class="carousel-item">
-                                <img class="card_image" src = '{{asset("main/images/variant/$ap")}}' style = "width:300px; !important;border-radius:10px;padding:2px;">
+                                <img class="card_image" src = '{{asset("main/images/variant/$ap")}}' style = "width:300px;height:400px; !important;border-radius:10px;padding:2px;">
                             </div>
                             @endforeach
                           @endif

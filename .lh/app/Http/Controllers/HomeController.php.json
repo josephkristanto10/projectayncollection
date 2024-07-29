@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 87,
+            "activePatchIndex": 89,
             "patches": [
                 {
                     "date": 1720344563894,
@@ -356,6 +356,14 @@
                 {
                     "date": 1720957141930,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n      * @return \\Illuminate\\Http\\Response\n      */\n     public function index()\n     {\n-        $latest_product = Product::join('category','category.id', '=', 'product.id_category')->leftJoin(\"variant_product\", \"variant_product.id_product\", '=',\"product.id\")->latest()->select(\"product.*\", \"variant_product.variant_name\", \"variant_product.variant_images\", \"category.name as category_name\")->limit(3)->get();\n+        $latest_product = Product::join('category','category.id', '=', 'product.id_category')->leftJoin(\"variant_product\", \"variant_product.id_product\", '=',\"product.id\")->latest()->select(\"product.*\", \"variant_product.variant_name\", \"variant_product.variant_images\", \"category.name as category_name\")->get();\n         $array_product = [];\n         $array_id = [];\n         foreach($latest_product as $lp){\n             if(!in_array($lp->id,$array_id)){\n"
+                },
+                {
+                    "date": 1722267646234,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n      * @return \\Illuminate\\Http\\Response\n      */\n     public function index()\n     {\n-        $latest_product = Product::join('category','category.id', '=', 'product.id_category')->leftJoin(\"variant_product\", \"variant_product.id_product\", '=',\"product.id\")->latest()->select(\"product.*\", \"variant_product.variant_name\", \"variant_product.variant_images\", \"category.name as category_name\")->get();\n+        $latest_product = Product::join('category','category.id', '=', 'product.id_category')->leftJoin(\"variant_product\", \"variant_product.id_product\", '=',\"product.id\")->latest()->select(\"product.*\", \"variant_product.variant_name\", \"variant_product.variant_images\", \"category.name as category_name\")->limit(4)->get();\n         $array_product = [];\n         $array_id = [];\n         foreach($latest_product as $lp){\n             if(!in_array($lp->id,$array_id)){\n"
+                },
+                {
+                    "date": 1722267673416,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n      * @return \\Illuminate\\Http\\Response\n      */\n     public function index()\n     {\n-        $latest_product = Product::join('category','category.id', '=', 'product.id_category')->leftJoin(\"variant_product\", \"variant_product.id_product\", '=',\"product.id\")->latest()->select(\"product.*\", \"variant_product.variant_name\", \"variant_product.variant_images\", \"category.name as category_name\")->limit(4)->get();\n+        $latest_product = Product::join('category','category.id', '=', 'product.id_category')->leftJoin(\"variant_product\", \"variant_product.id_product\", '=',\"product.id\")->latest()->select(\"product.*\", \"variant_product.variant_name\", \"variant_product.variant_images\", \"category.name as category_name\")->get();\n         $array_product = [];\n         $array_id = [];\n         foreach($latest_product as $lp){\n             if(!in_array($lp->id,$array_id)){\n"
                 }
             ],
             "date": 1720344563894,
