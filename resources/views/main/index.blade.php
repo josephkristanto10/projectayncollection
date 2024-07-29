@@ -13,6 +13,11 @@
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slim-scroll/1.3.3/slimscroll.js" integrity="sha512-mmciZ0RysaJxNOf+tq0TOGa0EI7MMUEktDT2C4T6isgPu3ulOmLmY6IfebAEAgCPoLXOvOv/ODOlNxT/X/Jgaw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    {{-- <link rel="stylesheet" href="{{asset('owl/dist/assets/owl.carousel.css')}}">
+    <link rel="stylesheet" href="{{asset('owl/dist/assets/owl.theme.default.min.css')}}"> --}}
+    <script src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js" crossorigin="anonymous" defer></script>
+<link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css" rel="stylesheet" crossorigin="anonymous">
+
     <style>
      
         .buythelatest_section{
@@ -1060,32 +1065,49 @@ transition: all 0.3s;
             <div class = "product">
              
                 <div class = "row  justify-content-center" style = "text-align:center;margin-bottom:10px;margin-top:10px;" id = "product_list">
-                  <div class = "mycards">
+               
                     <?php $id_array=[]; ?>
-                
+                    <div class = "mycards">
+                     
                     @foreach($array_id as $keys=> $ai)
-                    <div class="flex flex-col" style = "text-align:left;"><image id = "gambar_product" src = "{{asset('main/images/product/')}}/{{$array_product[$ai]['detail']['images']}}" style = "width:100% !important;max-width:500px;;height:300px;border-radius:7px;"/>
-                        <p style = "margin-top:10px;padding-left:10px; font-size:1.5vw;margin-bottom:0px !important;"><span id = "product_category" class = "maroon_color category_product" style = "font-size:1.5vw"><b>{{$array_product[$ai]['detail']['category_name']}}</b></span></p>
-                       {{-- {{dd($array_product[$ai]["detail"]['name'])}} --}}
+                    <div class="flex flex-col" style = "text-align:left;">
+                      <div id="carouselExampleControls" class="carousel slide car_{{$keys}}" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                          <div class="carousel-item active">
+                            <img class="card_image" id = "gambar_product" src = "{{asset('main/images/product/')}}/{{$array_product[$ai]['detail']['images']}}" style = "width:300px;;height:300px;border-radius:7px;"/>
+                          </div>
+                          @if($array_product[$ai]['variant_product'][0] != "tidak ada")
+                          @foreach($array_product[$ai]['variant_product'] as $values => $ap)
+                          <div class="carousel-item">
+                              <img class="card_image" src = '{{asset("main/images/variant/$ap")}}' style = "width:300px; !important;border-radius:10px;padding:2px;border:1px solid grey;">
+                          </div>
+                          @endforeach
+                        @endif
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target=".car_{{$keys}}" data-bs-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target=".car_{{$keys}}" data-bs-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Next</span>
+                        </button>
+                      </div>
+                      <p style = "margin-top:10px;padding-left:10px; font-size:1.5vw;margin-bottom:0px !important;"><span id = "product_category" class = "maroon_color category_product" style = "font-size:1.5vw"><b>{{$array_product[$ai]['detail']['category_name']}}</b></span></p>
+                      <p style = "font-size:1.4vw;margin-top:10px;padding-left:10px;font-weight:600;">{{$array_product[$ai]['detail']['code']}}</p>
                         @if(session()->has('message') || session()->has('verifyuser'))
                             <p style = "font-size:1.1vw;margin-top:10px;padding-left:10px;">Rp <b>{{$array_product[$ai]['detail']['price']}}</b>  / Piece</p>
                         @else 
                             <p style = "font-size:1.1vw;margin-top:10px;padding-left:10px;">Contact our Admin for prices</p>
                         @endif
 
-                        <p style = "font-size:1.1vw;margin-top:10px;padding-left:10px;">Variant : 
-                        @if($array_product[$ai]['variant_product'][0] != "tidak ada")
-                          @foreach($array_product[$ai]['variant_product'] as $values => $ap)
-                          {{-- {{$ap}} --}}
-                          {{-- testset --}}
-                          <img class = "card_image" src = '{{asset("main/images/variant/$ap")}}' style = "width:30px !important;height:30px !important;border-radius:10px;padding:2px;border:1px solid grey;">
-                      
-                          @endforeach
-                        @endif
+                        {{-- <p style = "font-size:1.1vw;margin-top:10px;padding-left:10px;">Variant :  --}}
+                       
                          </p>
-                      </div>
+                        </div>
                     @endforeach
-             
+                    
+                  </div>
               </div>
               </div>
             
@@ -1101,7 +1123,7 @@ transition: all 0.3s;
                   <div class = "row  justify-content-center" style = "text-align:center;margin-bottom:10px;margin-top:10px;" id = "product_list">
                     <div class = "mycards">
                       @foreach($array_id_best_seller as $keys=> $ai)
-                      <div class="flex flex-col" style = "text-align:left;"><image id = "gambar_product" src = "{{asset('main/images/product/')}}/{{$array_product_best_seller[$ai]['detail']['images']}}" style = "width:100% !important;max-width:500px;;height:300px;border-radius:7px;"/>
+                      <div class="flex flex-col" style = "text-align:left; width:100%;"><image id = "gambar_product" src = "{{asset('main/images/product/')}}/{{$array_product_best_seller[$ai]['detail']['images']}}" style = "width:100% !important;max-width:500px;;height:300px;border-radius:7px;"/>
                           <p style = "margin-top:10px;padding-left:10px; font-size:1.5vw;margin-bottom:0px !important;"><span id = "product_category" class = "maroon_color category_product" style = "font-size:1.5vw"><b>{{$array_product_best_seller[$ai]['detail']['category_name']}}</b></span></p>
                          {{-- {{dd($array_product[$ai]["detail"]['name'])}} --}}
                           @if(session()->has('message') || session()->has('verifyuser'))
@@ -1188,17 +1210,37 @@ transition: all 0.3s;
   </body>
 </html>
 <script src="{{asset('main/js/script.js')}}"></script>
+<script src="{{asset('owl/dist/owl.carousel.min.js')}}"></script>
+
 <script>
   $(document).ready(function () {
-    // $('#kartu_detail').slimScroll({ height:"200px" });
-    // const ps = PerfectScrollbar('#kartu_detail');
-
-  
+    // $('.myowl').owlCarousel({
+    //         loop: false,
+    //         items: 1,
+    //         margin: 10,
+    //         dots:false,
+    //         autoWidth:true,
+    //         responsiveClass:true,
+    //         responsive:{
+    //             0:{
+    //                 items:1,
+    //                 nav:false
+    //             },
+    //             600:{
+    //                 items:1,
+    //                 nav:false
+    //             },
+    //             1000:{
+    //                 items:1,
+    //                 nav:false,
+    //                 loop:false
+    //             }
+    //           }
+      
+    //     });
+    $('.carousel').carousel();
   });
-
-
-
-
+  
     function openmodal(myobj){
 
       var myid_product =  $(myobj).attr("data-id");
