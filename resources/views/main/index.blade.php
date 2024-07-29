@@ -42,12 +42,12 @@
                       <div id="carouselExampleControls"  class="carousel slide car_{{$keys}}">
                         <div class="carousel-inner">
                           <div class="carousel-item active">
-                            <img class="card_image" id = "gambar_product" src = "{{asset('main/images/product/')}}/{{$array_product[$ai]['detail']['images']}}" style = "width:300px;;height:400px;border-radius:7px;"/>
+                            <img class="card_image" id = "gambar_product" src = "{{asset('main/images/product/')}}/{{$array_product[$ai]['detail']['images']}}" style = "width:300px;height:400px !important;border-radius:7px;"/>
                           </div>
                           @if($array_product[$ai]['variant_product'][0] != "tidak ada")
                           @foreach($array_product[$ai]['variant_product'] as $values => $ap)
                           <div class="carousel-item">
-                              <img class="card_image" src = '{{asset("main/images/variant/$ap")}}' style = "width:300px; height:400px; !important;border-radius:10px;padding:2px;">
+                              <img class="card_image" src = '{{asset("main/images/variant/$ap")}}' style = "width:300px; height:400px !important;border-radius:10px;padding:2px;">
                           </div>
                           @endforeach
                         @endif
@@ -96,12 +96,12 @@
                         <div id="carouselExampleControls"  class="carousel slide best_car_{{$keys}}">
                           <div class="carousel-inner">
                             <div class="carousel-item active">
-                              <img class="card_image" id = "gambar_product" src = "{{asset('main/images/product/')}}/{{$array_product_best_seller[$ai]['detail']['images']}}" style = "width:300px;;height:400px;border-radius:7px;"/>
+                              <img class="card_image" id = "gambar_product" src = "{{asset('main/images/product/')}}/{{$array_product_best_seller[$ai]['detail']['images']}}" style = "width:300px;;height:400px !important;border-radius:7px;"/>
                             </div>
                             @if($array_product_best_seller[$ai]['variant_product'][0] != "tidak ada")
                             @foreach($array_product_best_seller[$ai]['variant_product'] as $values => $ap)
                             <div class="carousel-item">
-                                <img class="card_image" src = '{{asset("main/images/variant/$ap")}}' style = "width:300px;height:400px; !important;border-radius:10px;padding:2px;">
+                                <img class="card_image" src = '{{asset("main/images/variant/$ap")}}' style = "width:300px;height:400px !important;border-radius:10px;padding:2px;">
                             </div>
                             @endforeach
                           @endif
