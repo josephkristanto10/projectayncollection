@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 27,
+            "activePatchIndex": 28,
             "patches": [
                 {
                     "date": 1719821748703,
@@ -116,6 +116,10 @@
                 {
                     "date": 1720416654307,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,8 +40,8 @@\n     <li>\r\n       <a href=\"#\" id = \"m4\">Contact Us</a>\r\n     </li>\r\n     <li>\r\n-      <a href=\"{{url('/product')}}\" id = \"m2\" class = \"special_nav\">Product</a>\r\n+      <a href=\"{{url('/product')}}\" id = \"m2_mobile\" class = \"special_nav\">Product</a>\r\n     </li>\r\n   </ul>\r\n   </div>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1722267351819,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,14 +33,14 @@\n     <li>\r\n       <a href=\"{{url('/')}}\" id = \"m1\" class = \"active\"> Home</a>\r\n     </li>\r\n \r\n-    <li>\r\n+    {{-- <li>\r\n       <a href=\"#\" id = \"m3\">About us</a>\r\n     </li>\r\n     <li>\r\n       <a href=\"#\" id = \"m4\">Contact Us</a>\r\n-    </li>\r\n+    </li> --}}\r\n     <li>\r\n       <a href=\"{{url('/product')}}\" id = \"m2_mobile\" class = \"special_nav\">Product</a>\r\n     </li>\r\n   </ul>\r\n"
                 }
             ],
             "date": 1719821748703,

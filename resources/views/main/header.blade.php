@@ -10,12 +10,12 @@
         <a href="{{url('/')}}" id = "m1" class = "active"> Home</a>
       </li>
   
-      <li>
+      {{-- <li>
         <a href="#" id = "m3">About us</a>
       </li>
       <li>
         <a href="#" id = "m4">Contact Us</a>
-      </li>
+      </li> --}}
       <li>
         <a href="{{url('/product')}}" id = "m2" class = "special_nav">Product</a>
       </li>
@@ -34,12 +34,12 @@
       <a href="{{url('/')}}" id = "m1" class = "active"> Home</a>
     </li>
 
-    <li>
+    {{-- <li>
       <a href="#" id = "m3">About us</a>
     </li>
     <li>
       <a href="#" id = "m4">Contact Us</a>
-    </li>
+    </li> --}}
     <li>
       <a href="{{url('/product')}}" id = "m2_mobile" class = "special_nav">Product</a>
     </li>
