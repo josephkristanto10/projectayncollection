@@ -5,7 +5,7 @@
   grid-gap: 10px;" >
 
 @foreach($array_id as $keys=> $ai)
-<div class="flex flex-col" style = "text-align:left;">
+<div class="flex flex-col kotakluarproduk" style = "text-align:left;">
   <div id="carouselExampleControls"  class="carousel slide best_car_{{$keys}}">
     <div class="carousel-inner">
       <div class="carousel-item active">

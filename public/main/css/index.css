@@ -663,12 +663,16 @@
     height:200px !important;
   }
   .mycards{
+  
   align-items: center;
   margin-left: 10px;
   margin-right: 10px;
   display: grid;
   grid-gap: 10px;
-  grid-template-columns: repeat(2,  1fr);
+  grid-template-columns: repeat(1,  1fr);
+}
+.kotakluarproduk{
+  text-align: center !important;
 }
   .line-1{
     font-size:140%;
@@ -760,6 +764,7 @@
   .mycards img{
     height:300px !important;
   }
+  
   #spacing_best_seller_mobile{
     display:block !important;
   }
@@ -1054,3 +1059,5 @@ transition: all 0.3s;
            
          }
 }
+
+

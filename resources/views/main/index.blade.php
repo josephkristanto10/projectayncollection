@@ -19,9 +19,12 @@
 <link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css" rel="stylesheet" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" target="_blank" href="{{asset('main/css/index.css')}}" />
 
-  </head>
+</head>
+
   <body style = "height:100%;">
+   
     @include('main.header')
+  
     <div class = "containers">
     <div style = "width:100%;height:800px;;background-image:url('{{asset('main/images/landing_page.jpg')}}');background-size:cover;position:relative;">
       <span id = "limitideas" style = "color:white;position:absolute;bottom:20px;left:25px;font-size:1.5vw;background-color:#800e13;border-radius:40px;padding:10px;animation:3.5s fadeIns infinite">Dont limit your outfit <u>ideas</u>.</span>
@@ -38,8 +41,8 @@
                      
                     @foreach($array_id as $keys=> $ai)
                     @if($keys < 4)
-                    <div class="flex flex-col" style = "text-align:left;">
-                      <div id="carouselExampleControls"  class="carousel slide car_{{$keys}}">
+                    <div class="flex flex-col kotakluarproduk" style = "text-align:left;">
+                      <div id="carouselExampleControls"  class="carousel slide car_{{$keys}}" >
                         <div class="carousel-inner">
                           <div class="carousel-item active">
                             <img class="card_image" id = "gambar_product" src = "{{asset('main/images/product/')}}/{{$array_product[$ai]['detail']['images']}}" style = "width:300px;height:400px !important;border-radius:7px;"/>
@@ -92,7 +95,7 @@
                   <div class = "row  justify-content-center" style = "text-align:center;margin-bottom:10px;margin-top:10px;" id = "product_list">
                     <div class = "mycards">
                       @foreach($array_id_best_seller as $keys=> $ai)
-                      <div class="flex flex-col" style = "text-align:left; width:100%;">
+                      <div class="flex flex-col kotakluarproduk" style = "text-align:left; width:100%;">
                         <div id="carouselExampleControls"  class="carousel slide best_car_{{$keys}}">
                           <div class="carousel-inner">
                             <div class="carousel-item active">
