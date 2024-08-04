@@ -19,103 +19,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
     <style>
-#formsearch{
-    position: relative;
-    /* top: 50%; */
-    /* left: 50%; */
-    /* transform: translate(-50%,-50%); */
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    transition: all 1s;
-    width: 250px;
-    height: 50px;
-    background: white;
-    box-sizing: border-box;
-    border-radius: 4px;
-    border: 4px solid white;
-    padding: 5px;
-}
 
-#formsearch input{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;;
-    height: 42.5px;
-    line-height: 30px;
-    outline: 0;
-    border: 0;
-    display: none;
-    font-size: 1.5em;
-    border-radius: 20px;
-    padding: 0 20px;
-}
-
-#formsearch .fa{
-    box-sizing: border-box;
-    padding: 15px;
-    width: 42.5px;
-    height: 42.5px;
-    position: absolute;
-    top: 0px;
-    right: 0;
-    border-radius: 4px;
-    color: #07051a;
-    text-align: center;
-    font-size: 1.2em;
-    transition: all 1s;
-}
-
-#formsearch:hover,
-#formsearch:valid{
-    width: 450px;
-    cursor: pointer;
-}
-
-#formsearch:hover input,
-#formsearch:valid input{
-    display: block;
-}
-
-#formsearch:hover .fa,
-#formsearch:valid .fa{
-    background: #07051a;
-    color: white;
-}
-
-
-#formsearch button {
-  display: none;
-  position: absolute;
-  top: 70px;
-  bottom:0;
-  left: 0;
-  right: 0;
-  font-size: 20px;
-  color: white;
-  padding: 4px;  
-  min-height: max-content;
-  background:transparent;
-  outline: 0;
-  border: 1px solid #303030;
-  border-radius: 4px;
-  text-align: center; 
-  width: 100%;
-  cursor: pointer;
-}
-
-#formsearch:valid button {
-  display: block;
-}
-.choose_category_all_new_arival:hover{
-  background-color: #800e13;
-  color:white !important;
-  font-weight: bold;
-}
-.choose_active{
-  background-color: #800e13;
-  color:white !important;
-  font-weight: bold;
-}
     </style>
   </head>
   <body style = "height:100%;">
@@ -147,7 +51,7 @@
               <div style = "clear:both;"></div>
               <div style = "margin:auto;height:100%;text-align:center;">
                 <div style = "margin:auto;display:inline-block;margin-top:10px;">
-                  <div style = "float:left;margin:auto;display:inline-block;text-align:center;">
+                  <div id = "kotakformsearch" style = "float:left;margin:auto;display:inline-block;text-align:center;">
                     <form action="" id = "formsearch" role="search" style = "margin:auto;">
                       <input type="search" placeholder="type keyword here" id = "search_keyword" required>
                     
@@ -157,7 +61,7 @@
                       {{-- <button onclick="clearInput()">Clear</button> --}}
                     </form>
                   </div>
-                  <div style = "float:left;height:40px;width:0px;border : 1px solid grey;margin-left:10px;margin-top:5px;">
+                  <div id = "garis" style = "float:left;height:40px;width:0px;border : 1px solid grey;margin-left:10px;margin-top:5px;">
                   </div>
                   <div id = "choose_category_toggle" style = "float:left;padding-top:15px;padding-left:15px;display:inline-block;text-align:center;">
                     {{-- <div style = "height:50px;width:0px;border : 1px solid black;display:inline-block;"></div> --}}

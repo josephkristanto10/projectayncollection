@@ -63,8 +63,131 @@ to{border-right-color: transparent;}
     color : white !important;
     /* background-color:#800e13; */
 }
+
+#formsearch{
+  position: relative;
+  /* top: 50%; */
+  /* left: 50%; */
+  /* transform: translate(-50%,-50%); */
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  transition: all 1s;
+  width: 250px;
+  height: 50px;
+  background: white;
+  box-sizing: border-box;
+  border-radius: 4px;
+  border: 4px solid white;
+  padding: 5px;
+}
+
+#formsearch input{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;;
+  height: 42.5px;
+  line-height: 30px;
+  outline: 0;
+  border: 0;
+  display: none;
+  font-size: 1.5em;
+  border-radius: 20px;
+  padding: 0 20px;
+}
+
+#formsearch .fa{
+  box-sizing: border-box;
+  padding: 15px;
+  width: 42.5px;
+  height: 42.5px;
+  position: absolute;
+  top: 0px;
+  right: 0;
+  border-radius: 4px;
+  color: #07051a;
+  text-align: center;
+  font-size: 1.2em;
+  transition: all 1s;
+}
+
+#formsearch:hover,
+#formsearch:valid{
+  width: 450px;
+  cursor: pointer;
+}
+
+#formsearch:hover input,
+#formsearch:valid input{
+  display: block;
+}
+
+#formsearch:hover .fa,
+#formsearch:valid .fa{
+  background: #07051a;
+  color: white;
+}
+
+
+#formsearch button {
+display: none;
+position: absolute;
+top: 70px;
+bottom:0;
+left: 0;
+right: 0;
+font-size: 20px;
+color: white;
+padding: 4px;  
+min-height: max-content;
+background:transparent;
+outline: 0;
+border: 1px solid #303030;
+border-radius: 4px;
+text-align: center; 
+width: 100%;
+cursor: pointer;
+}
+
+#formsearch:valid button {
+display: block;
+}
+.choose_category_all_new_arival:hover{
+background-color: #800e13;
+color:white !important;
+font-weight: bold;
+}
+.choose_active{
+background-color: #800e13;
+color:white !important;
+font-weight: bold;
+}
+
+@keyframes smooth-appear {
+  to{
+    /* bottom: 20px; */
+    opacity:1;
+  }
+}
+#mycards .kotakluarproduk{
+  animation: smooth-appear 1s ease forwards;
+}
+
 @media (max-width: 767px) {  
- 
+  #garis{
+    display:none;
+   }
+   #formsearch:hover,
+#formsearch:valid{
+  width: 350px;
+  cursor: pointer;
+}
+#kotakformsearch{
+  float:none !important;
+}
+#choose_category_toggle{
+  float:none !important;
+  margin-top:10px;
+}
   .product{
     margin-top:30px;
     padding-left:0px !important;
@@ -264,6 +387,7 @@ font-size: 1vw;
 
 
 @media (min-width: 992px) { 
+ 
   #mycards img:hover{
     animation: zoom-in-zoom-out 3s ease ;
     /* transform: translateX(var(--un-translate-x)) translateY(var(--un-translate-y)) translateZ(var(--un-translate-z)) rotate(var(--un-rotate)) rotateX(var(--un-rotate-x)) rotateY(var(--un-rotate-y)) rotate(var(--un-rotate-z)) skewX(var(--un-skew-x)) skewY(var(--un-skew-y)) scaleX(var(--un-scale-x)) scaleY(var(--un-scale-y)) scaleZ(var(--un-scale-z)); */
