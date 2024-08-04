@@ -3,7 +3,7 @@
             margin-top:20px;
         }
         #latest_style{
-            font-size:55px;
+            font-size:37px;
         }
         #buythe_style{
             font-size:35px;
@@ -837,6 +837,24 @@ height:220px !important;
 
 
 @media (min-width: 992px) { 
+  .mycards img:hover{
+    animation: zoom-in-zoom-out 3s ease ;
+    /* transform: translateX(var(--un-translate-x)) translateY(var(--un-translate-y)) translateZ(var(--un-translate-z)) rotate(var(--un-rotate)) rotateX(var(--un-rotate-x)) rotateY(var(--un-rotate-y)) rotate(var(--un-rotate-z)) skewX(var(--un-skew-x)) skewY(var(--un-skew-y)) scaleX(var(--un-scale-x)) scaleY(var(--un-scale-y)) scaleZ(var(--un-scale-z)); */
+  }
+  @keyframes zoom-in-zoom-out {
+    0% {
+      transform: scale(1, 1);
+    }
+    50% {
+      transform: scale(1.1, 1.1);
+    }
+    100% {
+      transform: scale(1.1, 1.1);
+    }
+    /* 100% {
+      transform: scale(1, 1);
+    } */
+  }
   .mycards img{
     height:350px !important;
   }
@@ -859,11 +877,12 @@ height:220px !important;
         font-size:1.4vw !important;
     }
   .mycards{
+    width:95%;
   align-items: center;
   margin-left: 10px;
   margin-right: 10px;
   display: grid;
-  grid-gap: 10px;
+  grid-gap: 30px;
   grid-template-columns: repeat(4,  1fr);
 }
   #footer_follow_us{

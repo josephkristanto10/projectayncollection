@@ -9,7 +9,7 @@
   <div id="carouselExampleControls"  class="carousel slide best_car_{{$keys}}">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img class="card_image" id = "gambar_product" src = "{{asset('main/images/product/')}}/{{$array_product[$ai]['detail']['images']}}" style = "width:300px;;height:370px;border-radius:17px;"/>
+        <img class="card_image" id = "gambar_product" src = "{{asset('main/images/product/')}}/{{$array_product[$ai]['detail']['images']}}" style = "width:300px;;height:370px;border-radius:5px;"/>
       </div>
       @if($array_product[$ai]['variant_product'][0] != "tidak ada")
       @foreach($array_product[$ai]['variant_product'] as $values => $ap)

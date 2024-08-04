@@ -161,8 +161,8 @@
                   </div>
                   <div id = "choose_category_toggle" style = "float:left;padding-top:15px;padding-left:15px;display:inline-block;text-align:center;">
                     {{-- <div style = "height:50px;width:0px;border : 1px solid black;display:inline-block;"></div> --}}
-                    <span id = "all_click" onclick = "choosethis(this)" class = "choose_category_all_new_arival choose_active"  style = "border-radius:50px;color:#131312;font-size:15px;padding:12px;padding-left:50px;padding-right:50px;margin-top:15px;box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;margin-left:10px;">All</span>
-                    <span id = "new_arival_click" onclick = "choosethis(this)" class = "choose_category_all_new_arival" style = "border-radius:50px;font-size:17px;padding:10px;padding-left:30px;padding-right:30px;margin-top:15px;box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;margin-left:10px;">New Arrivals</span>
+                    <span id = "all_click" onclick = "choosethis(this)" class = "choose_category_all_new_arival choose_active"  style = "border-radius:50px;color:#131312;font-size:15px;padding:12px;padding-left:50px;padding-right:50px;margin-top:15px;box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;margin-left:10px;cursor:pointer;">All</span>
+                    <span id = "new_arival_click" onclick = "choosethis(this)" class = "choose_category_all_new_arival" style = "border-radius:50px;font-size:17px;padding:10px;padding-left:30px;padding-right:30px;margin-top:15px;box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;margin-left:10px;cursor:pointer;">New Arrivals</span>
                   </div>
                 </div>
              
@@ -326,40 +326,50 @@ function fetch_data(page, keywords)
 
 function openmodal(myobj){
 
-var myid_product =  $(myobj).attr("data-id");
-var kode_product =  $(myobj).attr("data-kode");
-$("#tujuan_chat_admin").attr("target", "_blank");
+      var myid_product =  $(myobj).attr("data-id");
+      var kode_product =  $(myobj).attr("data-kode");
+      $("#tujuan_chat_admin").attr("target", "_blank");
 
-$("#tujuan_chat_admin").attr("href", "https://wa.me/+6285763794376?text=hai%20ka%2C%20saya%20mau%20tanya%20tentang%20product%20dengan%20code%20"+kode_product+"%20ini.%20Saya%20taunya%20ini%20dari%20website.");
-
-
-$(".modal_card_detail").attr("style","width:100%;height:1000px;background-color:#000000;opacity:0.5;z-index:5;position:fixed;display:block;");
-$(".card_detail").attr("style", " z-index:6;display:block; animation: fadeIns 1s;");
+      $("#tujuan_chat_admin").attr("href", "https://wa.me/+6285763794376?text=hai%20ka%2C%20saya%20mau%20tanya%20tentang%20product%20dengan%20code%20"+kode_product+"%20ini.%20Saya%20taunya%20ini%20dari%20website.");
 
 
-$.ajax({
-type: "get",
-url: "{{url('/detailproduct')}}",
-data: {"id_product" : myid_product},
-dataType: "json",
-success: function (response) {
-
-  $("#modal_title_product").text(response.output[0].name);
-  $("#modal_code_product").text("#"+response.output[0].code);
-  var harga =  response.output[0].price;
-  const hargaakhir = harga.toLocaleString();
-  $("#modal_price_product").text("Rp "+hargaakhir);
-  $("#modal_desc_product").text(response.output[0].descriptions);
-
-  var output_gambar = "{{asset('main/images/product')}}/"+response.output[0].images;
-  $("#gambar_detail_product").attr("src", output_gambar);
+      $(".modal_card_detail").attr("style","width:100%;height:1000px;background-color:#000000;opacity:0.5;z-index:5;position:fixed;display:block;");
+      $(".card_detail").attr("style", " z-index:6;display:block; animation: fadeIns 1s;");
 
 
+      $.ajax({
+      type: "get",
+      url: "{{url('/detailproduct')}}",
+      data: {"id_product" : myid_product},
+      dataType: "json",
+      success: function (response) {
 
-}
-});
+        $("#modal_title_product").text(response.output[0].name);
+        $("#modal_code_product").text("#"+response.output[0].code);
+        var harga =  response.output[0].price;
+        const hargaakhir = harga.toLocaleString();
+        $("#modal_price_product").text("Rp "+hargaakhir);
+        $("#modal_desc_product").text(response.output[0].descriptions);
 
-}
+        var output_gambar = "{{asset('main/images/product')}}/"+response.output[0].images;
+        $("#gambar_detail_product").attr("src", output_gambar);
+
+
+
+      }
+      });
+
+  
+    }
+document.addEventListener("keypress", function(event) {
+  // If the user presses the "Enter" key on the keyboard
+  if (event.key === "Enter") {
+    // Cancel the default action, if needed
+    event.preventDefault();
+    // Trigger the button element with a click
+    $("#search_item").click();
+  }
+}); 
 $(".modal_card_detail").on("click",function(){
 $(".modal_card_detail").attr("style","width:100%;height:1000px;background-color:#000000;opacity:0.5;z-index:5;position:fixed;display:none;");
 $(".card_detail").attr("style", "opacity:1 !important; z-index:6;display:none;");
