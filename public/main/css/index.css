@@ -837,6 +837,9 @@ height:220px !important;
 
 
 @media (min-width: 992px) { 
+  .mycards img{
+    height:350px !important;
+  }
   .kotakluarprodukmobile{
     display:none;
   }

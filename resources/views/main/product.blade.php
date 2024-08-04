@@ -149,9 +149,9 @@
                 <div style = "margin:auto;display:inline-block;margin-top:10px;">
                   <div style = "float:left;margin:auto;display:inline-block;text-align:center;">
                     <form action="" id = "formsearch" role="search" style = "margin:auto;">
-                      <input type="search" placeholder="type keyword here" required>
+                      <input type="search" placeholder="type keyword here" id = "search_keyword" required>
                     
-                      <i class="fa fa-search"></i>
+                      <i class="fa fa-search" id = "search_item"></i>
                       <p style = "margin-top:5px;margin-right:35px;font-size:13px;">Hover & Type to Search</p>
                   
                       {{-- <button onclick="clearInput()">Clear</button> --}}
@@ -161,8 +161,8 @@
                   </div>
                   <div id = "choose_category_toggle" style = "float:left;padding-top:15px;padding-left:15px;display:inline-block;text-align:center;">
                     {{-- <div style = "height:50px;width:0px;border : 1px solid black;display:inline-block;"></div> --}}
-                    <span onclick = "choosethis(this)" class = "choose_category_all_new_arival choose_active"  style = "border-radius:50px;color:#131312;font-size:15px;padding:12px;padding-left:50px;padding-right:50px;margin-top:15px;box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;margin-left:10px;">All</span>
-                    <span onclick = "choosethis(this)" class = "choose_category_all_new_arival" style = "border-radius:50px;font-size:17px;padding:10px;padding-left:30px;padding-right:30px;margin-top:15px;box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;margin-left:10px;">New Arrivals</span>
+                    <span id = "all_click" onclick = "choosethis(this)" class = "choose_category_all_new_arival choose_active"  style = "border-radius:50px;color:#131312;font-size:15px;padding:12px;padding-left:50px;padding-right:50px;margin-top:15px;box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;margin-left:10px;">All</span>
+                    <span id = "new_arival_click" onclick = "choosethis(this)" class = "choose_category_all_new_arival" style = "border-radius:50px;font-size:17px;padding:10px;padding-left:30px;padding-right:30px;margin-top:15px;box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;margin-left:10px;">New Arrivals</span>
                   </div>
                 </div>
              
@@ -246,6 +246,7 @@
 <script src="{{asset('owl/dist/owl.carousel.min.js')}}"></script>
 
 <script>
+  
    $(document).ready(function(){
 
     $('#myowl').owlCarousel({
@@ -278,25 +279,44 @@ var data_pilihan_category = 0;
 function getproductbycategory(myobj){
     var id_category = $(myobj).attr("data-id");
     data_pilihan_category = id_category;
-    fetch_data(0);
+    var keyword_cari = $("#search_keyword").val();
+    fetch_data(0, keyword_cari);
 
 
 }
+
+$("#search_item").click(function (e) { 
+  e.preventDefault();
+  var keyword_cari = $("#search_keyword").val();
+  fetch_data(0, keyword_cari);
+});
+$("#all_click").click(function (e) { 
+  e.preventDefault();
+  $("#search_keyword").val("");
+  var keyword_cari = "";
+  fetch_data(0, keyword_cari);
+});
+$("#new_arival_click").click(function (e) { 
+  e.preventDefault();
+  $("#search_keyword").val("");
+  var keyword_cari = "";
+  fetch_data(-1, keyword_cari);
+});
+
 
 $(document).on('click', '.mylinks a', function(event){
  
  event.preventDefault(); 
  var page = $(this).attr('href').split('page=')[1];
 
- fetch_data(page);
+ fetch_data(page, "");
 });
 
-function fetch_data(page)
+function fetch_data(page, keywords)
 {
-
  $.ajax({
   url:"/pagecategory/fetch_data_index?page="+page,
-  data:{"category" : data_pilihan_category},
+  data:{"category" : data_pilihan_category, "keyword" : keywords},
   success:function(data)
   {
    $('#product_list').html(data);
