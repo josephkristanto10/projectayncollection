@@ -1,15 +1,15 @@
 <div class="" id = "mycards" style = "align-items: center;
-  margin-left: 10px;
-  margin-right: 10px;
+  
+
   display: grid;
   grid-gap: 10px;" >
 
 @foreach($array_id as $keys=> $ai)
-<div class="flex flex-col kotakluarproduk" style = "text-align:left;">
+<div class="flex flex-col kotakluarproduk" style = "text-align:left;width: 100%;">
   <div id="carouselExampleControls"  class="carousel slide best_car_{{$keys}}">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img class="card_image" id = "gambar_product" src = "{{asset('main/images/product/')}}/{{$array_product[$ai]['detail']['images']}}" style = "width:300px;;height:400px;border-radius:17px;"/>
+        <img class="card_image" id = "gambar_product" src = "{{asset('main/images/product/')}}/{{$array_product[$ai]['detail']['images']}}" style = "width:300px;;height:370px;border-radius:17px;"/>
       </div>
       @if($array_product[$ai]['variant_product'][0] != "tidak ada")
       @foreach($array_product[$ai]['variant_product'] as $values => $ap)
@@ -29,8 +29,8 @@
     </button>
   </div>
   {{-- <image id = "gambar_product" src = "{{asset('main/images/product/')}}/{{$array_product[$ai]['detail']['images']}}" style = "width:100% !important;max-width:500px;;height:300px;border-radius:7px;"/> --}}
-    <p style = "margin-top:10px;padding-left:10px; font-size:1.5vw;margin-bottom:0px !important;"><span id = "product_category" class = "maroon_color category_product" style = "font-size:1.5vw"><b>{{$array_product[$ai]['detail']['category_name']}}</b></span></p>
-    <p style = "font-size:1.4vw;margin-top:10px;padding-left:10px;font-weight:600;" class ="code_product">{{$array_product[$ai]['detail']['code']}}</p>
+  <p style = "font-size:1.4vw;margin-top:10px;padding-left:10px;font-weight:600;" class ="code_product">{{$array_product[$ai]['detail']['code']}}</p>
+  <p style = "margin-top:10px;padding-left:10px; font-size:1.5vw;margin-bottom:0px !important;"><span id = "product_category" class = "maroon_color category_product" style = "font-size:1.5vw"><b>{{$array_product[$ai]['detail']['category_name']}}</b></span></p>
 
    {{-- {{dd($array_product[$ai]["detail"]['name'])}} --}}
     @if(session()->has('message') || session()->has('verifyuser'))

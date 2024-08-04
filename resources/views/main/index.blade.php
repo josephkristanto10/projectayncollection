@@ -35,53 +35,95 @@
             <div class = "product">
              
                 <div class = "row  justify-content-center" style = "text-align:center;margin-bottom:10px;margin-top:10px;" id = "product_list">
-               
+
                     <?php $id_array=[]; ?>
                     <div class = "mycards">
-                     
-                    @foreach($array_id as $keys=> $ai)
-                    @if($keys < 4)
-                    <div class="flex flex-col kotakluarproduk" style = "text-align:left;">
-                      <div id="carouselExampleControls"  class="carousel slide car_{{$keys}}" >
-                        <div class="carousel-inner">
-                          <div class="carousel-item active">
-                            <img class="card_image" id = "gambar_product" src = "{{asset('main/images/product/')}}/{{$array_product[$ai]['detail']['images']}}" style = "width:300px;height:400px !important;border-radius:7px;"/>
-                          </div>
-                          @if($array_product[$ai]['variant_product'][0] != "tidak ada")
-                          @foreach($array_product[$ai]['variant_product'] as $values => $ap)
-                          <div class="carousel-item">
-                              <img class="card_image" src = '{{asset("main/images/variant/$ap")}}' style = "width:300px; height:400px !important;border-radius:10px;padding:2px;">
-                          </div>
-                          @endforeach
-                        @endif
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target=".car_{{$keys}}" data-bs-slide="prev">
-                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                          <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target=".car_{{$keys}}" data-bs-slide="next">
-                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                          <span class="visually-hidden">Next</span>
-                        </button>
-                      </div>
-                      <p style = "margin-top:10px;padding-left:10px; font-size:1.5vw;margin-bottom:0px !important;"><span id = "product_category" class = "maroon_color category_product" style = "font-size:1.5vw"><b>{{$array_product[$ai]['detail']['category_name']}}</b></span></p>
-                      <p style = "font-size:1.4vw;margin-top:10px;padding-left:10px;font-weight:600;" class ="code_product">{{$array_product[$ai]['detail']['code']}}</p>
-                        @if(session()->has('message') || session()->has('verifyuser'))
-                            <p style = "font-size:1.1vw;margin-top:10px;padding-left:10px;" class = "for_price">Rp <b>{{$array_product[$ai]['detail']['price']}}</b>  / Piece</p>
-                        @else 
-                            <p style = "font-size:1.1vw;margin-top:10px;padding-left:10px;" class = "contact_for_admin_price">Contact our Admin for prices</p>
-                        @endif
-
-                        {{-- <p style = "font-size:1.1vw;margin-top:10px;padding-left:10px;">Variant :  --}}
-                       
-                         </p>
-                        </div>
-                      @endif
-                    @endforeach
                     
+                      @foreach($array_id as $keys=> $ai)
+                      @if($keys < 4)
+                    
+                        <div class="flex flex-col kotakluarproduk" style = "text-align:left;">
+                          <div id="carouselExampleControls"  class="carousel slide car_{{$keys}}" >
+                            <div class="carousel-inner">
+                              <div class="carousel-item active">
+                                <img class="card_image" id = "gambar_product" src = "{{asset('main/images/product/')}}/{{$array_product[$ai]['detail']['images']}}" style = "width:300px;height:350px !important;border-radius:7px;"/>
+                              </div>
+                              @if($array_product[$ai]['variant_product'][0] != "tidak ada")
+                              @foreach($array_product[$ai]['variant_product'] as $values => $ap)
+                              <div class="carousel-item">
+                                  <img class="card_image" src = '{{asset("main/images/variant/$ap")}}' style = "width:300px; height:350px !important;border-radius:10px;padding:2px;">
+                              </div>
+                              @endforeach
+                            @endif
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target=".car_{{$keys}}" data-bs-slide="prev">
+                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target=".car_{{$keys}}" data-bs-slide="next">
+                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Next</span>
+                            </button>
+                          </div>
+                          <p style = "font-size:1.4vw;margin-top:10px;padding-left:10px;font-weight:600;" class ="code_product">{{$array_product[$ai]['detail']['code']}}</p>
+                          <p style = "margin-top:10px;padding-left:10px; font-size:1.5vw;margin-bottom:0px !important;"><span id = "product_category" class = "maroon_color category_product" style = "font-size:1.5vw"><b>{{$array_product[$ai]['detail']['category_name']}}</b></span></p>
+                            @if(session()->has('message') || session()->has('verifyuser'))
+                                <p style = "font-size:1.1vw;margin-top:10px;padding-left:10px;" class = "for_price">Rp <b>{{$array_product[$ai]['detail']['price']}}</b>  / Piece</p>
+                            @else 
+                                <p style = "font-size:1.1vw;margin-top:10px;padding-left:10px;" class = "contact_for_admin_price">Contact our Admin for prices</p>
+                            @endif
+                          </div>
+                          @endif
+                    
+                      @endforeach
+
+                      @foreach($array_id as $keys=> $ai)
+                      @if($keys < 4)
+                      <div class = "row kotakluarprodukmobile" style = "text-align:center;margin-bottom:10px;margin-top:10px;">
+                        <div class="col-6 gambar_mobile" style = "text-align:left;" >
+                          <div id="carouselExampleControls"  class="carousel slide mobile_car_{{$keys}}  mobile" >
+                            <div class="carousel-inner">
+                              <div class="carousel-item active">
+                                <img class="card_image" id = "gambar_product" src = "{{asset('main/images/product/')}}/{{$array_product[$ai]['detail']['images']}}" style = "width:175px;height:190px ;border-radius:7px;"/>
+                              </div>
+                              @if($array_product[$ai]['variant_product'][0] != "tidak ada")
+                              @foreach($array_product[$ai]['variant_product'] as $values => $ap)
+                              <div class="carousel-item">
+                                  <img class="card_image" src = '{{asset("main/images/variant/$ap")}}' style = "width:175px; height:190px ;border-radius:10px;padding:2px;">
+                              </div>
+                                @endforeach
+                              @endif
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target=".mobile_car_{{$keys}}" data-bs-slide="prev">
+                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target=".mobile_car_{{$keys}}" data-bs-slide="next">
+                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Next</span>
+                            </button>
+                          </div>
+                        </div>
+                        <div class = "col-6" style = "text-align:left;">
+                          <p style = "font-size:1.4vw;margin-top:10px;font-weight:600;" class ="code_product">{{$array_product[$ai]['detail']['code']}}</p>
+                          <p style = "margin-top:10px;font-size:1.5vw;margin-bottom:0px !important;"><span id = "product_category" class = "maroon_color category_product" style = "font-size:1.5vw"><b>{{$array_product[$ai]['detail']['category_name']}}</b></span></p>
+                          @if(session()->has('message') || session()->has('verifyuser'))
+                              <p style = "font-size:1.1vw;margin-top:10px;" class = "for_price">Rp <b>{{$array_product[$ai]['detail']['price']}}</b>  / Piece</p>
+                          @else 
+                              <p style = "font-size:1.1vw;margin-top:10px;" class = "contact_for_admin_price">Contact our Admin for prices</p>
+                          @endif
+
+                          {{-- <p style = "font-size:1.1vw;margin-top:10px;padding-left:10px;">Variant :  --}}
+                        
+                         
+                        </div>
+                      </div>
+                        @endif
+                      @endforeach
+                    </div>
                   </div>
-              </div>
-              </div>
+                  </div>
+             
             
             </div>
         </div>
@@ -99,7 +141,7 @@
                         <div id="carouselExampleControls"  class="carousel slide best_car_{{$keys}}">
                           <div class="carousel-inner">
                             <div class="carousel-item active">
-                              <img class="card_image" id = "gambar_product" src = "{{asset('main/images/product/')}}/{{$array_product_best_seller[$ai]['detail']['images']}}" style = "width:300px;;height:400px !important;border-radius:7px;"/>
+                              <img class="card_image" id = "gambar_product" src = "{{asset('main/images/product/')}}/{{$array_product_best_seller[$ai]['detail']['images']}}" style = "width:300px;;height:300px ;border-radius:7px;"/>
                             </div>
                             @if($array_product_best_seller[$ai]['variant_product'][0] != "tidak ada")
                             @foreach($array_product_best_seller[$ai]['variant_product'] as $values => $ap)
@@ -119,8 +161,8 @@
                           </button>
                         </div>
              
+                        <p style = "font-size:1.4vw;margin-top:10px;padding-left:10px;font-weight:600;" class ="code_product">{{$array_product_best_seller[$ai]['detail']['code']}}</p>
                           <p style = "margin-top:10px;padding-left:10px; font-size:1.5vw;margin-bottom:0px !important;"><span id = "product_category" class = "maroon_color category_product" style = "font-size:1.5vw"><b>{{$array_product_best_seller[$ai]['detail']['category_name']}}</b></span></p>
-                          <p style = "font-size:1.4vw;margin-top:10px;padding-left:10px;font-weight:600;" class ="code_product">{{$array_product_best_seller[$ai]['detail']['code']}}</p>
 
                          {{-- {{dd($array_product[$ai]["detail"]['name'])}} --}}
                           @if(session()->has('message') || session()->has('verifyuser'))

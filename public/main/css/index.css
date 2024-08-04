@@ -636,6 +636,26 @@
 
 
 @media (max-width: 767px) {  
+  .gambar_mobile{
+    max-width:22rem;
+  
+  }
+  .card_image{
+width:100% !important;
+height:300px !important;
+  }
+  .buythelatest_section .kotakluarproduk{
+    display:none;
+  }
+  .topseller_product_section .mycards{
+  
+    align-items: center;
+    margin-left: 10px;
+    margin-right: 10px;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(2,  1fr);
+  }
   .for_price{
         font-size:3.2vw !important;
     }
@@ -659,9 +679,9 @@
     font-size:20px !important;
 }
 
-  .mycards img{
-    height:200px !important;
-  }
+  /* .mycards img{
+    height:230px !important;
+  } */
   .mycards{
   
   align-items: center;
@@ -741,6 +761,12 @@
 
 
 @media (min-width: 768px) { 
+  .card_image{
+    width:100% !important;
+      }
+       .kotakluarproduk{
+        display:none;
+      }
   .for_price{
         font-size:1.8vw !important;
     }
@@ -762,7 +788,7 @@
   grid-template-columns: repeat(3,  1fr);
 }
   .mycards img{
-    height:300px !important;
+    height:230px !important;
   }
   
   #spacing_best_seller_mobile{
@@ -797,9 +823,29 @@
   
 
  }
+ @media (min-width: 768px ) and (max-width:992px) { 
+  .buythelatest_section .kotakluarproduk{
+    display:block !important;
+  }
+  .buythelatest_section .kotakluarprodukmobile{
+    display:none !important;
+  }
+  .topseller_product_section .kotakluarproduk{
+    display:block;
+  }
+ }
 
 
 @media (min-width: 992px) { 
+  .kotakluarprodukmobile{
+    display:none;
+  }
+  .buythelatest_section .kotakluarproduk{
+    display:block !important;
+  }
+  .topseller_product_section .kotakluarproduk{
+    display:block;
+  }
   .for_price{
         font-size:1.4vw !important;
     }
