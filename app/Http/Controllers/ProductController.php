@@ -127,7 +127,7 @@ class ProductController extends Controller
                 $array_product["$lp->id"]["variant_product"][] = $variants;
             
             }
-            return view('main.product_list', compact('myproduct', 'array_product', "array_id"))->render();
+            return view('main.product_list', compact('myproduct','allproduct', 'array_product', "array_id"))->render();
         }
     }
 
