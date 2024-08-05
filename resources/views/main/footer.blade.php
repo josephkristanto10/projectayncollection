@@ -16,9 +16,9 @@
         </div>
         <div class = "col-5" style = "vertical-align:middle;text-align:center;text-align:left !important;">
             <h4 id = "footer_follow_us" style = "margin-top:20px;">Follow us On : </h4>
-           <a href= "https://www.instagram.com/ayncollection.id?igsh=MWJ2dDM1bmJ5MjF2dA%3D%3D&utm_source=qr" style = "color:white !important;text-decoration:none;"><div id = "footer_instagram" style = "border-radius:100px;border:1px solid white;width:175px;text-align:left;margin-top:20px !important;">&nbsp;<i class="fa fa-instagram" aria-hidden="true"></i>&nbsp; Our Instagram </div></a>
-           <div id = "footer_tiktok" style = "border-radius:100px;border:1px solid white;width:175px;text-align:left;margin-top:10px !important;">&nbsp;<i class="fa fa-instagram" aria-hidden="true"></i>&nbsp; Our Tiktok</div>
-           <div id = "footer_shopee" style = "border-radius:100px;border:1px solid white;width:175px;text-align:left;margin-top:10px !important;">&nbsp;<i class="fa fa-instagram" aria-hidden="true"></i>&nbsp; Our Shopee</div>
+           <a href= "https://www.instagram.com/ayncollection.id?igsh=MWJ2dDM1bmJ5MjF2dA%3D%3D&utm_source=qr" style = "color:white !important;text-decoration:none;"><div id = "footer_instagram" style = "border-radius:100px;border:1px solid white;width:195px;text-align:left;margin-top:20px !important;">&nbsp;<img src = "{{asset('main/images/logo_ig_web.png')}}" style = "width:20px;height:20px;">&nbsp; Our Instagram </div></a>
+           <a href = "http://wa.me/6281389173265" style = "color:white !important;text-decoration:none;"><div id = "footer_tiktok" style = "border-radius:100px;border:1px solid white;width:195px;text-align:left;margin-top:10px !important;">&nbsp;<img src = "{{asset('main/images/logo_wa.png')}}" style = "width:20px;height:20px;">&nbsp; Our Whatsapp</div></a>
+           {{-- <div id = "footer_shopee" style = "border-radius:100px;border:1px solid white;width:175px;text-align:left;margin-top:10px !important;">&nbsp;<i class="fa fa-instagram" aria-hidden="true"></i>&nbsp; Our Shopee</div> --}}
         </div>
         {{-- <div class = "col-1 garis" style = "vertical-align:middle;width:10px;">
             <div class="vl" style = " border-left: 3px solid white; height:200px;"></div>
