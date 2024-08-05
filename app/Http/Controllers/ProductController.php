@@ -94,12 +94,12 @@ class ProductController extends Controller
             }
             else{
                 if($kata_kunci == ""){
-                    $myproduct =  Product::join("category",'category.id','=','product.id_category')->leftJoin("variant_product", "variant_product.id_product", '=',"product.id")->where('status_product', '=','1')->latest('id')->where('id_category','=',$idcategory)->select("product.*", "category.name as category_name", "variant_product.variant_name", "variant_product.variant_images")->paginate(18);
+                    $myproduct =  Product::join("category",'category.id','=','product.id_category')->leftJoin("variant_product", "variant_product.id_product", '=',"product.id")->where('status_product', '=','1')->latest('id')->where('id_category','=',$idcategory)->select("product.*", "category.name as category_name", "variant_product.variant_name", "variant_product.variant_images")->get();
                     $allproduct = Product::join("category",'category.id','=','product.id_category')->where('status_product', '=','1')->latest('id')->where('id_category','=',$idcategory)->select("product.*", "category.name as category_name")->paginate(18);
 
                 }
                 else{
-                    $myproduct =  Product::join("category",'category.id','=','product.id_category')->leftJoin("variant_product", "variant_product.id_product", '=',"product.id")->where('status_product', '=','1')->where("product.code", 'like', '%'.$kata_kunci.'%')->orWhere("product.name", 'like', '%'.$kata_kunci.'%')->latest('id')->where('id_category','=',$idcategory)->orWhere("category.name",'like', '%'.$kata_kunci.'%')->select("product.*", "category.name as category_name", "variant_product.variant_name", "variant_product.variant_images")->paginate(18);
+                    $myproduct =  Product::join("category",'category.id','=','product.id_category')->leftJoin("variant_product", "variant_product.id_product", '=',"product.id")->where('status_product', '=','1')->where("product.code", 'like', '%'.$kata_kunci.'%')->orWhere("product.name", 'like', '%'.$kata_kunci.'%')->latest('id')->where('id_category','=',$idcategory)->orWhere("category.name",'like', '%'.$kata_kunci.'%')->select("product.*", "category.name as category_name", "variant_product.variant_name", "variant_product.variant_images")->get();
                     $allproduct = Product::join("category",'category.id','=','product.id_category')->where('status_product', '=','1')->latest('id')->where('id_category','=',$idcategory)->where("product.code", 'like', '%'.$kata_kunci.'%')->orWhere("product.name", 'like', '%'.$kata_kunci.'%')->select("product.*", "category.name as category_name")->paginate(18);
 
                 }

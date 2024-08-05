@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 174,
+            "activePatchIndex": 176,
             "patches": [
                 {
                     "date": 1720105713162,
@@ -704,6 +704,14 @@
                 {
                     "date": 1722868233069,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -126,9 +126,9 @@\n                 }\n                 $array_product[\"$lp->id\"][\"variant_product\"][] = $variants;\n             \n             }\n-            return view('main.product_list', compact('myproduct','->where(\"product.code\", 'like', '%'.$kata_kunci.'%')->orWhere(\"product.name\", 'like', '%'.$kata_kunci.'%')', 'array_product', \"array_id\"))->render();\n+            return view('main.product_list', compact('myproduct','allproduct', 'array_product', \"array_id\"))->render();\n         }\n     }\n \n     /**\n"
+                },
+                {
+                    "date": 1722868331517,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -93,9 +93,9 @@\n \n             }\n             else{\n                 if($kata_kunci == \"\"){\n-                    $myproduct =  Product::join(\"category\",'category.id','=','product.id_category')->leftJoin(\"variant_product\", \"variant_product.id_product\", '=',\"product.id\")->where('status_product', '=','1')->latest('id')->where('id_category','=',$idcategory)->select(\"product.*\", \"category.name as category_name\", \"variant_product.variant_name\", \"variant_product.variant_images\")->paginate(18);\n+                    $myproduct =  Product::join(\"category\",'category.id','=','product.id_category')->leftJoin(\"variant_product\", \"variant_product.id_product\", '=',\"product.id\")->where('status_product', '=','1')->latest('id')->where('id_category','=',$idcategory)->select(\"product.*\", \"category.name as category_name\", \"variant_product.variant_name\", \"variant_product.variant_images\")->get();\n                     $allproduct = Product::join(\"category\",'category.id','=','product.id_category')->where('status_product', '=','1')->latest('id')->where('id_category','=',$idcategory)->select(\"product.*\", \"category.name as category_name\")->paginate(18);\n \n                 }\n                 else{\n"
+                },
+                {
+                    "date": 1722868339248,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -98,9 +98,9 @@\n                     $allproduct = Product::join(\"category\",'category.id','=','product.id_category')->where('status_product', '=','1')->latest('id')->where('id_category','=',$idcategory)->select(\"product.*\", \"category.name as category_name\")->paginate(18);\n \n                 }\n                 else{\n-                    $myproduct =  Product::join(\"category\",'category.id','=','product.id_category')->leftJoin(\"variant_product\", \"variant_product.id_product\", '=',\"product.id\")->where('status_product', '=','1')->where(\"product.code\", 'like', '%'.$kata_kunci.'%')->orWhere(\"product.name\", 'like', '%'.$kata_kunci.'%')->latest('id')->where('id_category','=',$idcategory)->orWhere(\"category.name\",'like', '%'.$kata_kunci.'%')->select(\"product.*\", \"category.name as category_name\", \"variant_product.variant_name\", \"variant_product.variant_images\")->paginate(18);\n+                    $myproduct =  Product::join(\"category\",'category.id','=','product.id_category')->leftJoin(\"variant_product\", \"variant_product.id_product\", '=',\"product.id\")->where('status_product', '=','1')->where(\"product.code\", 'like', '%'.$kata_kunci.'%')->orWhere(\"product.name\", 'like', '%'.$kata_kunci.'%')->latest('id')->where('id_category','=',$idcategory)->orWhere(\"category.name\",'like', '%'.$kata_kunci.'%')->select(\"product.*\", \"category.name as category_name\", \"variant_product.variant_name\", \"variant_product.variant_images\")->get();\n                     $allproduct = Product::join(\"category\",'category.id','=','product.id_category')->where('status_product', '=','1')->latest('id')->where('id_category','=',$idcategory)->where(\"product.code\", 'like', '%'.$kata_kunci.'%')->orWhere(\"product.name\", 'like', '%'.$kata_kunci.'%')->select(\"product.*\", \"category.name as category_name\")->paginate(18);\n \n                 }\n \n"
                 }
             ],
             "date": 1720105713162,
