@@ -18,14 +18,16 @@ class ProductController extends Controller
     public function index()
     {
         $category = Category::where('status_category', '=','1')->latest()->get();
-        $myproduct = Product::join("category",'category.id','=','product.id_category')->leftJoin("variant_product", "variant_product.id_product", '=',"product.id")->where('status_product', '=','1')->select("product.*", "category.name as category_name", "variant_product.variant_name", "variant_product.variant_images")->paginate(18);
+        $myproduct = Product::join("category",'category.id','=','product.id_category')->leftJoin("variant_product", "variant_product.id_product", '=',"product.id")->where('status_product', '=','1')->select("product.*", "category.name as category_name", "variant_product.variant_name", "variant_product.variant_images")->get();
+        $allproduct = Product::join("category",'category.id','=','product.id_category')->where('status_product', '=','1')->select("product.*", "category.name as category_name")->paginate(18);
         $array_product = [];
         $array_id = [];
+        foreach($allproduct as $ap){
+            $array_id[] = $ap->id;
+        }
         foreach($myproduct as $lp){
-            if(!in_array($lp->id,$array_id)){
-                $array_id[] = $lp->id;
-            }
-          
+        
+         
             // $array_products["id"][] =  $array_id;
             $array_product["$lp->id"]["product"] = $lp->id;
             $array_product["$lp->id"]["detail"] = $lp;
@@ -36,7 +38,7 @@ class ProductController extends Controller
             $array_product["$lp->id"]["variant_product"][] = $variants;
         
         }
-        return view('main.product',compact('myproduct','array_product', "array_id", "category"));
+        return view('main.product',compact('myproduct','allproduct','array_product', "array_id", "category"));
     }
     public function verify_user_first(Request $request){
         $code_name = $request->code;

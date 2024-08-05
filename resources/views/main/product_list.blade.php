@@ -9,12 +9,12 @@
   <div id="carouselExampleControls"  class="carousel slide best_car_{{$keys}}">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img class="card_image" id = "gambar_product" src = "{{asset('main/images/product/')}}/{{$array_product[$ai]['detail']['images']}}" style = "width:300px;;height:300px;border-radius:5px;"/>
+        <img class="card_image" id = "gambar_product" src = "{{asset('main/images/product/')}}/{{$array_product[$ai]['detail']['images']}}" style = "width:300px;;height:370px;border-radius:5px;"/>
       </div>
       @if($array_product[$ai]['variant_product'][0] != "tidak ada")
       @foreach($array_product[$ai]['variant_product'] as $values => $ap)
       <div class="carousel-item">
-          <img class="card_image" src = '{{asset("main/images/variant/$ap")}}' style = "width:300px;height:300px; !important;border-radius:10px;padding:2px;">
+          <img class="card_image" src = '{{asset("main/images/variant/$ap")}}' style = "width:300px;height:400px; !important;border-radius:10px;padding:2px;">
       </div>
       @endforeach
     @endif
@@ -44,6 +44,6 @@
 @endforeach
 </div>
 <div class = "mylinks" >
-    {!! $myproduct->links("pagination::bootstrap-4") !!}
+    {!! $allproduct->links("pagination::bootstrap-4") !!}
   </div>
 </div>
