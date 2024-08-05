@@ -194,7 +194,7 @@ font-weight: bold;
 }
     .card_image{
       width:150px !important;
-      height:180px !important;
+      height:150px !important;
     }
     .for_price{
         font-size:3.2vw !important;
@@ -210,7 +210,7 @@ font-weight: bold;
         to{width: 10em;}
         }
     .mycards img{
-        height:200px !important;
+        height:150px !important;
       }
       #latest_style{
         font-size:30px !important;
