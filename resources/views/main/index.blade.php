@@ -51,7 +51,7 @@
                               @if($array_product[$ai]['variant_product'][0] != "tidak ada")
                               @foreach($array_product[$ai]['variant_product'] as $values => $ap)
                               <div class="carousel-item">
-                                  <img class="card_image" src = '{{asset("main/images/variant/$ap")}}' style = "width:300px; height:30px !important;border-radius:10px;padding:2px;">
+                                  <img class="card_image" src = '{{asset("main/images/variant/$ap")}}' style = "width:300px; height:300px !important;border-radius:10px;padding:2px;">
                               </div>
                               @endforeach
                             @endif
