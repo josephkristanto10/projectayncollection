@@ -37,6 +37,7 @@ class HomeController extends Controller
             $array_product["$lp->id"]["variant_product"][] = $variants;
         
         }
+        
         $best_seller = Product::join("best_seller", "best_seller.id_product", "=", "product.id")->join('category','category.id', '=', 'product.id_category')->leftJoin("variant_product", "variant_product.id_product", '=',"product.id")->latest()->select("product.*", "variant_product.variant_name", "variant_product.variant_images", "category.name as category_name")->get();
         $array_product_best_seller = [];
         $array_id_best_seller = [];
@@ -55,8 +56,45 @@ class HomeController extends Controller
             $array_product_best_seller["$bs->id"]["variant_product"][] = $variants;
         
         }
-   
-        return view('main.index', compact('latest_product','array_product', "array_id", "array_product_best_seller", "array_id_best_seller"));
+
+        $week_arrival = Product::join("week_arrival", "week_arrival.id_product", "=", "product.id")->join('category','category.id', '=', 'product.id_category')->leftJoin("variant_product", "variant_product.id_product", '=',"product.id")->latest()->select("product.*", "variant_product.variant_name", "variant_product.variant_images", "category.name as category_name")->get();
+        $array_product_week_arrival = [];
+        $array_id_week_arrival = [];
+        foreach($week_arrival as $wa){
+            if(!in_array($wa->id,$array_id_week_arrival)){
+                $array_id_week_arrival[] = $wa->id;
+            }
+          
+            // $array_products["id"][] =  $array_id;
+            $array_product_week_arrival["$wa->id"]["product"] = $wa->id;
+            $array_product_week_arrival["$wa->id"]["detail"] = $wa;
+            $variants = "tidak ada";
+            if($wa->variant_images){
+                $variants = $wa->variant_images;
+            }
+            $array_product_week_arrival["$wa->id"]["variant_product"][] = $variants;
+        
+        }
+        
+        $whats_trending = Product::join("whats_trending", "whats_trending.id_product", "=", "product.id")->join('category','category.id', '=', 'product.id_category')->leftJoin("variant_product", "variant_product.id_product", '=',"product.id")->latest()->select("product.*", "variant_product.variant_name", "variant_product.variant_images", "category.name as category_name")->get();
+        $array_product_whats_trending = [];
+        $array_id_whats_trending = [];
+        foreach($whats_trending as $wt){
+            if(!in_array($wt->id,$array_id_whats_trending)){
+                $array_id_whats_trending[] = $wt->id;
+            }
+          
+            // $array_products["id"][] =  $array_id;
+            $array_product_whats_trending["$wt->id"]["product"] = $wt->id;
+            $array_product_whats_trending["$wt->id"]["detail"] = $wt;
+            $variants = "tidak ada";
+            if($wt->variant_images){
+                $variants = $wt->variant_images;
+            }
+            $array_product_whats_trending["$wt->id"]["variant_product"][] = $variants;
+        
+        }
+        return view('main.index', compact('latest_product','array_product', "array_id", "array_product_best_seller", "array_id_best_seller" ,"array_product_week_arrival","array_id_week_arrival", "array_product_whats_trending", "array_id_whats_trending"));
     }
 
     /**
