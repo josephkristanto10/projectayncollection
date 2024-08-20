@@ -8,6 +8,7 @@ use App\Models\VariantProduct;
 use App\Models\Superadmin;
 use App\Models\VerifyLink;
 use App\Models\BestSeller;
+use App\Models\HomeSetting;
 
 use Illuminate\Http\Request;
 use DataTables;
@@ -37,6 +38,33 @@ class AdminController extends Controller
         }
         
       
+    }
+    public function index_home_setting()
+    {
+        if(Session::get("type_superadmin") == "admin"){
+            $menu = "home_setting";
+            $jumlahCategory =  Category::all()->count();
+            $jumlahProduct =  Product::all()->count();
+            $limitCategory = Category::latest()->limit(4)->get();
+            $limitProduct = Product::latest()->limit(4)->get();
+            $all_home_setting = HomeSetting::where("id",'=',1)->get();
+            return view('Admin.pages.home_settings', compact("menu", 'jumlahCategory','jumlahProduct','limitCategory','limitProduct','all_home_setting'));
+        }
+        else{
+            return view('Admin.pages.signin');
+        }
+        
+      
+    }
+    public function update_image_background(Request $request){
+        $file_product = $request->file('file_change');
+        $background_change = $request->background_change;
+        $tujuan_upload = public_path('main/images/background/');
+        $nama_file = "background".base64_encode(date("Y:m:d H:i:s")).".".$file_product->getClientOriginalExtension();
+        $file_product->move($tujuan_upload, $nama_file);
+     
+        HomeSetting::where("id", "=", 1)->update(["$background_change"=> $nama_file]);
+        return response()->json(['output' => "ok"]);
     }
     public function checklogin(Request $request){
         $username = $request->user;
