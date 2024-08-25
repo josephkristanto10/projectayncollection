@@ -9,6 +9,7 @@ use App\Models\Category;
 use App\Models\VariantProduct;
 use App\Models\Superadmin;
 use App\Models\VerifyLink;
+use App\Models\HomeSetting;
 
 class HomeController extends Controller
 {
@@ -94,7 +95,8 @@ class HomeController extends Controller
             $array_product_whats_trending["$wt->id"]["variant_product"][] = $variants;
         
         }
-        return view('main.index', compact('latest_product','array_product', "array_id", "array_product_best_seller", "array_id_best_seller" ,"array_product_week_arrival","array_id_week_arrival", "array_product_whats_trending", "array_id_whats_trending"));
+        $setting_home = HomeSetting::where("id",'=',"1")->get();
+        return view('main.index', compact('latest_product','array_product', "array_id", "array_product_best_seller", "array_id_best_seller" ,"array_product_week_arrival","array_id_week_arrival", "array_product_whats_trending", "array_id_whats_trending", "setting_home"));
     }
 
     /**

@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 115,
+            "activePatchIndex": 121,
             "patches": [
                 {
                     "date": 1720344563894,
@@ -468,6 +468,30 @@
                 {
                     "date": 1723349050833,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -93,9 +93,8 @@\n             }\n             $array_product_whats_trending[\"$wt->id\"][\"variant_product\"][] = $variants;\n         \n         }\n-   \n         return view('main.index', compact('latest_product','array_product', \"array_id\", \"array_product_best_seller\", \"array_id_best_seller\" ,\"array_product_week_arrival\",\"array_id_week_arrival\", \"array_product_whats_trending\", \"array_id_whats_trending\"));\n     }\n \n     /**\n"
+                },
+                {
+                    "date": 1724592048960,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,8 +8,9 @@\n use App\\Models\\Category;\n use App\\Models\\VariantProduct;\n use App\\Models\\Superadmin;\n use App\\Models\\VerifyLink;\n+use App\\Models\\HomeSetting;\n \n class HomeController extends Controller\n {\n     /**\n"
+                },
+                {
+                    "date": 1724592083862,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -94,8 +94,9 @@\n             }\n             $array_product_whats_trending[\"$wt->id\"][\"variant_product\"][] = $variants;\n         \n         }\n+        $settig_home = \"\";\n         return view('main.index', compact('latest_product','array_product', \"array_id\", \"array_product_best_seller\", \"array_id_best_seller\" ,\"array_product_week_arrival\",\"array_id_week_arrival\", \"array_product_whats_trending\", \"array_id_whats_trending\"));\n     }\n \n     /**\n"
+                },
+                {
+                    "date": 1724592090907,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -94,9 +94,9 @@\n             }\n             $array_product_whats_trending[\"$wt->id\"][\"variant_product\"][] = $variants;\n         \n         }\n-        $settig_home = \"\";\n+        $settig_home = HomeSetting;\n         return view('main.index', compact('latest_product','array_product', \"array_id\", \"array_product_best_seller\", \"array_id_best_seller\" ,\"array_product_week_arrival\",\"array_id_week_arrival\", \"array_product_whats_trending\", \"array_id_whats_trending\"));\n     }\n \n     /**\n"
+                },
+                {
+                    "date": 1724592117572,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -94,9 +94,9 @@\n             }\n             $array_product_whats_trending[\"$wt->id\"][\"variant_product\"][] = $variants;\n         \n         }\n-        $settig_home = HomeSetting;\n+        $settig_home = HomeSetting::where(\"id\",'=',1) ;\n         return view('main.index', compact('latest_product','array_product', \"array_id\", \"array_product_best_seller\", \"array_id_best_seller\" ,\"array_product_week_arrival\",\"array_id_week_arrival\", \"array_product_whats_trending\", \"array_id_whats_trending\"));\n     }\n \n     /**\n"
+                },
+                {
+                    "date": 1724592124297,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -94,9 +94,9 @@\n             }\n             $array_product_whats_trending[\"$wt->id\"][\"variant_product\"][] = $variants;\n         \n         }\n-        $settig_home = HomeSetting::where(\"id\",'=',1) ;\n+        $settig_home = HomeSetting::where(\"id\",'=',\"1\")->get();\n         return view('main.index', compact('latest_product','array_product', \"array_id\", \"array_product_best_seller\", \"array_id_best_seller\" ,\"array_product_week_arrival\",\"array_id_week_arrival\", \"array_product_whats_trending\", \"array_id_whats_trending\"));\n     }\n \n     /**\n"
+                },
+                {
+                    "date": 1724592135610,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -94,10 +94,10 @@\n             }\n             $array_product_whats_trending[\"$wt->id\"][\"variant_product\"][] = $variants;\n         \n         }\n-        $settig_home = HomeSetting::where(\"id\",'=',\"1\")->get();\n-        return view('main.index', compact('latest_product','array_product', \"array_id\", \"array_product_best_seller\", \"array_id_best_seller\" ,\"array_product_week_arrival\",\"array_id_week_arrival\", \"array_product_whats_trending\", \"array_id_whats_trending\"));\n+        $setting_home = HomeSetting::where(\"id\",'=',\"1\")->get();\n+        return view('main.index', compact('latest_product','array_product', \"array_id\", \"array_product_best_seller\", \"array_id_best_seller\" ,\"array_product_week_arrival\",\"array_id_week_arrival\", \"array_product_whats_trending\", \"array_id_whats_trending\", \"setting_home\"));\n     }\n \n     /**\n      * Show the form for creating a new resource.\n"
                 }
             ],
             "date": 1720344563894,

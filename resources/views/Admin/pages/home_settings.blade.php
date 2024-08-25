@@ -83,7 +83,31 @@
               <p class="text-sm">
               </p>
             </div>
+          
             <div class="card-body p-3">
+            
+              <form id = "form_update_text" class = "p-3">
+                <div class = "row">
+                  <label>Text Pertama (disarankan maksimal 23 huruf)</label>
+                  <input type = "text" class = "form-control" value = "{{$all_home_setting[0]->text_bacground_pertama}}" maxlength="23" name = "update_text_1">
+                </div>
+                <div class = "row">
+                  <label>Text Kedua (disarankan maksimal 23 huruf)</label>
+                  <input type = "text" class = "form-control" value = "{{$all_home_setting[0]->text_bacground_kedua}}" maxlength="23" name = "update_text_2">
+                </div>
+                <div class = "row">
+                  <label>Text Ketiga (disarankan maksimal 23 huruf)</label>
+                  <input type = "text" class = "form-control" value = "{{$all_home_setting[0]->text_bacground_ketiga}}" maxlength="23" name = "update_text_3">
+                </div>
+                <div class = "row">
+                  <label>Text Keempat (disarankan maksimal 23 huruf)</label>
+                  <input type = "text" class = "form-control" value = "{{$all_home_setting[0]->text_bacground_keempat}}" maxlength="23" name = "update_text_4">
+                </div>
+                <br>
+                <div class = "row">
+                  <input type = "submit" class = "btn btn-success w-90" id = "update_text_">
+                </div>
+               </form>
               <div class = "row">
                 <label>Background Utama (Recomended Resolution : 1349px X 800px ) </label> <span id = "last_preview_image_background_utama"> @if($all_home_setting[0]['background_pertama']) <img src = "{{asset('main/images/background/')}}/{{$all_home_setting[0]['background_pertama']}}" style = "width:100px;height:100px;"> @endif</span><span id = "now_preview_image_background_utama"  ></span><input type = "file" data-value-input = "input_background_utama" onchange = "updategambar(this)">
               </div>
@@ -505,6 +529,27 @@
 
             },
         });
+    }));
+    $("#form_update_text").on('submit',(function(e){
+      e.preventDefault();
+      var formdata = new FormData(this);
+      $.ajax({
+            url: "{{url('/adminoffice/homesetting/updatetext')}}",
+              type: "POST",
+              headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+              data: formdata,
+              contentType: false,
+              cache: false,
+              processData:false,
+              success: function(data){
+              
+                fire_alert("Update Text Berhasil");
+
+              },
+              error: function(XMLHttpRequest, textStatus, errorThrown) { 
+                fire_alert_danger("Update Text Gagal");
+              },
+          });
     }));
   $("#formtambah").on('submit',(function(e){
           e.preventDefault();

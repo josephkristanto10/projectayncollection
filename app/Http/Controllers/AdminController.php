@@ -56,6 +56,14 @@ class AdminController extends Controller
         
       
     }
+    public function update_text(Request $request){
+        $tulisan_pertama = $request->update_text_1;
+        $tulisan_kedua = $request->update_text_2;
+        $tulisan_ketiga = $request->update_text_3;
+        $tulisan_keempat = $request->update_text_4;
+        HomeSetting::where("id", "=", 1)->update(["text_bacground_pertama"=> $tulisan_pertama,"text_bacground_kedua"=> $tulisan_kedua, "text_bacground_ketiga"=> $tulisan_ketiga, "text_bacground_keempat"=> $tulisan_keempat]);
+        return response()->json(['output' => "ok"]);
+    }
     public function update_image_background(Request $request){
         $file_product = $request->file('file_change');
         $background_change = $request->background_change;

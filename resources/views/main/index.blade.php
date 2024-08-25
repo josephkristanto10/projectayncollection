@@ -31,7 +31,8 @@
     </div>
     <div class = "main_content" >
         <div class = "buythelatest_section" style = "text-align:center;padding:20px;">
-            <span id = "buythe_style">Buy The</span> <span class = "maroon_color_bold" id = "latest_style">Latest</span>
+          
+            <span id = "buythe_style">{{$setting_home[0]->text_bacground_pertama}}</span> 
             <div class = "product">
              
                 <div class = "row  justify-content-center" style = "text-align:center;margin-bottom:10px;margin-top:10px;" id = "product_list">
@@ -129,11 +130,11 @@
         </div>
         {{-- {{dd($array_product)}} --}}
         <div class = "topseller_gbr_section" style = "text-align:center; height:450px; background-size: cover;  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('{{asset('main/images/landing_page2.jpg')}}'); margin-top:20px;margin-bottom:20px;">
-         <p class="line-1 anim-typewriter"><span style = "color:white;">Have you try on our </span> <span id = "spacing_best_seller_mobile" style = "display:none;"><br></span> <span class = "maroon_color_bold" style = "font-size:30px;background-color:#800e13;color:white;padding:10px;">BEST SELLER PRODUCT ?</span></p>
+         <p class="line-1 anim-typewriter"><span style = "color:white;">Have you try on our </span> <span id = "spacing_best_seller_mobile" style = "display:none;"><br></span> <span class = "maroon_color_bold" style = "font-size:20px;background-color:#800e13;color:white;padding:10px;">{{$setting_home[0]->text_bacground_kedua}}</span></p>
         </div>
         
         <div class = "topseller_product_section" style = "text-align:center; height:100%;position:relative;margin-top:40px;padding-top:20px;padding:20px;">
-            <span class = "maroon_color_bold" style = "font-size:30px;color:#131312;padding:10px;">BEST SELLER <u style = "text-decoration: underline;text-decoration-color: #800e13;  text-decoration-thickness: 3px;text-underline-offset: 10px; ">PRODUCT</u></span>
+            <span class = "maroon_color_bold" style = "font-size:30px;color:#131312;padding:10px;">{{$setting_home[0]->text_bacground_kedua}} <u style = "text-decoration: underline;text-decoration-color: #800e13;  text-decoration-thickness: 3px;text-underline-offset: 10px; "></u></span>
             <div class = "product" style = "padding-top:30px;">
                   <div class = "row  justify-content-center" style = "text-align:center;margin-bottom:10px;margin-top:10px;" id = "product_list">
                     <div class = "mycards">
@@ -182,11 +183,11 @@
         </div>
 
         <div class = "topseller_gbr_section" style = "text-align:center; height:450px; background-size: cover;  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('{{asset('main/images/landing_page2.jpg')}}'); margin-top:20px;margin-bottom:20px;">
-          <p class="line-1 anim-typewriter"><span style = "color:white;">Have you try on our </span> <span id = "spacing_best_seller_mobile" style = "display:none;"><br></span> <span class = "maroon_color_bold" style = "font-size:30px;background-color:#800e13;color:white;padding:10px;">Weeks Arival Product ?</span></p>
+          <p class="line-1 anim-typewriter"><span style = "color:white;">Have you try on our </span> <span id = "spacing_best_seller_mobile" style = "display:none;"><br></span> <span class = "maroon_color_bold" style = "font-size:20px;background-color:#800e13;color:white;padding:10px;">{{$setting_home[0]->text_bacground_ketiga}}</span></p>
          </div>
       
          <div class = "topseller_product_section" style = "text-align:center; height:100%;position:relative;margin-top:40px;padding-top:20px;padding:20px;">
-          <span class = "maroon_color_bold" style = "font-size:30px;color:#131312;padding:10px;">  <u style = "text-decoration: underline;text-decoration-color: #800e13;  text-decoration-thickness: 3px;text-underline-offset: 10px; ">This Week's </u>Arrival</span>
+          <span class = "maroon_color_bold" style = "font-size:30px;color:#131312;padding:10px;">  {{$setting_home[0]->text_bacground_ketiga}}</span>
           <div class = "product" style = "padding-top:30px;">
                 <div class = "row  justify-content-center" style = "text-align:center;margin-bottom:10px;margin-top:10px;" id = "product_list">
                   <div class = "mycards">
@@ -235,11 +236,11 @@
         </div>
 
         <div class = "topseller_gbr_section" style = "text-align:center; height:450px; background-size: cover;  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('{{asset('main/images/landing_page2.jpg')}}'); margin-top:20px;margin-bottom:20px;">
-          <p class="line-1 anim-typewriter"><span style = "color:white;">Have you try on our </span> <span id = "spacing_best_seller_mobile" style = "display:none;"><br></span> <span class = "maroon_color_bold" style = "font-size:30px;background-color:#800e13;color:white;padding:10px;">Trending Product ?</span></p>
+          <p class="line-1 anim-typewriter"><span style = "color:white;">Have you try on our </span> <span id = "spacing_best_seller_mobile" style = "display:none;"><br></span> <span class = "maroon_color_bold" style = "font-size:20px;background-color:#800e13;color:white;padding:10px;">{{$setting_home[0]->text_bacground_keempat}}</span></p>
          </div>
       
          <div class = "topseller_product_section" style = "text-align:center; height:100%;position:relative;margin-top:40px;padding-top:20px;padding:20px;">
-          <span class = "maroon_color_bold" style = "font-size:30px;color:#131312;padding:10px;"> What's <u style = "text-decoration: underline;text-decoration-color: #800e13;  text-decoration-thickness: 3px;text-underline-offset: 10px; ">Trending</u></span>
+          <span class = "maroon_color_bold" style = "font-size:30px;color:#131312;padding:10px;"> {{$setting_home[0]->text_bacground_keempat}}</span>
           <div class = "product" style = "padding-top:30px;">
                 <div class = "row  justify-content-center" style = "text-align:center;margin-bottom:10px;margin-top:10px;" id = "product_list">
                   <div class = "mycards">

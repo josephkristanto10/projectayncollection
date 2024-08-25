@@ -62,4 +62,6 @@ Route::group(['prefix'=>'adminoffice','as'=>'Admin.'], function(){
 
     Route::get('homesetting', [AdminController::class,"index_home_setting"]);
     Route::POST('homesetting/updatebackground', [AdminController::class,"update_image_background"]);
+    Route::POST('homesetting/updatetext', [AdminController::class,"update_text"]);
+    
 });
