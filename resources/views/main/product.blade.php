@@ -19,14 +19,18 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
     <style>
-
+      nav{
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        background-color:white;
+        position:relative;
+      }
     </style>
   </head>
   <body style = "height:100%;">
     @include('main.header')
     <div class = "containers">
-    <div style = "width:100%;height:1000px;background-image:url('{{asset('main/images/landing_page.jpg')}}');background-size:cover;">
-    </div>
+    {{-- <div style = "width:100%;height:1000px;background-image:url('{{asset('main/images/landing_page.jpg')}}');background-size:cover;">
+    </div> --}}
     <div class = "main_content" >
         <div class = "buythelatest_section" style = "text-align:center;padding:10px;font-size: 10px;">
             <span id = "buythe_style">Pick The</span> <span class = "maroon_color_bold" id = "latest_style">Categories</span>

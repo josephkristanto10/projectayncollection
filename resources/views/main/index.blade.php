@@ -26,7 +26,7 @@
     @include('main.header')
   
     <div class = "containers">
-    <div style = "width:100%;height:800px;;background-image:url('{{asset('main/images/landing_page.jpg')}}');background-size:cover;position:relative;">
+    <div style = "width:100%;height:800px;;background-image:url('{{asset('main/images/background')}}/{{$setting_home[0]->background_pertama}}');background-size:cover;position:relative;">
       <span id = "limitideas" style = "color:white;position:absolute;bottom:20px;left:25px;font-size:1.5vw;background-color:#800e13;border-radius:40px;padding:10px;animation:3.5s fadeIns infinite">Dont limit your outfit <u>ideas</u>.</span>
     </div>
     <div class = "main_content" >
@@ -129,7 +129,7 @@
             </div>
         </div>
         {{-- {{dd($array_product)}} --}}
-        <div class = "topseller_gbr_section" style = "text-align:center; height:450px; background-size: cover;  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('{{asset('main/images/landing_page2.jpg')}}'); margin-top:20px;margin-bottom:20px;">
+        <div class = "topseller_gbr_section" style = "text-align:center; height:450px; background-size: cover;  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('{{asset('main/images/background')}}/{{$setting_home[0]->background_kedua}}'); margin-top:20px;margin-bottom:20px;">
          <p class="line-1 anim-typewriter"><span style = "color:white;">Have you try on our </span> <span id = "spacing_best_seller_mobile" style = "display:none;"><br></span> <span class = "maroon_color_bold" style = "font-size:20px;background-color:#800e13;color:white;padding:10px;">{{$setting_home[0]->text_bacground_kedua}}</span></p>
         </div>
         
@@ -182,7 +182,7 @@
             </div>
         </div>
 
-        <div class = "topseller_gbr_section" style = "text-align:center; height:450px; background-size: cover;  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('{{asset('main/images/landing_page2.jpg')}}'); margin-top:20px;margin-bottom:20px;">
+        <div class = "topseller_gbr_section" style = "text-align:center; height:450px; background-size: cover;  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('{{asset('main/images/background')}}/{{$setting_home[0]->background_ketiga}}'); margin-top:20px;margin-bottom:20px;">
           <p class="line-1 anim-typewriter"><span style = "color:white;">Have you try on our </span> <span id = "spacing_best_seller_mobile" style = "display:none;"><br></span> <span class = "maroon_color_bold" style = "font-size:20px;background-color:#800e13;color:white;padding:10px;">{{$setting_home[0]->text_bacground_ketiga}}</span></p>
          </div>
       
@@ -235,7 +235,7 @@
           </div>
         </div>
 
-        <div class = "topseller_gbr_section" style = "text-align:center; height:450px; background-size: cover;  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('{{asset('main/images/landing_page2.jpg')}}'); margin-top:20px;margin-bottom:20px;">
+        <div class = "topseller_gbr_section" style = "text-align:center; height:450px; background-size: cover;  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('{{asset('main/images/background')}}/{{$setting_home[0]->background_keempat}}'); margin-top:20px;margin-bottom:20px;">
           <p class="line-1 anim-typewriter"><span style = "color:white;">Have you try on our </span> <span id = "spacing_best_seller_mobile" style = "display:none;"><br></span> <span class = "maroon_color_bold" style = "font-size:20px;background-color:#800e13;color:white;padding:10px;">{{$setting_home[0]->text_bacground_keempat}}</span></p>
          </div>
       
